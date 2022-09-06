@@ -1,0 +1,18 @@
+% LaTeX file for Chapter 04
+<<'preamble04',include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+    fig.path='figure/ch04_fig', 
+    self.contained=FALSE,
+    cache=FALSE
+) 
+@
+
+\chapter{Discussion}
+
+\section{Conclusion}
+
+\section{Outlook}
+
+\textbf{Bioconductor package}
+In the coming months, method will be incorporated in an R package. Appropriate documentation will be attached and then distributed via Bioconductor.

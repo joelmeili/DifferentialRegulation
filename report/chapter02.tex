@@ -1,0 +1,25 @@
+% LaTeX file for Chapter 02
+
+
+\chapter{Methods} 
+
+\section{DEXSeq}
+DEXSeq \citep{dexseq} is a statistical method originally proposed to test for differential exon usage in RNA- seq data, which has been widely adopted in other contexts too, such as differential transcript usage \citep{swimming_downstream}. The model is based on the negative binomial distribution and allows for covariates to be taken into account to offer reliable control of false discoveries \citep{dexseq}. For each exon and sample it calculates how many reads map to this exon and how many reads map to any other exons of the same gene. The ratio of these two counts is compared across different conditions to infer changes in the relative exon usage. Equation (\ref{eqn:DEXSEQ_A}) shows that the read counts follow a negative binomial distribution where $\alpha$ is the dispersion parameter. Further, a generalized linear model is used to predict the mean via a log-linear link:
+
+\begin{equation}
+K_{ijl} \sim \text{NB}(\text{mean}=s_j \mu_{ijl}, \text{dispersion}=\alpha_{il})
+\label{eqn:DEXSEQ_A}
+\end{equation}
+
+\begin{equation}
+log(\mu_{ijl}) = \beta^G_i + \beta^E_{il} + \beta_{i \rho_j}^C + \beta^{EC}_{i \rho_j l}
+\label{eqn:DEXSEQ_B}
+\end{equation}
+
+where $\text{NB(a, b)}$ denotes the negative binomial distribution with mean a and dispersion b, $s_j$ is .. \\
+
+The dispersion parameter allows to model over-dispersed data (i.e. higher variance than mean). Here, we propose to use DEXSeq on estimated USA counts, and perform a differential usage test between conditions. This models ambiguous reads separately from spliced and unspliced or exonic and intronic, thus eliminating one of the main sources of mapping uncertainty. However, the uncertainty related to reads mapping to multiple genes is still neglected by this approach. 
+
+\section{Differential regulation}
+To address both sources of mapping uncertainty we propose our novel method. Similar to the idea above, we implemented a hierarchical Bayesian approach that models ambiguous counts separately from spliced and unspliced. Gene allocation is modeled as a latent state to address the gene-related mapping uncertainty. The model consists of two nested models: First, we use a Dirichlet-multinomial model for the relative abundance of the USA counts in each gene. Second, a multinomial model that models the relative abundance of genes for each sample individually.
+

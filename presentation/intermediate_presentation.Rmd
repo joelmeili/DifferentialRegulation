@@ -1,0 +1,185 @@
+---
+title: "Intermediate presentation"
+subtitle: "Differential regulation"
+author: "Joël Meili"
+date: "7/6/2021"
+output: 
+  beamer_presentation:
+    theme: "Boadilla"
+    colortheme: "whale"
+    fonttheme: "structurebold"
+    slide_level: 2
+bibliography: literature/intermediate_presentation.bib
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+suppressPackageStartupMessages({
+  library(png)
+  library(rasterpdf)
+  library(grid)
+  library(gridExtra)
+})
+```
+
+## Contents
+
+- Brief (re)-introduction to the topic
+- Data selection process
+- Explorative data analysis of spliced and unspliced counts
+- Outlook
+
+## (Re)-Introduction to the topic
+
+- Abundance of spliced and unspliced mRNA methods allows studying cellular dynamical processes, such as cell differentiation, cell cycle and cell regulation
+- Aim at discovering differential usage of spliced and unspliced counts between groups of samples in each cluster of cells
+
+## Data selection process
+
+- Mouse data:
+  - kidney cells from four biological replicates under the same experimental condition (@mouse)
+  
+- Human data:
+  - 16 brain organoids (PGP1 cell line) from three different batches at three months and six months growth (different experimental condition) (@human)
+
+# Mouse data
+
+## Looking at the proportion of spliced and unspliced counts
+
+```{r out.width = "100%"}
+path <- "../RNAVelo/kidney_mouse/04_figures/"
+
+normal1 <- readPNG(source = paste0(path, "individual_samples/normal1/proportions.png"))
+normal2 <- readPNG(source = paste0(path, "individual_samples/normal2/proportions.png"))
+normal3 <- readPNG(source = paste0(path, "individual_samples/normal3/proportions.png"))
+normal4 <- readPNG(source = paste0(path, "individual_samples/normal4/proportions.png"))
+
+grid.arrange(
+  arrangeGrob(rasterGrob(normal1, height = 0.7,
+                         width = 0.95), top = "Normal 1"),
+  arrangeGrob(rasterGrob(normal2, height = 0.7,
+                         width = 0.95), top = "Normal 2"),
+  arrangeGrob(rasterGrob(normal3, height = 0.7,
+                         width = 0.95), top = "Normal 3"), 
+  arrangeGrob(rasterGrob(normal4, height = 0.7,
+                         width = 0.95), top = "Normal 4"), ncol = 2)
+```
+
+## Looking at the RNA velocities - individual samples
+
+```{r out.width = "100%"}
+normal1 <- readPNG(source = paste0(path, "individual_samples/normal1/dynamical_model.png"))
+normal2 <- readPNG(source = paste0(path, "individual_samples/normal2/dynamical_model.png"))
+normal3 <- readPNG(source = paste0(path, "individual_samples/normal3/dynamical_model.png"))
+normal4 <- readPNG(source = paste0(path, "individual_samples/normal4/dynamical_model.png"))
+
+grid.arrange(
+  arrangeGrob(rasterGrob(normal1), top = "Normal 1"),
+  arrangeGrob(rasterGrob(normal2), top = "Normal 2"),
+  arrangeGrob(rasterGrob(normal3), top = "Normal 3"), 
+  arrangeGrob(rasterGrob(normal4), top = "Normal 4"), ncol = 2)
+```
+
+
+## Looking at the RNA velocities - all samples
+
+```{r out.width = "100%"}
+normal1 <- readPNG(source = paste0(path, "all_samples/normal1/dynamical_model.png"))
+normal2 <- readPNG(source = paste0(path, "all_samples/normal2/dynamical_model.png"))
+normal3 <- readPNG(source = paste0(path, "all_samples/normal3/dynamical_model.png"))
+normal4 <- readPNG(source = paste0(path, "all_samples/normal4/dynamical_model.png"))
+
+grid.arrange(
+  arrangeGrob(rasterGrob(normal1), top = "Normal 1"),
+  arrangeGrob(rasterGrob(normal2), top = "Normal 2"),
+  arrangeGrob(rasterGrob(normal3), top = "Normal 3"), 
+  arrangeGrob(rasterGrob(normal4), top = "Normal 4"), ncol = 2)
+```
+
+# Human data
+## Looking at the proportion of spliced and unspliced counts
+
+```{r out.width = "100%"}
+path <- "../RNAVelo/brain_human/04_figures/"
+
+organoid1 <- readPNG(source = paste0(path, "individual_samples/organoid1/proportions.png"))
+organoid2 <- readPNG(source = paste0(path, "individual_samples/organoid2/proportions.png"))
+organoid3 <- readPNG(source = paste0(path, "individual_samples/organoid3/proportions.png"))
+organoid16 <- readPNG(source = paste0(path, "individual_samples/organoid16/proportions.png"))
+organoid17 <- readPNG(source = paste0(path, "individual_samples/organoid17/proportions.png"))
+organoid18 <- readPNG(source = paste0(path, "individual_samples/organoid18/proportions.png"))
+
+grid.arrange(
+  arrangeGrob(rasterGrob(organoid1, height = 0.7,
+                         width = 0.95), top = "Organoid 1"),
+  arrangeGrob(rasterGrob(organoid2, height = 0.7,
+                         width = 0.95), top = "Organoid 2"),
+  arrangeGrob(rasterGrob(organoid3, height = 0.7,
+                         width = 0.95), top = "Organoid 3"), 
+  arrangeGrob(rasterGrob(organoid16, height = 0.7,
+                         width = 0.95), top = "Organoid 16"),
+  arrangeGrob(rasterGrob(organoid17, height = 0.7,
+                         width = 0.95), top = "Organoid 17"),
+  arrangeGrob(rasterGrob(organoid18, height = 0.7,
+                         width = 0.95), top = "Organoid 18"), ncol = 3)
+```
+
+## Looking at the RNA velocities - individual samples
+
+```{r out.width = "100%"}
+organoid1 <- readPNG(source = paste0(path, "individual_samples/organoid1/dynamical_model.png"))
+organoid2 <- readPNG(source = paste0(path, "individual_samples/organoid2/dynamical_model.png"))
+organoid3 <- readPNG(source = paste0(path, "individual_samples/organoid3/dynamical_model.png"))
+organoid16 <- readPNG(source = paste0(path, "individual_samples/organoid16/dynamical_model.png"))
+organoid17 <- readPNG(source = paste0(path, "individual_samples/organoid17/dynamical_model.png"))
+organoid18 <- readPNG(source = paste0(path, "individual_samples/organoid18/dynamical_model.png"))
+
+grid.arrange(
+  arrangeGrob(rasterGrob(organoid1), top = "Organoid 1"),
+  arrangeGrob(rasterGrob(organoid2), top = "Organoid 2"),
+  arrangeGrob(rasterGrob(organoid3), top = "Organoid 3"), 
+  arrangeGrob(rasterGrob(organoid16), top = "Organoid 16"),
+  arrangeGrob(rasterGrob(organoid17), top = "Organoid 17"),
+  arrangeGrob(rasterGrob(organoid18), top = "Organoid 18"), ncol = 3)
+```
+
+## Looking at the RNA velocities - all samples
+
+```{r out.width = "100%"}
+organoid1 <- readPNG(source = paste0(path, "all_samples/organoid1/dynamical_model.png"))
+organoid2 <- readPNG(source = paste0(path, "all_samples/organoid2/dynamical_model.png"))
+organoid3 <- readPNG(source = paste0(path, "all_samples/organoid3/dynamical_model.png"))
+organoid16 <- readPNG(source = paste0(path, "all_samples/organoid16/dynamical_model.png"))
+organoid17 <- readPNG(source = paste0(path, "all_samples/organoid17/dynamical_model.png"))
+organoid18 <- readPNG(source = paste0(path, "all_samples/organoid18/dynamical_model.png"))
+
+grid.arrange(
+  arrangeGrob(rasterGrob(organoid1), top = "Organoid 1"),
+  arrangeGrob(rasterGrob(organoid2), top = "Organoid 2"),
+  arrangeGrob(rasterGrob(organoid3), top = "Organoid 3"), 
+  arrangeGrob(rasterGrob(organoid16), top = "Organoid 16"),
+  arrangeGrob(rasterGrob(organoid17), top = "Organoid 17"),
+  arrangeGrob(rasterGrob(organoid18), top = "Organoid 18"), ncol = 3)
+```
+
+## Conclusions from the explorative analysis
+
+- We expected comparable patterns with changing trajectories between experimental conditions
+- No clear patterns that were consistent between biological replicates, also arises the question of reproducibility
+- Interpretation based on RNA velocity seems not possible
+
+## Simulation of data sets from the mouse data
+
+1. Compute pseudobulk from the four mouse samples and filter for these cell types:
+**Epithelial cells, Adipocytes and Hepatocytes**
+
+2. For each of the cell types randomly draw a fixed proportion of genes and cells. Exchange the counts of spliced and unspliced counts for the drawn genes and cells in one experimental condition.
+
+4. Differential analysis using eisaR and DEXSeq -> Establishing baseline performance
+
+5. Adding multimapping with minnow -> We expect performance of eisaR and DEXSeq to go down, which should improve again with our proposed method
+
+## References
+
+

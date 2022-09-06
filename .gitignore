@@ -1,0 +1,5 @@
+report/cache/*
+.Rproj.user
+report(archived)/*
+report/.Rproj.user/*
+report/.Rhistory
