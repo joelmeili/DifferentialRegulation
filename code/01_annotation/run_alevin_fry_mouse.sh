@@ -1,12 +1,12 @@
 #!/bin/bash
-samples=(1 2 3 4)
-
+#samples=(1 2 3 4)
+samples=(1)
 for sample in ${samples[@]}
   do
   alevin-fry generate-permit-list \
   -i kidney_mouse/02_alevin_for_fry/normal${sample} \
   -o kidney_mouse/05_alevin_fry/normal${sample} \
-  --force-cells 5000 -d fw
+  -d fw -k
   
   alevin-fry collate \
   -r kidney_mouse/02_alevin_for_fry/normal${sample} \
