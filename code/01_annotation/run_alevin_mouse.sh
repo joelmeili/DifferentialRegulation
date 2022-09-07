@@ -14,7 +14,7 @@ kidney_mouse/fastq/SRR6337203_1.fastq kidney_mouse/fastq/SRR6337204_1.fastq \
 kidney_mouse/fastq/SRR6337200_3.fastq kidney_mouse/fastq/SRR6337201_3.fastq kidney_mouse/fastq/SRR6337202_3.fastq \
 kidney_mouse/fastq/SRR6337203_3.fastq kidney_mouse/fastq/SRR6337204_3.fastq \
 -o kidney_mouse/02_alevin_for_fry/normal1/ -p 32 --chromium --sketch
-
+: << 'COMMENT'
 ## NORMAL2
 salmon alevin -l ISR -i kidney_mouse/01_annotation/splici/index_folder \
 -1 kidney_mouse/fastq/SRR6337205_1.fastq kidney_mouse/fastq/SRR6337206_1.fastq kidney_mouse/fastq/SRR6337207_1.fastq \
@@ -44,3 +44,4 @@ kidney_mouse/fastq/SRR6337227_1.fastq kidney_mouse/fastq/SRR6337228_1.fastq \
 kidney_mouse/fastq/SRR6337224_3.fastq kidney_mouse/fastq/SRR6337225_3.fastq kidney_mouse/fastq/SRR6337226_3.fastq \
 kidney_mouse/fastq/SRR6337227_3.fastq kidney_mouse/fastq/SRR6337228_3.fastq \
 -o kidney_mouse/02_alevin_for_fry/normal4/ -p 32 --chromium --sketch
+COMMENT
