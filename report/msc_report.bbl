@@ -128,6 +128,12 @@ Stark, R., Grzelak, M., and Hadfield, J. (2019).
 \newblock Rna sequencing: the teenage years.
 \newblock {\em Nature Reviews Genetics}, {\bf20},  631--656.
 
+\bibitem[Tiberi, 2022]{DifferentialRegulation}
+Tiberi, S. (2022).
+\newblock {\em DifferentialRegulation: Differentially regulated genes from
+  scRNA-seq data}.
+\newblock R package version 1.0.7.
+
 \bibitem[Tiberi {\it et~al.}, 2021]{distinct}
 Tiberi, S., Crowell, H.~L., Weber, L.~M., Samartsidis, P., and Robinson, M.~D.
   (2021).

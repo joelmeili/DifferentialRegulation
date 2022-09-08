@@ -2,33 +2,35 @@
 \vspace *{13.mm}
 \contentsline {chapter}{\bfseries {Preface}}{iii}{chapter*.2}%
 \vspace *{10mm}
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}RNA sequencing (RNA-seq)}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Bulk RNA-seq}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Single-cell RNA-seq (scRNA-seq)}{1}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Quantification of single-cell RNA-seq data}{3}{subsection.1.1.3}%
-\contentsline {section}{\numberline {1.2}Objective}{3}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}RNA velocity}{3}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Differential regulation}{4}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Existing methods}{4}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Mapping uncertainty}{5}{subsection.1.2.4}%
-\contentsline {chapter}{\numberline {2}Methods}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}DEXSeq}{7}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Differential regulation}{7}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Results}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Exploratory Data Analysis}{9}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Mouse kidney cells}{9}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Human brain organoids}{12}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Simulation study on the mouse data}{12}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Simulation strategy}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Simulation analyses}{12}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Discovery analysis on the human brain organoids}{12}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Data availability}{12}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Code availability}{13}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Discussion}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Conclusion}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Outlook}{15}{section.4.2}%
-\contentsline {chapter}{\numberline {A}Figures}{17}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Source code}{19}{appendix.B}%
+\vspace *{13.mm}
+\contentsline {chapter}{\bfseries {Abstract}}{1}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}RNA sequencing (RNA-seq)}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Bulk RNA-seq}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Single-cell RNA-seq (scRNA-seq)}{3}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Quantification of single-cell RNA-seq data}{5}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Objective}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}RNA velocity}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Differential regulation}{6}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Existing methods}{6}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Mapping uncertainty}{7}{subsection.1.2.4}%
+\contentsline {chapter}{\numberline {2}Methods}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}DEXSeq}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Differential regulation}{9}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Results}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Exploratory Data Analysis}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Mouse kidney cells}{11}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Human brain organoids}{14}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Simulation study on the mouse data}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Simulation strategy}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Simulation analyses}{14}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Discovery analysis on the human brain organoids}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Data availability}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Code availability}{15}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Discussion}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Conclusion}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Outlook}{17}{section.4.2}%
+\contentsline {chapter}{\numberline {A}Figures}{19}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Source code}{21}{appendix.B}%
 \vspace *{10mm}
-\contentsline {chapter}{\bfseries Bibliography}{21}{section*.8}%
+\contentsline {chapter}{\bfseries Bibliography}{23}{section*.9}%
