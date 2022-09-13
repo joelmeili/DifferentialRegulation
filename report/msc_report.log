@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.11)  12 SEP 2022 17:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.11)  13 SEP 2022 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -495,31 +495,38 @@ File: figure/qc.png Graphic file (type png)
 Package pdftex.def Info: figure/qc.png  used on input line 17.
 (pdftex.def)             Requested size: 108.40472pt x 433.56386pt.
 [11]
-<figure/kidney_mouse/UMAP_sample_id.png, id=325, 578.16pt x 361.35pt>
+<figure/kidney_mouse/qc_mouse.png, id=324, 433.62pt x 289.08pt>
+File: figure/kidney_mouse/qc_mouse.png Graphic file (type png)
+<use figure/kidney_mouse/qc_mouse.png>
+Package pdftex.def Info: figure/kidney_mouse/qc_mouse.png  used on input line 26.
+(pdftex.def)             Requested size: 364.24236pt x 242.83876pt.
+[12 <./figure/qc.png>] [13 <./figure/kidney_mouse/qc_mouse.png (PNG copy)>]
+<figure/kidney_mouse/UMAP_sample_id.png, id=336, 578.16pt x 361.35pt>
 File: figure/kidney_mouse/UMAP_sample_id.png Graphic file (type png)
 <use figure/kidney_mouse/UMAP_sample_id.png>
-Package pdftex.def Info: figure/kidney_mouse/UMAP_sample_id.png  used on input line 28.
+Package pdftex.def Info: figure/kidney_mouse/UMAP_sample_id.png  used on input line 38.
 (pdftex.def)             Requested size: 433.61893pt x 289.0804pt.
-[12 <./figure/qc.png>]
-<figure/kidney_mouse/UMAP_cell_type.png, id=333, 578.16pt x 361.35pt>
+<figure/kidney_mouse/UMAP_cell_type.png, id=338, 578.16pt x 361.35pt>
 File: figure/kidney_mouse/UMAP_cell_type.png Graphic file (type png)
 <use figure/kidney_mouse/UMAP_cell_type.png>
-Package pdftex.def Info: figure/kidney_mouse/UMAP_cell_type.png  used on input line 39.
+Package pdftex.def Info: figure/kidney_mouse/UMAP_cell_type.png  used on input line 49.
 (pdftex.def)             Requested size: 433.61893pt x 289.0804pt.
-[13 <./figure/kidney_mouse/UMAP_sample_id.png (PNG copy)>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 65.
+[14
+
+ <./figure/kidney_mouse/UMAP_sample_id.png (PNG copy)>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 75.
 (/home/joel/.TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 63--66
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
-) [14 <./figure/kidney_mouse/UMAP_cell_type.png (PNG copy)>] (./chapter04.tex [15] [16
-
-]
+) [15 <./figure/kidney_mouse/UMAP_cell_type.png (PNG copy)>] (./chapter04.tex [16]
 Chapter 4.
-) (./chapterA1.tex [17] [18
+) (./chapterA1.tex [17
+
+] [18
 
 ]
 Appendix A.
@@ -537,23 +544,23 @@ Appendix B.
 
 ]) [24] (./msc_report.aux)
 Package rerunfilecheck Info: File `msc_report.out' has not changed.
-(rerunfilecheck)             Checksum: 0CF34A957A311F61DE5E8C9A49C589AF;1139.
+(rerunfilecheck)             Checksum: 66BB8A312A79CEC0BB9E87E575AD7472;1140.
 Package rerunfilecheck Info: File `msc_report.brf' has not changed.
-(rerunfilecheck)             Checksum: DF956C94C21D01925B25521D9D71D08B;1713.
+(rerunfilecheck)             Checksum: 8FDD1A64CE2BC084BE29B896FCB45A91;1713.
  ) 
 Here is how much of TeX's memory you used:
- 14415 strings out of 477035
- 227902 string characters out of 5828284
- 580542 words of memory out of 5000000
- 35193 multiletter control sequences out of 15000+600000
+ 14424 strings out of 477035
+ 228169 string characters out of 5828284
+ 580767 words of memory out of 5000000
+ 35200 multiletter control sequences out of 15000+600000
  490385 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,6n,94p,2064b,474s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on msc_report.pdf (32 pages, 1827427 bytes).
+Output written on msc_report.pdf (32 pages, 2216027 bytes).
 PDF statistics:
- 961 PDF objects out of 1000 (max. 8388607)
- 454 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 500000)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 962 PDF objects out of 1000 (max. 8388607)
+ 455 compressed objects within 5 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 

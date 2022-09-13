@@ -872,6 +872,11 @@ INPUT ./figure/qc.png
 INPUT figure/qc.png
 INPUT ./figure/qc.png
 INPUT ./figure/qc.png
+INPUT ./figure/kidney_mouse/qc_mouse.png
+INPUT ./figure/kidney_mouse/qc_mouse.png
+INPUT figure/kidney_mouse/qc_mouse.png
+INPUT ./figure/kidney_mouse/qc_mouse.png
+INPUT ./figure/kidney_mouse/qc_mouse.png
 INPUT ./figure/kidney_mouse/UMAP_sample_id.png
 INPUT ./figure/kidney_mouse/UMAP_sample_id.png
 INPUT figure/kidney_mouse/UMAP_sample_id.png

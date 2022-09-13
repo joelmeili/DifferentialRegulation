@@ -28,6 +28,16 @@ To identify low-quality cells, cell-specific QC metrics were calculated with the
 \end{figure}
 \FloatBarrier
 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{figure/kidney_mouse/qc_mouse.png}
+\end{center}
+\caption{Violin plots reporting the number of UMI counts in the mouse kidney data. Top: before QC. Colours indicate whether a cell is identtifie as an outlier (orange) or not (blue). Bottom: after QC.}
+\label{fig:QC_mouse}
+\end{figure}
+\FloatBarrier
+
+
 Figure \ref{fig:UMAP_mouse_sample}  shows that the cells largely overlap based on the UMAP representation 
 
 \begin{figure}[!htb]
