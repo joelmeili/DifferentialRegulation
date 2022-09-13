@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.21)  8 SEP 2022 20:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.11)  12 SEP 2022 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **msc_report.tex
 (./msc_report.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-08-05> (/home/joel/.TinyTeX/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2022-08-30> (/home/joel/.TinyTeX/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
 (/home/joel/.TinyTeX/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -82,7 +82,7 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 (/home/joel/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )) (/home/joel/.TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2022/07/20 3.78 The Babel package
+Package: babel 2022/08/29 3.79 The Babel package
 \babel@savecnt=\count198
 \U@D=\dimen141
 \l@unhyphenated=\language3
@@ -387,7 +387,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 ) (/home/joel/.TinyTeX/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 2021/01/29 v2.0g defines alltt environment
 )) (/home/joel/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-08-05 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count304
 \l__pdf_internal_box=\box58
 ) (./msc_report.aux)
@@ -542,15 +542,15 @@ Package rerunfilecheck Info: File `msc_report.brf' has not changed.
 (rerunfilecheck)             Checksum: DF956C94C21D01925B25521D9D71D08B;1713.
  ) 
 Here is how much of TeX's memory you used:
- 14415 strings out of 479638
- 227989 string characters out of 5878586
- 539852 words of memory out of 5000000
- 32590 multiletter control sequences out of 15000+600000
+ 14415 strings out of 477035
+ 227902 string characters out of 5828284
+ 580542 words of memory out of 5000000
+ 35193 multiletter control sequences out of 15000+600000
  490385 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,6n,94p,2064b,474s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600pk> </home/joel/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on msc_report.pdf (32 pages, 1827364 bytes).
+Output written on msc_report.pdf (32 pages, 1827427 bytes).
 PDF statistics:
  961 PDF objects out of 1000 (max. 8388607)
  454 compressed objects within 5 object streams
