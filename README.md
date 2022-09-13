@@ -1,6 +1,6 @@
 # DifferentialRegulation
 
-This is my GitHub repository where I store the files containing the code used to generate the analyses used in my master's thesis.
+This GitHub repository serves as an archive for my master's thesis: Differential regulation.
 
 ## Abstract
 
