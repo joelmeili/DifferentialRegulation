@@ -1,7 +1,5 @@
 # DifferentialRegulation
 
-This GitHub repository serves as an archive for my master's thesis: Differential regulation.
-
 ## Abstract
 
 ## Code
