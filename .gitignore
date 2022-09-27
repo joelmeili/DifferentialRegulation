@@ -3,3 +3,5 @@ report/cache/*
 report(archived)/*
 report/.Rproj.user/*
 report/.Rhistory
+kidney_mouse/*
+presentation/.Rhistory
