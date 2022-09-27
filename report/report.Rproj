@@ -13,3 +13,5 @@ RnwWeave: knitr
 LaTeX: pdfLaTeX
 
 BuildType: Makefile
+
+SpellingDictionary: en_GB

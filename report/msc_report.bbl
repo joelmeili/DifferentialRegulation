@@ -139,13 +139,6 @@ Tiberi, S., Crowell, H.~L., Weber, L.~M., Samartsidis, P., and Robinson, M.~D.
   (2021).
 \newblock distinct: a novel approach to differential distribution analyses.
 
-\bibitem[Velasco {\it et~al.}, 2019]{brain_organoids}
-Velasco, S., Kedaigle, A.~J., Simmons, S.~K., Nash, A., Rocha, M., Quadrato,
-  G., Paulsen, B., Nguyen, L., Adiconis, X., Regev, A.,{\it et~al.} (2019).
-\newblock Individual brain organoids reproducibly form cell diversity of the
-  human cerebral cortex.
-\newblock {\em Nature}, {\bf570},  523--527.
-
 \bibitem[Weiler {\it et~al.}, 2021]{rna_velo_traj}
 Weiler, P., Van~den Berge, K., Street, K., and Tiberi, S. (2021).
 \newblock A guide to trajectory inference and rna velocity.

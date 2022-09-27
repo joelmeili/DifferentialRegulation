@@ -11,5 +11,3 @@ opts_chunk$set(
 
 
 \chapter{Figures}
-
-\chapter{Source code}
