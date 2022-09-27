@@ -5,7 +5,7 @@
 
 \section{Exploratory Data Analysis}
 
-\subsection{Mouse kidney cells}
+\subsection{Mouse kidney cells} \label{mouse_dataset}
 The first data set stems from a paper that investigates potential cellular targets of kidney disease in mice \citep{mouse_cells}. The authors isolated and sequenced a total of 57'979 cells from whole kidney cell suspensions (one kidney per mouse) derived from seven healthy male mice using droplet-based single-cell RNA sequencing. The samples were labelled as: normal1, normal2, normal3, normal4, Ksp-cre-GFP, Scl-cre-GFP and Pod-cre-GFP. For our work, we decided to use the raw data from the four samples that were labelled as normal to ensure the biological reproducibility between the samples.
 
 We used the \emph{alevin-fry} pipeline to quantify the raw single-cell RNA sequencing data for further use in the R programming environment. Quality control is a crucial stage in data pre-processing as low-quality libraries can contribute to misleading results in downstream analyses \citep{OSCA}. Therefore, we filtered lowly abundant genes and low-quality cells to mitigate said problems to improve interpretability of the results. 
@@ -41,6 +41,8 @@ After filtering, the data set consists of 23'543 cells and 18'537 genes. Next, w
 \end{figure}
 \FloatBarrier
 
+\pagebreak
+
 Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely classified as either: Adipocytes, Epithelial cells and Hepatocytes. Additionally, one can observe that those three cell types are approximately evenly distributed across the four samples. For further analyses we focus on cell types with at least 100 counts to investigate the performance of existing methods for the detection of differentially expressed genes and design our own simulation study.
 
 \begin{figure}[!htb]
@@ -52,11 +54,29 @@ Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely cla
 \end{figure}
 \FloatBarrier
 
-\section{Null data analysis on the mouse kidney data}
-First,
-
 \section{Simulation study}
-The initial simulation strategy consisted of inverting the spliced and unspliced counts for 10\% of the genes with and without the introduction of differential gene expression. 
+
+\subsection{Simulation strategy}
+Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes and 30\% of cells. This was achieved by randomly drawing a set of genes and cells that belong to group A. Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to group A. This was achieved by doubling the counts (two-fold gene expression) for 10\% randomly drawn genes in group A. In this manner two datasets were created, one with and one without differential gene expression. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two the simulated data sets.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=3in,height=6in]{figure/kidney_mouse/simulation_flow_chart.png}
+\end{center}
+\caption{Simulation process from original mouse data set to simulated data sets}
+\label{fig:simulation_process}
+\end{figure}
+\FloatBarrier
+
+However, these simulations do not account for mapping uncertainty. Therefore, the simulation process was enhanced with the use of Minnow \citep{minnow}. (EXPLAIN MINNOW HERE OR IN METHODS SECTION????)
+
+\subsection{Simulating without Minnow}
+
+\subsection{Simulating with Minnow}
+
+\section{Null data analysis on the mouse kidney data}
+
+\section{Computational benchmark}
 
 \section{Data availability}
 

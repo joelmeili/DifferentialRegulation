@@ -1,13 +1,9 @@
 # clean environment
 rm(list = ls())
 
-# load libraries
-suppressPackageStartupMessages({
-	library(anndata)
-})
-
 # load functions
 source("code/03_differential_analysis/run_differential_analysis.R")
+source("code/03_differential_analysis/prepare_brie.R")
 
 # load data
 sce <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
@@ -41,3 +37,4 @@ saveRDS(eisaR_RES, file = "kidney_mouse/03_data/eisar_res_US.rds")
 saveRDS(dexseq_RES, file = "kidney_mouse/03_data/dexseq_res_USA.rds")
 
 # prepare BRIE
+prepare_brie(sce_50)

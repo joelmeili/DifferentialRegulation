@@ -1,3 +1,7 @@
+# clean environment
+rm(list = ls())
+
+# load libraries
 suppressPackageStartupMessages({
   library(scater)
   library(gridExtra)
@@ -12,7 +16,6 @@ sce$sample_id <- paste0("normal", sce$sample_id)
 
 # show cell distributions across samples
 eda <- data.frame(sample_id = sce$sample_id, cell_type = sce$cell_type)
-eda$sample_id <- paste("Sample", eda$sample_id)
 cell_type_eda <- eda %>% mutate(cell_type = case_when(!(cell_type %in% c("Adipocytes", "Epithelial cells", "Hepatocytes")) ~ "other", 
 																											TRUE ~ cell_type))
 g1 <- ggplot(eda, aes(x = cell_type)) + geom_bar() + xlab("Cell type") + ylab("Number of cells") + theme_classic() +
