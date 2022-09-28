@@ -14,7 +14,7 @@ suppressPackageStartupMessages({
 sample_ids <- 1:4
 
 load_abundances <- function (sample_id) {
-  path <- paste0("kidney_mouse/05_alevin_fry/", paste0("normal", sample_id))
+  path <- paste0("kidney_mouse/02_data_fry/", paste0("normal", sample_id))
   temp <- loadFry(path, outputFormat = "raw", nonzero = FALSE, quiet = TRUE)
   temp$sample_id <- sample_id
   colnames(temp) <- paste0(sample_id, ".", colnames(temp))
@@ -31,9 +31,6 @@ run <- function () {
   
   counts(sce) <- assays(sce)$spliced
   assays(sce)$TOT_counts <- assays(sce)$spliced + assays(sce)$unspliced + assays(sce)$ambiguous
-  
-  # save raw unprocessed sce
-  saveRDS(sce, file = "kidney_mouse/03_data/mouse_data_fry_USA_no_QC.rds")
   
   # remove undetected genes
   sce <- sce[rowSums(assays(sce)$TOT_counts > 0) > 0, ]

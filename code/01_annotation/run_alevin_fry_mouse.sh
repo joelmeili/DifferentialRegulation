@@ -4,12 +4,12 @@ samples=(1)
 for sample in ${samples[@]}
   do
   alevin-fry generate-permit-list \
-  -i kidney_mouse/02_data/normal${sample} \
+  -i kidney_mouse/02_data_alevin/normal${sample} \
   -o kidney_mouse/02_data_fry/normal${sample} \
   --force-cells 5000 -d fw
   
   alevin-fry collate \
-  -r kidney_mouse/02_data/normal${sample} \
+  -r kidney_mouse/02_data_alevin/normal${sample} \
   -i kidney_mouse/02_data_fry/normal${sample} \
   -t 32
   
