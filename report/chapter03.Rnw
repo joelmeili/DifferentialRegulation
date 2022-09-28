@@ -64,11 +64,11 @@ Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely cla
 \section{Simulation study}
 
 \subsection{Simulation strategy}
-Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes and 30\% of cells. This was achieved by randomly drawing a set of genes and cells that belong to group A. Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to group A. This was achieved by doubling the counts (two-fold gene expression) for 10\% randomly drawn genes in group A. In this manner two datasets were created, one with and one without differential gene expression. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two the simulated data sets.
+Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes for all cells that belong to an arbitrary group A. The set of genes whose counts were to be inverted was randomly drawn by a sampling algorithm without replacement (hypergeometric distribution). Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to said arbitrary group A. This was achieved by multiplying the counts (ten-fold gene expression) for 10\% randomly drawn genes in group A. Again, the set of genes was randomly drawn by the same sampling algorithm as before. In this manner two datasets were created, one with and one without differential gene expression. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two the simulated data sets.
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=3in,height=6in]{figure/kidney_mouse/simulation_flow_chart.png}
+\includegraphics[width=3in,height=6in]{figure/kidney_mouse/first_simulation_process.png}
 \end{center}
 \caption{Simulation process from original mouse data set to simulated data sets}
 \label{fig:simulation_process}

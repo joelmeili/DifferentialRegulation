@@ -5,10 +5,10 @@ rm(list = ls())
 source("code/04_simulation/mouse_simulation.R")
 
 # load mouse data
-sce <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
+sce <- readRDS("kidney_mouse/03_data/mouse_data_fry_50_50.rds")
 
 # setup parallel
-n_cores <- 8
+n_cores <- 4
 cl <- makeCluster(n_cores)
 registerDoParallel(cl)
 
