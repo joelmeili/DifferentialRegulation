@@ -860,6 +860,11 @@ INPUT ./chapter02.tex
 INPUT chapter02.tex
 INPUT /home/joel/.TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /home/joel/.TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm
+INPUT ./figure/confusion_matrix.png
+INPUT ./figure/confusion_matrix.png
+INPUT figure/confusion_matrix.png
+INPUT ./figure/confusion_matrix.png
+INPUT ./figure/confusion_matrix.png
 INPUT ./chapter03.tex
 INPUT ./chapter03.tex
 INPUT ./chapter03.tex

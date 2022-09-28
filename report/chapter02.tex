@@ -23,6 +23,43 @@ The dispersion parameter allows to model over-dispersed data (i.e. higher varian
 \section{minnow}
 \emph{minnow} is a read level simulator for droplet based scRNA-seq data that accounts for important sequence-level characteristics and model effects. Simulating with \emph{minnow} allows to introduce mapping uncertainty into the data.
 
+\section{Classification measurements}
+The TPR, FPR, and FDR are defined as:
+
+\begin{equation}
+\text{TPR}=\frac{|\text{TP}|}{|\text{TP}+\text{FN}|}
+\label{eqn:tpr}
+\end{equation}
+
+\begin{equation}
+\text{FPR}=\frac{|\text{FP}|}{|\text{FP}+\text{TN}|}
+\label{eqn:fpr}
+\end{equation}
+
+\begin{equation}
+\text{FDR}=\frac{|\text{FP}|}{|\text{TP}+\text{FP}|}
+\label{eqn:fdr}
+\end{equation}
+
+where TP, TN, FP, and FN indicate the sets of true positive, true negative, false positive, and false negative elements, respectively. True positive (TP) are the number of elements that were correctly identified as the positive outcome. Similarly, true negative (TN) are the number of elements that were correctly identified as the negative outcome. False positive (FP) are those elements that were identified as the positive outcome, however they should have been identified as negative. In statistics, FP is usually referred to as Type 1 error. Similarly, false negative (FN) are the elements that were incorrectly identified as negative - also referred to as Type 2 error in the realms of statistics. Figure \ref{fig:confusion_matrix} illustrates the meaning of these measurements quite clearly. The TPR (true positive rate) also referred to as sensitivity, measures the proportion of positive elements that were correctly identified - often alluded to as statistical power \ref{eqn:tpr}. The FPR (false positive rate) measures the proportion of negative outcomes that are identified as positive \ref{eqn:fpr}. On the other hand, FDR (false discovery rate) measures the expected proportion of false positive among all positive predictions \ref{eqn:fdr}. 
+
+(DONT LIKE THIS GRAPHIC WILL FIND ANOTHER ONE)
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=6in,height=3in]{figure/confusion_matrix.png}
+\end{center}
+\caption{Confusion matrix reporting the performance of a binary classification problem}
+\label{fig:confusion_matrix}
+\end{figure}
+\FloatBarrier
+
+\section{ROC curve}
+The ROC curve is a performance measurement that is used for classification problems - in this case whether a gene is differently expressed or not. Essentially, the ROC curve is a probability curve that is plotted with TPR against the FPR where TPR is on the y-axis and FPR on the x-axis. ROC curves above the diagonal are considered helpful, where the diagonal line represents random guessing. In classification problems AUC is also often used to quantify how well a method performs. ROC curves are one of the performance evaluation methods used in this thesis.
+
+\section{TPR v. FDR curves}
+
+
 \section{Differential regulation}
 To address both sources of mapping uncertainty we propose our novel method. Similar to the idea above, we implemented a hierarchical Bayesian approach that models ambiguous counts separately from spliced and unspliced. Gene allocation is modeled as a latent state to address the gene-related mapping uncertainty. The model consists of two nested models: First, we use a Dirichlet-multinomial model for the relative abundance of the USA counts in each gene. Second, a multinomial model that models the relative abundance of genes for each sample individually.
 

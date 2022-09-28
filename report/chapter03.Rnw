@@ -62,7 +62,7 @@ Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely cla
 \section{Simulation study}
 
 \subsection{Simulation strategy}
-Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes for all cells that belong to an arbitrary group A. The set of genes whose counts were to be inverted was randomly drawn by a sampling algorithm without replacement (hypergeometric distribution). There are many different ways to introduce a differential effect, however nailing down on inverting the spliced and unspliced counts seemed like a neat way to do this without actually modifying the values. Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to said arbitrary group A. This was achieved by multiplying the counts (ten-fold gene expression) for 10\% randomly drawn genes in group A. Again, the set of genes was randomly drawn by the same sampling algorithm as before. In this manner two datasets were created, one with and one without differential gene expression. The genes and cells that were subject to change were stored as ground truth for further evaluation in the downstream analyses. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two the simulated data sets. However, these simulations do not yet account for mapping uncertainty. Therefore, the simulation process was enhanced with the use of \emph{minnow} \citep{minnow} in a way that the data now contains mapping uncertainty between spliced and unspliced reads. (GO MORE IN DEPTH BUT WHAT ELSE COULD WE SAY???)
+Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes for all cells that belong to an arbitrary group A. The set of genes whose counts were to be inverted was randomly drawn by a sampling algorithm without replacement (hypergeometric distribution). There are many different ways to introduce a differential effect, however nailing down on inverting the spliced and unspliced counts seemed like a neat way to do this without actually modifying the values. Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to said arbitrary group A. This was achieved by multiplying the counts (ten-fold gene expression) for 10\% randomly drawn genes in group A. Again, the set of genes was randomly drawn by the same sampling algorithm as before. In this manner two datasets were created, one with and one without differential gene expression. The genes and cells that were subject to change were stored as ground truth for further evaluation in the downstream analyses. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two simulated data sets.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -73,7 +73,12 @@ Initially, the simulation strategy was to invert the spliced and unspliced count
 \end{figure}
 \FloatBarrier
 
+The goal of this thesis was to determine how well the aforementioned methods perform on detecting differentially regulated genes on simulated data sets. To achieve this two groups of methods were postulated as \emph{eisaR} and \emph{BRIE2} cannot take into account ambiguous counts that are neither spliced or unspliced. For this reason the classification performance of \emph{eisaR} and \emph{BRIE2} are compared with each other with the help of ROC and TPR v. FDR curves. As alevin-fry allows the estimation of ambiguous counts as well as spliced and unspliced it was possible to assign the ambiguous counts to both spliced and unspliced counts (50-50 split) so that \emph{eisaR} and \emph{BRIE2} can be applied. In a similar manner, \emph{DEXSeq} and our own method were used to detect differentially regulated genes. However, in this case the ambiguous counts were used as an additional information rather than discarding it. As a next step, \emph{minnow} was used to introduce mapping uncertainty in the simulated data sets. After quantification of the new data sets the same performance protocol was used to assess the performance of all four methods.
+
+(AGAIN FLOWCHART OF THE NEW SIMULATION PROCESS)
+
 \subsection{Simulating without Minnow}
+
 
 \subsection{Simulating with Minnow}
 
