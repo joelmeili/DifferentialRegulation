@@ -6,5 +6,5 @@ mouse_files=(SRR6337197 SRR6337198 SRR6337199 SRR6337200 SRR6337201 SRR6337202 S
 
 for file in ${mouse_files[@]}
 do
-	prefetch ${file} && fasterq-dump ${file}
+	prefetch ${file} --output-directory kidney_mouse/01_annotation/fastq && fasterq-dump ${file} -O kidney_mouse/01_annotation/fastq
 done
