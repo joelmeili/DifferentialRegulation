@@ -12,4 +12,4 @@ mkdir kidney_mouse/05_simulation_minnow
 mkdir kidney_mouse/06_null_analysis
 
 # run pipeline
-bash code/01_annotation/annotation_pipeline.sh
+bash code/01_annotation/run.sh
