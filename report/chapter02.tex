@@ -21,7 +21,7 @@ where $\text{NB(a, b)}$ denotes the negative binomial distribution with mean a a
 The dispersion parameter allows to model over-dispersed data (i.e. higher variance than mean). Here, we propose to use DEXSeq on estimated USA counts, and perform a differential usage test between conditions. This models ambiguous reads separately from spliced and unspliced or exonic and intronic, thus eliminating one of the main sources of mapping uncertainty. However, the uncertainty related to reads mapping to multiple genes is still neglected by this approach.
 
 \section{minnow}
-\emph{minnow} is a read level simulator for droplet based scRNA-seq data that accounts for important sequence-level characteristics and model effects. Simulating with \emph{minnow} allows to introduce mapping uncertainty into the data.
+\emph{minnow} is a read level simulator for droplet based scRNA-seq data that accounts for important sequence-level characteristics and model effects \citep{minnow}. It matches the gene-level ambiguity characteristics that are present in real scRNA-seq experiments. With \emph{minnow} it is possible to demonstrate the effect of gene-level sequence ambiguity on accurate quantification, which is used in this thesis to simulate mapping uncertainty between spliced and unspliced counts. It achieves this by simulating the reads by sampling from the underlying reference transcriptome.
 
 \section{Classification measurements}
 The TPR, FPR, and FDR are defined as:
@@ -43,11 +43,9 @@ The TPR, FPR, and FDR are defined as:
 
 where TP, TN, FP, and FN indicate the sets of true positive, true negative, false positive, and false negative elements, respectively. True positive (TP) are the number of elements that were correctly identified as the positive outcome. Similarly, true negative (TN) are the number of elements that were correctly identified as the negative outcome. False positive (FP) are those elements that were identified as the positive outcome, however they should have been identified as negative. In statistics, FP is usually referred to as Type 1 error. Similarly, false negative (FN) are the elements that were incorrectly identified as negative - also referred to as Type 2 error in the realms of statistics. Figure \ref{fig:confusion_matrix} illustrates the meaning of these measurements quite clearly. The TPR (true positive rate) also referred to as sensitivity, measures the proportion of positive elements that were correctly identified - often alluded to as statistical power \ref{eqn:tpr}. The FPR (false positive rate) measures the proportion of negative outcomes that are identified as positive \ref{eqn:fpr}. On the other hand, FDR (false discovery rate) measures the expected proportion of false positive among all positive predictions \ref{eqn:fdr}. 
 
-(DONT LIKE THIS GRAPHIC WILL FIND ANOTHER ONE)
-
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=3in]{figure/confusion_matrix.png}
+\includegraphics[width=6in,height=4in]{figure/confusion_matrix.png}
 \end{center}
 \caption{Confusion matrix reporting the performance of a binary classification problem}
 \label{fig:confusion_matrix}
@@ -58,7 +56,7 @@ where TP, TN, FP, and FN indicate the sets of true positive, true negative, fals
 The ROC curve is a performance measurement that is used for classification problems - in this case whether a gene is differently expressed or not. Essentially, the ROC curve is a probability curve that is plotted with TPR against the FPR where TPR is on the y-axis and FPR on the x-axis. ROC curves above the diagonal are considered helpful, where the diagonal line represents random guessing. In classification problems AUC is also often used to quantify how well a method performs. ROC curves are one of the performance evaluation methods used in this thesis.
 
 \section{TPR v. FDR curves}
-
+The TPR v. FDR curves are usually evaluated at typical thresholds of nominal 1\%, 5\% and 10\%. When the observed FDR is lower than or equal to the specified threshold, the method controls for the FDR. However, if the observed FDR is greater than the threshold the method does not control for the FDR and there is an inflation of false positive predictions. In this thesis, the methods are evaluated with an adjusted p-value.
 
 \section{Differential regulation}
 To address both sources of mapping uncertainty we propose our novel method. Similar to the idea above, we implemented a hierarchical Bayesian approach that models ambiguous counts separately from spliced and unspliced. Gene allocation is modeled as a latent state to address the gene-related mapping uncertainty. The model consists of two nested models: First, we use a Dirichlet-multinomial model for the relative abundance of the USA counts in each gene. Second, a multinomial model that models the relative abundance of genes for each sample individually.

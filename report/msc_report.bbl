@@ -117,6 +117,12 @@ Robinson, M.~D., McCarthy, D.~J., and Smyth, G.~K. (2010).
   digital gene expression data.
 \newblock {\em Bioinformatics}, {\bf26},  139--140.
 
+\bibitem[Sarkar {\it et~al.}, 2019]{minnow}
+Sarkar, H., Srivastava, A., and Patro, R. (2019).
+\newblock Minnow: a principled framework for rapid simulation of dscrna-seq
+  data at the read level.
+\newblock {\em Bioinformatics}, {\bf35},  i136--i144.
+
 \bibitem[Srivastava {\it et~al.}, 2019]{alevin}
 Srivastava, A., Malik, L., Smith, T., Sudbery, I., and Patro, R. (2019).
 \newblock Alevin efficiently estimates accurate gene abundances from dscrna-seq

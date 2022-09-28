@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {2.1}DEXSeq}{9}{section.2.1}%
 \contentsline {section}{\numberline {2.2}minnow}{9}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Classification measurements}{9}{section.2.3}%
-\contentsline {section}{\numberline {2.4}ROC curve}{10}{section.2.4}%
+\contentsline {section}{\numberline {2.4}ROC curve}{11}{section.2.4}%
 \contentsline {section}{\numberline {2.5}TPR v. FDR curves}{11}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Differential regulation}{11}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Results}{13}{chapter.3}%
