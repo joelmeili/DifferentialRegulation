@@ -3,5 +3,7 @@ report/cache/*
 report(archived)/*
 report/.Rproj.user/*
 report/.Rhistory
-kidney_mouse/*
 presentation/.Rhistory
+kidney_mouse/*
+simulation/*
+simulation_minnow/*

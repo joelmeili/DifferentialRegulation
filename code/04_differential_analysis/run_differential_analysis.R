@@ -5,17 +5,17 @@ suppressPackageStartupMessages({
 })
 
 # import differential analysis methods
-source("code/03_differential_analysis/differential_analysis.R")
+source("code/04_differential_analysis/differential_analysis.R")
 
 # run eisaR on the US data
-run_analysis_eisar <- function (sce, GROUP, CLUSTERS) {
+run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count) {
   sce$group <- ifelse(sce$sample_id %in% which(GROUP == "A"), "A", "B")
   
   RESULTS_EISAR <- foreach(i = 1:length(CLUSTERS),
                            .combine = "rbind",
                            .packages = c("muscat", "eisaR",
                                          "SummarizedExperiment"),
-                           .export = c("run_eisar", "prepare_bulk")) %do% {
+                           .export = c("run_eisar", "prepare_bulk")) %dopar% {
                              
                              # select sce
                              temp <- sce[, sce$cell_type == CLUSTERS[[i]]]
@@ -35,14 +35,14 @@ run_analysis_eisar <- function (sce, GROUP, CLUSTERS) {
 }
 
 # run DEXSeq on the USA data
-run_analysis_dexseq <- function (sce, GROUP, CLUSTERS) {
+run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
 	sce$group <- ifelse(sce$sample_id %in% which(GROUP == "A"), "A", "B")
 	
 	RESULTS_DEXSEQ <- foreach(i = 1:length(CLUSTERS),
 														.combine = "rbind",
 														.packages = c("muscat", "DEXSeq",
 																					"SummarizedExperiment"),
-														.export = c("run_dexseq", "prepare_bulk")) %do% {
+														.export = c("run_dexseq", "prepare_bulk")) %dopar% {
 															
 															# select sce
 															temp <- sce[, sce$cell_type == CLUSTERS[[i]]]

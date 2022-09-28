@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
 # simulation of mouse data
 mouse_simulation <- function (sce, CLUSTERS, 
                               p_genes = 0.1, p_cells = 0.3) {
+	set.seed(2021)
   sim <- foreach(
     i = 1:length(CLUSTERS),
     .packages = "Matrix"
@@ -30,6 +31,7 @@ mouse_simulation <- function (sce, CLUSTERS,
     spliced <- assays(temp)$spliced; unspliced <- assays(temp)$unspliced
     assays(temp)$spliced[rownames(temp) %in% genes, colnames(temp) %in% cells] <- unspliced[rownames(temp) %in% genes, colnames(temp) %in% cells]
     assays(temp)$unspliced[rownames(temp) %in% genes, colnames(temp) %in% cells] <- spliced[rownames(temp) %in% genes, colnames(temp) %in% cells]
+    assays(temp)$TOT_counts <- assays(temp)$spliced + assays(temp)$unspliced + assays(temp)$ambiguous
     
     return (list(SCE = temp, truth = truth))
   }
@@ -53,6 +55,7 @@ add_DGE <- function (sce, CLUSTERS,
   truth_DA <- metadata(sce)$truth
   metadata(sce)$truth <- NULL
   
+  set.seed(2022)
   sim <- foreach(
     i = 1:length(CLUSTERS),
     .packages = "Matrix"
@@ -76,7 +79,7 @@ add_DGE <- function (sce, CLUSTERS,
     spliced <- assays(temp)$spliced; unspliced <- assays(temp)$unspliced
     assays(temp)$spliced[rownames(temp) %in% genes, colnames(temp) %in% cells] <- FC*spliced[rownames(temp) %in% genes, colnames(temp) %in% cells]
     assays(temp)$unspliced[rownames(temp) %in% genes, colnames(temp) %in% cells] <- FC*unspliced[rownames(temp) %in% genes, colnames(temp) %in% cells]
-    assays(temp)$TOT_counts <- assays(temp)$spliced + assays(temp)$unspliced
+    assays(temp)$TOT_counts <- assays(temp)$spliced + assays(temp)$unspliced + assays(temp)$ambiguous
     
     return (list(SCE = temp, truth = truth))
   }
@@ -93,5 +96,4 @@ add_DGE <- function (sce, CLUSTERS,
   metadata(SCE)$truth <- merge(truth_DA, truth_DGE, by = c("Gene_id", "Cell_type"), all.x = TRUE)
   
   return (SCE)
-  
 }

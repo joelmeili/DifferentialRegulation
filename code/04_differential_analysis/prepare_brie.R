@@ -3,8 +3,8 @@ suppressPackageStartupMessages({
 	library(anndata)
 })
 
-# prepare BRIE2
-prepare_brie <- function (sce) {
+# prepare data for BRIE2
+prepare_brie <- function (sce, CLUSTERS, GROUPS) {
 	for (i in 1:length(CLUSTERS)) {
 		sce_temp <- sce[, sce$cell_type == CLUSTERS[[i]]]
 		

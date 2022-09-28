@@ -28,7 +28,9 @@ To identify low-quality cells, cell-specific QC metrics were calculated with the
 \end{figure}
 \FloatBarrier
 
-After filtering, the data set consists of 23'543 cells and 18'537 genes. Next, we used the \emph{singleR} function from the \emph{singleR} R package \citep{singleR} for cell-type annotation. Cell-type annotation is important to determine what biological state is represented by cell clusters which helps the interpretability of the results and their implications \citep{OSCA}. \emph{singleR} is a method that assigns labels based on the reference samples with the highest Spearman rank correlation while only using marker genes between pairs of labels to focus on the relevant differences between cell types \citep{singleR}. Figure \ref{fig:UMAP_mouse_sample_id} shows the Uniform Manifold Approximation and Projection (UMAP) of the cells coloured by their respective sample id. From Figure \ref{fig:UMAP_mouse_sample_id} one can observe that the projection of the cells is very similar across the samples. Further, Figure \ref{fig:UMAP_mouse_cell_type} also illustrates that cells from the same cell-type cluster together, as one would expect.
+After filtering, the data set consists of 23'543 cells and 18'537 genes. Next, we used the \emph{singleR} function from the \emph{singleR} R package \citep{singleR} for cell-type annotation. Cell-type annotation is important to determine what biological state is represented by cell clusters which helps the interpretability of the results and their implications \citep{OSCA}. \emph{singleR} is a method that assigns labels based on the reference samples with the highest Spearman rank correlation while only using marker genes between pairs of labels to focus on the relevant differences between cell types \citep{singleR}. Figure \ref{fig:UMAP_mouse_sample_id} shows the Uniform Manifold Approximation and Projection (UMAP) of the cells coloured by their respective sample id. From Figure \ref{fig:UMAP_mouse_sample_id} one can observe that the projection of the cells is very similar across the samples. Further, Figure \ref{fig:UMAP_mouse_cell_type} also illustrates that cells from the same cell-type cluster together, as one would expect. 
+
+Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely classified as either: Adipocytes, Epithelial cells and Hepatocytes. Additionally, one can observe that those three cell types are approximately evenly distributed across the four samples. For further analyses we focus on those cell types to investigate the performance of existing methods for the detection of differentially expressed genes and design our own simulation study.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -48,10 +50,6 @@ After filtering, the data set consists of 23'543 cells and 18'537 genes. Next, w
 \end{figure}
 \FloatBarrier
 
-\pagebreak
-
-Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely classified as either: Adipocytes, Epithelial cells and Hepatocytes. Additionally, one can observe that those three cell types are approximately evenly distributed across the four samples. For further analyses we focus on cell types with at least 100 counts to investigate the performance of existing methods for the detection of differentially expressed genes and design our own simulation study.
-
 \begin{figure}[!htb]
 \begin{center}
 \includegraphics[width=6in,height=5in]{figure/kidney_mouse/cell_type_distribution.png}
@@ -64,7 +62,7 @@ Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely cla
 \section{Simulation study}
 
 \subsection{Simulation strategy}
-Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes for all cells that belong to an arbitrary group A. The set of genes whose counts were to be inverted was randomly drawn by a sampling algorithm without replacement (hypergeometric distribution). Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to said arbitrary group A. This was achieved by multiplying the counts (ten-fold gene expression) for 10\% randomly drawn genes in group A. Again, the set of genes was randomly drawn by the same sampling algorithm as before. In this manner two datasets were created, one with and one without differential gene expression. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two the simulated data sets.
+Initially, the simulation strategy was to invert the spliced and unspliced counts for 10\% of genes for all cells that belong to an arbitrary group A. The set of genes whose counts were to be inverted was randomly drawn by a sampling algorithm without replacement (hypergeometric distribution). There are many different ways to introduce a differential effect, however nailing down on inverting the spliced and unspliced counts seemed like a neat way to do this without actually modifying the values. Additionally, differential gene expression was introduced in 10\% of genes in all cells that belong to said arbitrary group A. This was achieved by multiplying the counts (ten-fold gene expression) for 10\% randomly drawn genes in group A. Again, the set of genes was randomly drawn by the same sampling algorithm as before. In this manner two datasets were created, one with and one without differential gene expression. The genes and cells that were subject to change were stored as ground truth for further evaluation in the downstream analyses. Figure \ref{fig:simulation_process} illustrates the simulation process from the original mouse kidney data set to two the simulated data sets. However, these simulations do not yet account for mapping uncertainty. Therefore, the simulation process was enhanced with the use of \emph{minnow} \citep{minnow} in a way that the data now contains mapping uncertainty between spliced and unspliced reads. (GO MORE IN DEPTH BUT WHAT ELSE COULD WE SAY???)
 
 \begin{figure}[!htb]
 \begin{center}
@@ -74,8 +72,6 @@ Initially, the simulation strategy was to invert the spliced and unspliced count
 \label{fig:simulation_process}
 \end{figure}
 \FloatBarrier
-
-However, these simulations do not account for mapping uncertainty. Therefore, the simulation process was enhanced with the use of Minnow \citep{minnow}. (EXPLAIN MINNOW HERE OR IN METHODS SECTION????)
 
 \subsection{Simulating without Minnow}
 

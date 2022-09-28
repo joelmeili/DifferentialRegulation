@@ -1,5 +1,6 @@
 #!/bin/bash
 
+## salmon indexing
 salmon index \
 -t kidney_mouse/01_annotation/splici/transcriptome_splici.fa \
 -i kidney_mouse/01_annotation/splici/index_folder \
