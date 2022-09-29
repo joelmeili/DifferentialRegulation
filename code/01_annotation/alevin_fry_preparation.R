@@ -196,10 +196,6 @@ make_splici_txome <- function(gtf_path,
       }
     }
   }
-  
-  
-  
-  
   message("Done.")
 }
 
