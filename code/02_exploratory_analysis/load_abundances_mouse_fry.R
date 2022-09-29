@@ -57,7 +57,6 @@ sce <- run()
 # assign gene names and cell types
 ref <- MouseRNAseqData(ensembl = TRUE, cell.ont = "all")
 
-# Unable to map 2180 of 21214 requested IDs. 
 # check how many gene names match btw the 2 datasets:
 gene_ids <- rownames(sce)
 rownames(sce) <- substr(rownames(sce), 1, 18)
