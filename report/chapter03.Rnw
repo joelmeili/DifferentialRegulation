@@ -28,7 +28,7 @@ To identify low-quality cells, cell-specific QC metrics were calculated with the
 \end{figure}
 \FloatBarrier
 
-After filtering, the data set consists of 23'543 cells and 18'537 genes. Next, we used the \emph{singleR} function from the \emph{singleR} R package \citep{singleR} for cell-type annotation. Cell-type annotation is important to determine what biological state is represented by cell clusters which helps the interpretability of the results and their implications \citep{OSCA}. \emph{singleR} is a method that assigns labels based on the reference samples with the highest Spearman rank correlation while only using marker genes between pairs of labels to focus on the relevant differences between cell types \citep{singleR}. Figure \ref{fig:UMAP_mouse_sample_id} shows the Uniform Manifold Approximation and Projection (UMAP) of the cells coloured by their respective sample id. From Figure \ref{fig:UMAP_mouse_sample_id} one can observe that the projection of the cells is very similar across the samples. Further, Figure \ref{fig:UMAP_mouse_cell_type} also illustrates that cells from the same cell-type cluster together, as one would expect. 
+After filtering, the data set consists of 23'543 cells and 18'537 genes. Next, we used the \emph{singleR} function from the \emph{singleR} R package \citep{singleR} for cell-type annotation. Cell-type annotation is important to determine what biological state is represented by cell clusters which helps the interpretability of the results and their implications \citep{OSCA}. \emph{singleR} is a method that assigns labels based on the reference samples with the highest Spearman rank correlation while only using marker genes between pairs of labels to focus on the relevant differences between cell types \citep{singleR}. Figure \ref{fig:UMAP_mouse_sample_id} shows the Uniform Manifold Approximation and Projection (UMAP) of the cells coloured by their respective sample id. From Figure \ref{fig:UMAP_mouse_sample_id} one can observe that the projection of the cells is very similar across the samples. Further, Figure \ref{fig:UMAP_mouse_cell_type} also illustrates that cells from the same cell-type cluster together, as one would expect.
 
 Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely classified as either: Adipocytes, Epithelial cells and Hepatocytes. Additionally, one can observe that those three cell types are approximately evenly distributed across the four samples. For further analyses we focus on those cell types to investigate the performance of existing methods for the detection of differentially expressed genes and design our own simulation study.
 
@@ -59,6 +59,8 @@ Figure \ref{fig:mouse_cell_type} shows that the annotated cells were largely cla
 \end{figure}
 \FloatBarrier
 
+\subsection{RNA Velocity analysis}
+
 \section{Simulation study}
 
 \subsection{Simulation strategy}
@@ -73,14 +75,11 @@ Initially, the simulation strategy was to invert the spliced and unspliced count
 \end{figure}
 \FloatBarrier
 
-The goal of this thesis was to determine how well the aforementioned methods perform on detecting differentially regulated genes on simulated data sets. To achieve this two groups of methods were postulated as \emph{eisaR} and \emph{BRIE2} cannot take into account ambiguous counts that are neither spliced or unspliced. For this reason the classification performance of \emph{eisaR} and \emph{BRIE2} are compared with each other with the help of ROC and TPR v. FDR curves. As alevin-fry allows the estimation of ambiguous counts as well as spliced and unspliced it was possible to assign the ambiguous counts to both spliced and unspliced counts (50-50 split) so that \emph{eisaR} and \emph{BRIE2} can be applied. In a similar manner, \emph{DEXSeq} and our own method were used to detect differentially regulated genes. However, in this case the ambiguous counts were used as an additional information rather than discarding it. As a next step, \emph{minnow} was used to introduce mapping uncertainty in the simulated data sets. After quantification of the new data sets the same performance protocol was used to assess the performance of all four methods.
+The goal of this thesis was to determine how well the aforementioned methods perform on detecting differentially regulated genes on read-level simulated data sets. To achieve this two groups of methods were postulated as \emph{eisaR} and \emph{BRIE2} cannot take into account ambiguous counts that are neither spliced or unspliced. For this reason the classification performance of \emph{eisaR} and \emph{BRIE2} are compared with each other with the help of ROC and TPR v. FDR curves. As alevin-fry allows the estimation of ambiguous counts as well as spliced and unspliced it was possible to assign the ambiguous counts to both spliced and unspliced counts (50-50 split) so that \emph{eisaR} and \emph{BRIE2} can be applied. In a similar manner, \emph{DEXSeq} and our own method were used to detect differentially regulated genes. However, in this case the ambiguous counts were used as an additional information rather than discarding it. As a next step, \emph{minnow} was used to introduce mapping uncertainty in the simulated data sets. After quantification of the new data sets the same performance protocol was used to assess the performance of all four methods.
 
-(AGAIN FLOWCHART OF THE NEW SIMULATION PROCESS)
+\subsection{Preliminary results of the simple simulation}
 
-\subsection{Simulating without Minnow}
-
-
-\subsection{Simulating with Minnow}
+\subsection{Read-level simulation with \emph{minnow}}
 
 \section{Null data analysis on the mouse kidney data}
 

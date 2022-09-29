@@ -16,7 +16,7 @@ registerDoParallel(cl)
 CLUSTERS <- c("Epithelial cells", "Adipocytes", "Hepatocytes")
 sce <- sce[, sce$cell_type %in% CLUSTERS]
 
-# set condition
+# set arbitrary condition
 GROUP <- c("A", "B", "A", "B")
 sce$group <- ifelse(sce$sample_id %in% c("1", "3"), "A", "B")
 
