@@ -55,7 +55,7 @@ run <- function () {
 sce <- run()
 
 # assign gene names and cell types
-ref <- MouseRNAseqData(ensembl = TRUE, cell.ont = "all")
+ref <- celldex::MouseRNAseqData(ensembl = TRUE, cell.ont = "all")
 
 # check how many gene names match btw the 2 datasets:
 gene_ids <- rownames(sce)
