@@ -26,7 +26,7 @@ g2 <- ggplot(cell_type_eda, aes(x = cell_type)) + geom_bar() + xlab("Cell type")
 	stat_count(geom = "text", colour = "white", size = 2.5, aes(label = ..count..), position = position_stack(vjust = 0.5))
 
 grob1 <- arrangeGrob(g1, g2, nrow = 2)
-ggsave(grob1, file = "kidney_mouse/04_figures/cell_type_distribution.png", height = 5, width = 6)
+ggsave(grob1, file = "figures/kidney_mouse/cell_type_distribution.png", height = 5, width = 6)
 
 # show UMAPs
 sce <- runUMAP(sce)
@@ -44,7 +44,7 @@ g4 <- plotReducedDim(sce, dimred = "UMAP",
 	guides(colour = guide_legend(title = "Cell type"
 	)) + theme(legend.key.size = unit(0.2, "cm"))
 
-ggsave(g3, filename = "kidney_mouse/04_figures/UMAP_mouse_sample_id.png",
+ggsave(g3, filename = "figures/kidney_mouse/UMAP_mouse_sample_id.png",
 			 device = "png",
 			 width = 6,
 			 height = 4,
@@ -52,7 +52,7 @@ ggsave(g3, filename = "kidney_mouse/04_figures/UMAP_mouse_sample_id.png",
 			 dpi = 300,
 			 limitsize = TRUE)
 
-ggsave(g4, filename = "kidney_mouse/04_figures/UMAP_mouse_cell_type.png",
+ggsave(g4, filename = "figures/kidney_mouse/UMAP_mouse_cell_type.png",
 			 device = "png",
 			 width = 6,
 			 height = 4,
