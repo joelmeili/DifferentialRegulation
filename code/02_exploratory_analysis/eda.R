@@ -5,9 +5,7 @@ rm(list = ls())
 suppressPackageStartupMessages({
   library(scater)
   library(gridExtra)
-	library(kableExtra)
 	library(tidyverse)
-	library(alevinQC)
 })
 
 # load single cell experiment after QC filtering
