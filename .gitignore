@@ -1,11 +1,8 @@
-report/cache/*
 .Rproj.user
-report(archived)/*
-report/.Rproj.user/*
-report/.Rhistory
-presentation/.Rhistory
 kidney_mouse/*
 simulation/*
 simulation_minnow/*
 report/*
+presentation/*
+!presentation/presentation.pdf
 !report/msc_report.pdf
