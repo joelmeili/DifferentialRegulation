@@ -68,14 +68,5 @@ rownames(sce) <- gene_ids
 
 metadata(sce) <- list()
 
-# calculate the three scenarios
-sce_50 <- sce
-assays(sce_50)$spliced <- assays(sce_50)$spliced + 0.5 * assays(sce_50)$ambiguous
-assays(sce_50)$unspliced <- assays(sce_50)$unspliced + 0.5 * assays(sce_50)$ambiguous
-counts(sce_50) <- assays(sce_50)$spliced
-assays(sce_50)$ambiguous <- NULL
-assays(sce_50)$TOT_counts <- assays(sce_50)$spliced + assays(sce_50)$unspliced
-
 # save data
 saveRDS(sce, file = "kidney_mouse/03_data/mouse_data_fry_USA.rds")
-saveRDS(sce_50, file = "kidney_mouse/03_data/mouse_data_fry_50_50.rds")
