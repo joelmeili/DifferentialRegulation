@@ -28,9 +28,6 @@ g2 <- ggplot(cell_type_eda, aes(x = cell_type)) + geom_bar() + xlab("Cell type")
 grob1 <- arrangeGrob(g1, g2, nrow = 2)
 ggsave(grob1, file = "figures/kidney_mouse/cell_type_distribution.png", height = 5, width = 6)
 
-# show UMAPs
-sce <- runUMAP(sce)
-
 # plot UMAP by sample id and cell type
 g3 <- plotReducedDim(sce, dimred = "UMAP",
 										 colour_by = "sample_id") +

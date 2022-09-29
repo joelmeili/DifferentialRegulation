@@ -67,5 +67,9 @@ rownames(sce) <- gene_ids
 
 metadata(sce) <- list()
 
+# run dimensionality reduction algorithm
+sce <- runPCA(sce)
+sce <- runUMAP(sce)
+
 # save data
 saveRDS(sce, file = "kidney_mouse/03_data/mouse_data_fry_USA.rds")
