@@ -1,6 +1,6 @@
 #!/bin/bash
-#samples=(1 2 3 4)
-samples=(1)
+samples=(1 2 3 4)
+
 for sample in ${samples[@]}
   do
   alevin-fry generate-permit-list \
