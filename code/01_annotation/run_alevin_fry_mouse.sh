@@ -6,7 +6,7 @@ for sample in ${samples[@]}
   alevin-fry generate-permit-list \
   -i kidney_mouse/02_data_alevin/normal${sample} \
   -o kidney_mouse/02_data_fry/normal${sample} \
-  -k -d fw
+  --force-cells 5000 -d fw
   
   alevin-fry collate \
   -r kidney_mouse/02_data_alevin/normal${sample} \
