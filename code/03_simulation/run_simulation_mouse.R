@@ -35,5 +35,5 @@ sim_DGE <- add_DGE(sce = sim, CLUSTERS = CLUSTERS,
                    p_genes_DGE = p_genes_DGE, p_cells_DGE = p_cells_DGE, FC = FC)
 
 # save simulated data sets
-saveRDS(sim, file = "kidney_mouse/04_simulation/01_data/mouse_simulation_data.rds")
-saveRDS(sim_DGE, file = "kidney_mouse/04_simulation/01_data/mouse_simulation_DGE_data.rds")
+saveRDS(sim, file = "kidney_mouse/03_data/mouse_simulation_data.rds")
+saveRDS(sim_DGE, file = "kidney_mouse/03_data/mouse_simulation_DGE_data.rds")
