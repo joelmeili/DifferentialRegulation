@@ -9,6 +9,7 @@ suppressPackageStartupMessages({
   library(celldex)
   library(SingleR)
   library(anndata)
+  library(zellkonverter)
 })
 
 # load abundances
