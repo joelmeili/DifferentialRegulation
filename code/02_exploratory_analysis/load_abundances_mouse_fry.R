@@ -80,18 +80,20 @@ for (i in sample_ids) {
 	# select individual sample:
 	temp <- sce[, sce$sample_id == i]
 	
-	# create AnnData:
-	ad <- AnnData(
-		X = t(assay(temp, "spliced")),
-		layers = list(
-			spliced = t(sample(temp, "spliced")),
-			unspliced = t(sample(temp, "unspliced"))
-		),
-		obsm = list(
-			X_pca = reducedDim(temp, "PCA"),
-			X_umap = reducedDim(temp, "UMAP")
-		),
-		obs = data.frame(clusters = sce$cell_type)
+	# create AnnData object:
+	ad <- SCE2AnnData(
+		temp,
+		X_name = "spliced",
+		assays = TRUE,
+		colData = TRUE,
+		rowData = TRUE,
+		varm = TRUE,
+		reducedDims = TRUE,
+		metadata = TRUE,
+		colPairs = TRUE,
+		rowPairs = TRUE,
+		skip_assays = FALSE,
+		verbose = TRUE
 	)
 	write_loom(ad, paste0("kidney_mouse/03_data/adata_normal", i, ".loom"),
 						 write_obsm_varm = TRUE)
