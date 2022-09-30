@@ -38,7 +38,7 @@ for i in range(1, 5):
     scv.tl.velocity(adata, mode = "dynamical")
     scv.tl.velocity_graph(adata)
 
-    scv.pl.velocity_embedding_stream(adata, basis = "umap")
+    scv.pl.velocity_embedding_stream(adata, basis = "UMAP")
     plt.savefig(temp_path + "dynamical_model_combined.png", dpi = 300, bbox_inches = "tight")
 
     #########################################################
@@ -47,7 +47,7 @@ for i in range(1, 5):
     scv.pl.velocity_graph(adata, threshold = 0.1)
     plt.savefig(temp_path + "velocity_threshold.png", dpi = 300, bbox_inches = "tight")
     
-    x, y = scv.utils.get_cell_transitions(adata, basis = "umap")
+    x, y = scv.utils.get_cell_transitions(adata, basis = "UMAP")
     ax = scv.pl.velocity_graph(adata, c = "lightgrey", edge_width = 0.05, show = False)
     ax = scv.pl.scatter(adata, x = x, y = y, s = 120, c = "ascending", cmap = "gnuplot", ax = ax)
     plt.savefig(temp_path + "cell_transitions.png", dpi = 300, bbox_inches = "tight")
@@ -73,7 +73,7 @@ for i in range(1, 5):
     df = scv.get_df(adata, "paga/transitions_confidence", precision = 2).T
     df.style.background_gradient(cmap = "Blues").format("{:.2g}")
     
-    scv.pl.paga(adata, basis = "umap", size = 50, alpha = 0.1,
+    scv.pl.paga(adata, basis = "UMAP", size = 50, alpha = 0.1,
                 min_edge_width = 2, node_size_scale = 1.5)
                 
     plt.savefig(temp_path + "PAGA.png", dpi = 300, bbox_inches = "tight")
