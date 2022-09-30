@@ -84,7 +84,7 @@ for (i in sample_ids) {
 	ad <- SCE2AnnData(
 		temp,
 		X_name = "spliced",
-		assays = TRUE,
+		assays = c("spliced", "unspliced"),
 		colData = TRUE,
 		rowData = TRUE,
 		varm = TRUE,
