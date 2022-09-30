@@ -93,6 +93,6 @@ for (i in sample_ids) {
 		),
 		obs = data.frame(clusters = sce$cell_type)
 	)
-	write_loom(ad, paste0("kidney_mouse/03_data/adata_sample", i, ".loom"),
+	write_loom(ad, paste0("kidney_mouse/03_data/adata_normal", i, ".loom"),
 						 write_obsm_varm = TRUE)
 }
