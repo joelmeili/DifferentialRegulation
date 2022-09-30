@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
 
 # load functions
 source("code/04_differential_analysis/run_differential_analysis.R")
+source("code/04_differential_analysis/prepare_brie.R")
 
 # import sce data
 sce_USA <- readRDS("kidney_mouse/03_data/mouse_simulation_data.rds")
@@ -41,6 +42,9 @@ min_count <- 20
 results_eisar <- run_analysis_eisar(sce_US, GROUP, CLUSTERS, min_count)
 results_eisar_DGE <- run_analysis_eisar(sce_US_DGE, GROUP, CLUSTERS, min_count)
 
-# saving the eisar results
+# saving the eisaR results
 saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results.rds")
 saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE.rds")
+
+# prepare to run BRIE2
+prepare_brie(sce_US, CLUSTERS, GROUP)

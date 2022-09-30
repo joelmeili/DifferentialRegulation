@@ -11,7 +11,7 @@ prepare_brie <- function (sce, CLUSTERS, GROUPS) {
 		cl <- sapply(strsplit(CLUSTERS[[i]], " "), function (x) paste0(x, collapse = "_"))
 		
 		for (j in 1:length(GROUPS)) {
-			# set group attribute
+			# set group attribut
 			sce_temp$group <- ifelse(sce_temp$sample_id %in% which(GROUPS[[j]] == "A"), "A", "B")
 			
 			# remove lowly expressed genes: at least 10 non-zero cells:
