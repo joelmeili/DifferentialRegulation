@@ -3,7 +3,6 @@ rm(list = ls())
 
 # load packages
 suppressPackageStartupMessages({
-  library(anndata)
   library(zellkonverter)
 })
 
@@ -22,7 +21,7 @@ for (i in sample_ids) {
 	ad <- SCE2AnnData(
 		temp,
 		X_name = "spliced",
-		assays = TRUE,
+		assays = c("spliced", "unspliced"),
 		colData = TRUE,
 		rowData = TRUE,
 		varm = TRUE,
@@ -33,6 +32,5 @@ for (i in sample_ids) {
 		skip_assays = FALSE,
 		verbose = TRUE
 	)
-	write_loom(ad, paste0("kidney_mouse/03_data/adata_normal", i, ".loom"),
-						 write_obsm_varm = TRUE)
+	ad$write_h5ad(filename = paste0("kidney_mouse/03_data/adata_normal", i, ".h5ad"))
 }

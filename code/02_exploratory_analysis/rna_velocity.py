@@ -5,8 +5,8 @@ scv.settings.verbosity = 3
 scv.settings.presenter_view = True
 scv.set_figure_params("scvelo")
 
-for i in range(1, 5):
-    adata = scv.read("kidney_mouse/03_data/adata_normal" + str(i) + ".loom", cache = True)
+for i in range(1, 2):
+    adata = scv.read("kidney_mouse/03_data/adata_normal" + str(i) + ".h5ad", cache = True)
 
     # show spliced and unspliced proportion
     scv.pl.proportions(adata)
