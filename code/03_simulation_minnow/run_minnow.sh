@@ -4,7 +4,7 @@ minnow index -r kidney_mouse/01_annotation/splici/transcriptome_splici.fa -k 101
 -o kidney_mouse/04_simulation/minnow_ind |& stdbuf -oL tr '\r' '\n' > \
 kidney_mouse/04_simulation/minnow_index.log
 
-samples=(1 2 3 4)
+samples=(1)
 celltypes=("Adipocytes" "Epithelial_cells" "Hepatocytes")
 minnow_ind="kidney_mouse/04_simulation/minnow_ind"
 g2t="kidney_mouse/01_annotation/splici/transcriptome_splici_t2g.tsv"
