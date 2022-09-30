@@ -32,6 +32,6 @@ for i in range(1, 2):
     scv.tl.velocity_graph(adata)
 
     # visualize RNA velocity
-    scv.pl.velocity_embedding_stream(adata, basis = "umap")
+    scv.pl.velocity_embedding_stream(adata, basis = "UMAP")
     scv.pl.velocity_embedding(adata, arrow_length = 3, arrow_size = 2, dpi = 120)
 
