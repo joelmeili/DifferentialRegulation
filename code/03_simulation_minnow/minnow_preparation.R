@@ -1,9 +1,12 @@
+# clean environment
+rm(list = ls())
+
+# load libraries
 suppressPackageStartupMessages({
   library(SingleCellExperiment)
 })
 
-rm(list = ls())
-
+# prepare for minnow simulation
 sim_dir <- "kidney_mouse/04_simulation_minnow/simulation/"
 sim_dir_DGE <- "kidney_mouse/04_simulation_minnow/simulation_DGE/"
 
