@@ -41,4 +41,4 @@ for i in range(1, 5):
     scv.tl.velocity_graph(adata)
 
     scv.pl.velocity_embedding_stream(adata, basis = "UMAP")
-    plt.savefig(temp_path + "dynamical_model_.png", dpi = 300, bbox_inches = "tight")
+    plt.savefig(temp_path + "dynamical_model.png", dpi = 300, bbox_inches = "tight")
