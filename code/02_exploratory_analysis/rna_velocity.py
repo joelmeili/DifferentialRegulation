@@ -7,6 +7,7 @@ scv.set_figure_params("scvelo")
 
 for i in range(1, 2):
     adata = scv.read("kidney_mouse/03_data/adata_normal" + str(i) + ".h5ad", cache = True)
+    adata.layers["spliced"] = adata.X
 
     # show spliced and unspliced proportion
     scv.pl.proportions(adata)
