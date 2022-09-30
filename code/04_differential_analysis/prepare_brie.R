@@ -38,7 +38,7 @@ prepare_brie <- function (sce, DGE, CLUSTERS, GROUP) {
 									quote = FALSE,
 									sep = "\t", row.names = FALSE)
 		} else {
-			ad$write_h5ad(paste0("kidney_mouse/03_data/BRIE2/simulation_DGE"/cell_info_,
+			ad$write_h5ad(paste0("kidney_mouse/03_data/BRIE2/simulation_DGE/cell_info_",
 													 cl, ".h5ad"))
 			write.table(data.frame(index = colnames(sce_temp), 
 														 is_A = ifelse(sce_temp$group == "A", 1, 0)),
