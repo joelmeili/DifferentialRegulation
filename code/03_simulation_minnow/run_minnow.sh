@@ -1,14 +1,14 @@
 #!/bin/bash
-~/minnow/build/src/minnow index -r simulation/03_tominnow/annotation.expanded.fa -k 101 -f 20 \
+~/minnow/build/src/minnow index -r kidney_mouse/01_annotation/GRCm38.primary_assembly.genome.fa -k 101 -f 20 \
 --tmpdir simulation/04_minnow_sim/tmp -p 8 \
 -o simulation/04_minnow_sim/minnow_ind |& stdbuf -oL tr '\r' '\n' > \
 simulation/04_minnow_sim/minnow_index.log
 
-samples=(1 2 3 4)
-celltypes=("Adipocytes" "Epithelial_cells" "Hepatocytes")
-minnow="~/minnow/build/src/minnow"
-minnow_ind="simulation/04_minnow_sim/minnow_ind"
-g2t="simulation/03_tominnow/annotation.expanded.tx2gene.tsv"
+samples = (1 2 3 4)
+celltypes = ("Adipocytes" "Epithelial_cells" "Hepatocytes")
+minnow = "~/minnow/build/src/minnow"
+minnow_ind = "kidney_mouse/04_simulation_minnow/minnow_ind"
+g2t = "simulation/03_tominnow/annotation.expanded.tx2gene.tsv"
 
 for sample in ${samples[@]}
 do
