@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 })
 
 # load single cell experiment
-sce <- readRDS("kidney_mouse/03_data/mouse_data.rds")
+sce <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
 
 # run velocity estimation
 emat <- assay(sce, "spliced")
