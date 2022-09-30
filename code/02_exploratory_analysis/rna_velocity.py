@@ -9,6 +9,8 @@ scv.settings.verbosity = 3
 scv.settings.presenter_view = True
 scv.set_figure_params("scvelo", fontsize = 6)
 
+matplotlib.rcParams["figure.figsize"] = (6, 4)
+
 fig_path = "figures/kidney_mouse/"
 
 for i in range(1, 5):
