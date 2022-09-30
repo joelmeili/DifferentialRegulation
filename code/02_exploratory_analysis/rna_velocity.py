@@ -17,7 +17,7 @@ for i in range(1, 2):
 
     # show spliced and unspliced proportion
     scv.pl.proportions(adata)
-    plt.savfig(filename = fig_path + "proportions_normal" + str(i) + ".png")
+    plt.savefig(filename = fig_path + "proportions_normal" + str(i) + ".png")
 
     # basic preprocessing
     scv.pp.filter_and_normalize(adata)
