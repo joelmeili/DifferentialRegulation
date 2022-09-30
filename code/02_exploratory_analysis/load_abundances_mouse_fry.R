@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
   library(scater)
   library(celldex)
   library(SingleR)
+  library(anndata)
 })
 
 # load abundances
@@ -73,3 +74,25 @@ sce <- runUMAP(sce)
 
 # save data
 saveRDS(sce, file = "kidney_mouse/03_data/mouse_data_fry_USA.rds")
+
+# convert sce to anndata format for RNA velocity
+for (i in sample_ids) {
+	# select individual sample:
+	temp <- sce[, sce$sample_id == i]
+	
+	# create AnnData:
+	ad <- AnnData(
+		X = t(assay(temp, "spliced")),
+		layers = list(
+			spliced = t(sample(temp, "spliced")),
+			unspliced = t(sample(temp, "unspliced"))
+		),
+		obsm = list(
+			X_pca = reducedDim(temp, "PCA"),
+			X_umap = reducedDim(temp, "UMAP")
+		),
+		obs = data.frame(clusters = sce$cell_type)
+	)
+	write_loom(ad, paste0("kidney_mouse/03_data/adata_sample", i, ".loom"),
+						 write_obsm_varm = TRUE)
+}
