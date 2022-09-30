@@ -47,4 +47,5 @@ saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results.rds")
 saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE.rds")
 
 # prepare to run BRIE2
-prepare_brie(sce_US, CLUSTERS, GROUP)
+prepare_brie(sce_US, FALSE, CLUSTERS, GROUP)
+prepare_brie(sce_US_DGE, TRUE, CLUSTERS, GROUP)
