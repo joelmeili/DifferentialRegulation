@@ -10,8 +10,8 @@ suppressPackageStartupMessages({
 source("code/04_differential_analysis/run_differential_analysis.R")
 
 # import sce data
-sce_USA <- readRDS("simulation/01_data/mouse_simulation_data.rds")
-sce_USA_DGE <- readRDS("simulation/01_data/mouse_simulation_DGE_data.rds")
+sce_USA <- readRDS("kidney_mouse/03_data/mouse_simulation_data.rds")
+sce_USA_DGE <- readRDS("kidney_mouse/03_data/mouse_simulation_DGE_data.rds")
 
 # convert sce from USA to US mode
 convert_USA_to_US <- function (sce_USA) {
@@ -42,13 +42,5 @@ results_eisar <- run_analysis_eisar(sce_US, GROUP, CLUSTERS, min_count)
 results_eisar_DGE <- run_analysis_eisar(sce_US_DGE, GROUP, CLUSTERS, min_count)
 
 # saving the eisar results
-saveRDS(results_eisar, file = "simulation/02_results/eisar_results.rds")
-saveRDS(results_eisar_DGE, file = "simulation/02_results/eisar_results_DGE.rds")
-
-# run dexseq on the sce USA mode
-results_dexseq <- run_analysis_dexseq(sce_USA, GROUP, CLUSTERS, min_count)
-results_dexseq_DGE <- run_analysis_dexseq(sce_USA_DGE, GROUP, CLUSTERS, min_count)
-
-# saving the dexseq results
-saveRDS(results_dexseq, file = "simulation/02_results/dexseq_results.rds")
-saveRDS(results_dexseq_DGE, file = "simulation/02_results/dexseq_results_DGE.rds")
+saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results.rds")
+saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE.rds")
