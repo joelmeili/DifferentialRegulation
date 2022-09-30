@@ -20,8 +20,8 @@ for i in range(1, 2):
     plt.savefig(fname = fig_path + "proportions_normal" + str(i) + ".png")
 
     # basic preprocessing
-    scv.pp.filter_and_normalize(adata)
-    scv.pp.normalize_per_cell(adata)
+    scv.pp.filter_and_normalize(adata, enforce = True)
+    scv.pp.normalize_per_cell(adata, enforce = True)
     scv.pp.filter_genes_dispersion(adata, n_top_genes = 2000)
     scv.pp.log1p(adata)
     scv.pp.filter_and_normalize(adata, min_shared_counts = 20, n_top_genes = 2000)
