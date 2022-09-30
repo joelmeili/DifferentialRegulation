@@ -11,7 +11,7 @@ scv.set_figure_params("scvelo", fontsize = 6)
 
 fig_path = "figures/kidney_mouse/"
 
-for i in range(1, 2):
+for i in range(1, 5):
     adata = scv.read("kidney_mouse/03_data/adata_normal" + str(i) + ".h5ad", cache = True)
     adata.layers["spliced"] = adata.X
     adata.obs = adata.obs.astype("category")
