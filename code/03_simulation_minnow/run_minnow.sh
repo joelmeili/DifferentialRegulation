@@ -19,12 +19,5 @@ do
       cmd="minnow simulate --splatter-mode --g2t $g2t --inputdir $input_dir --PCR 6 -r $minnow_ind/ref_k101_fixed.fa -e 0.01 -p 8 -o $output_dir --dbg --gfa $minnow_ind/dbg.gfa -w ~/minnow/data/737K-august-2016.txt --countProb ~/minnow/data/hg/countProb_pbmc_4k.txt --custom |& stdbuf -oL tr '\r' '\n' > $log_file"
       echo $cmd
       eval $cmd
-      
-      input_dir="kidney_mouse/04_simulation_minnow/simulation_DGE/normal$sample/$type"
-      output_dir="kidney_mouse/04_simulation_minnow/simulation_DGE/normal${sample}_${type}_simulated_reads"
-      log_file="kidney_mouse/04_simulation_minnow/simulation_DGE/minnow_simulate_normal${sample}_${type}.log"
-      cmd="minnow simulate --splatter-mode --g2t $g2t --inputdir $input_dir --PCR 6 -r $minnow_ind/ref_k101_fixed.fa -e 0.01 -p 8 -o $output_dir --dbg --gfa $minnow_ind/dbg.gfa -w ~/minnow/data/737K-august-2016.txt --countProb ~/minnow/data/hg/countProb_pbmc_4k.txt --custom |& stdbuf -oL tr '\r' '\n' > $log_file"
-      echo $cmd
-      eval $cmd
   done
 done
