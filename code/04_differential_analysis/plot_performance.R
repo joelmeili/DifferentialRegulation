@@ -23,10 +23,10 @@ plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	cobra_plot <- prepare_data_for_plot(perf, facetted = TRUE)
 	
 	# plot ROC curve
-	plot_roc(cobra_plot) +
-		ggsave(filename = paste0(SAVE_FILE_PATH, "_ROC.pdf"))
+	roc <- plot_roc(cobra_plot)
+	ggsave(roc, filename = paste0(SAVE_FILE_PATH, "_ROC.pdf"))
 	
 	# plot FDR/TPR curve
-	plot_fdrtprcurve(cobra_plot) +
-		ggsave(filename = paste0(SAVE_FILE_PATH, "_fdr_tpr.pdf"))
+	fdr <- plot_fdrtprcurve(cobra_plot)
+	ggsave(fdr, filename = paste0(SAVE_FILE_PATH, "_fdr_tpr.pdf"))
 }
