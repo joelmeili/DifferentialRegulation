@@ -43,8 +43,8 @@ results_eisar <- run_analysis_eisar(sce_US, GROUP, CLUSTERS, min_count)
 results_eisar_DGE <- run_analysis_eisar(sce_US_DGE, GROUP, CLUSTERS, min_count)
 
 # saving the eisaR results
-saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results.rds")
-saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE.rds")
+saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results_sim.rds")
+saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE_sim.rds")
 
 # prepare to run BRIE2
 prepare_brie(sce_US, FALSE, CLUSTERS, GROUP)

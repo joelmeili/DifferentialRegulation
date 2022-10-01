@@ -17,8 +17,8 @@ truth_DGE <- metadata(sce_DGE)$truth
 truth_DGE$truth_union <- ifelse(truth_DGE$truth == 0, ifelse(truth_DGE$truth_DGE == 1, 1, 0), truth_DGE$truth)
 
 # load results from eisaR
-results_eisar <- readRDS(file = "kidney_mouse/03_data/eisar_results.rds")
-results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE.rds")
+results_eisar <- readRDS(file = "kidney_mouse/03_data/eisar_results_sim.rds")
+results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE_sim.rds")
 
 # load results from BRIE2
 CLUSTERS <- c("Adipocytes")
