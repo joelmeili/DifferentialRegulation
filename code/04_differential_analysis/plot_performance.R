@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
 read_results_brie <- function (CLUSTERS) {
 	RESULTS <- lapply(CLUSTERS, function (CLUSTER) {
 		res <- read.table(file = paste0("kidney_mouse/03_data/BRIE2/simulation/isA_", CLUSTER, ".brie_ident.tsv"), sep = "\t")
+		res$Cell_type <- CLUSTER
 	})
 	
 	return (do.call("rbind", RESULTS))
