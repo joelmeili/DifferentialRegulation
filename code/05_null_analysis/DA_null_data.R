@@ -32,14 +32,14 @@ CLUSTERS <- sort(unique(sce$cell_type))[table(sce$cell_type) >= 100]
 
 # run eisaR on the US count data
 RESULTS_EISAR <- lapply(GROUPS, function (GROUP) {
-	run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS)
+	run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
 })
 
 eisar_RES <- list(RESULTS_EISAR[[1]], RESULTS_EISAR[[2]], RESULTS_EISAR[[3]])
 
 # run DEXSeq on the USA count data
 RESULTS_DEXSEQ <- lapply(GROUPS, function (GROUP) {
-	run_analysis_dexseq(sce = sce, GROUP = GROUP, CLUSTERS = CLUSTERS)
+	run_analysis_dexseq(sce = sce, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
 })
 
 dexseq_RES <- list(RESULTS_DEXSEQ[[1]], RESULTS_DEXSEQ[[2]], RESULTS_DEXSEQ[[3]])
