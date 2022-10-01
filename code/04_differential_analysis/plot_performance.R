@@ -4,6 +4,15 @@ suppressPackageStartupMessages({
 	library(ggplot2)
 })
 
+# read results BRIE2
+read_results_brie <- function (CLUSTERS) {
+	RESULTS <- lapply(CLUSTERS, function (CLUSTER) {
+		res <- read.csv(file = paste0("kidney_mouse/03_data/BRIE2/is_A_", CLUSTER, ".brie_ident.tsv"), sep = "\t")
+	})
+	
+	return (do.call("rbind", RESULTS))
+}
+
 # plot performance
 plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	
