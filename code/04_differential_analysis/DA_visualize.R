@@ -14,7 +14,7 @@ results_eisar <- readRDS(file = "kidney_mouse/03_data/eisar_results.rds")
 results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE.rds")
 
 # load results from BRIE2
-results_brie <- 
+results_brie <- read_results_brie(CLUSTERS = c("Adipocytes"))
 
 
 # merge results from eisaR and BRIE2
