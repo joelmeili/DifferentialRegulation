@@ -1,5 +1,6 @@
 # load packages
 suppressPackageStartupMessages({
+	library(SummarizedExperiment)
   library(foreach)
 })
 
@@ -12,7 +13,7 @@ run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count) {
   
   RESULTS_EISAR <- foreach(i = 1:length(CLUSTERS),
                            .combine = "rbind",
-                           .packages = c("muscat", "eisaR"),
+                           .packages = c("muscat", "eisaR", "SummarizedExperiment"),
                            .export = c("run_eisar", "prepare_bulk")) %dopar% {
                              
                              # select sce
@@ -38,7 +39,7 @@ run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
 	
 	RESULTS_DEXSEQ <- foreach(i = 1:length(CLUSTERS),
 													 .combine = "rbind",
-													 .packages = c("muscat", "DEXSeq"),
+													 .packages = c("muscat", "DEXSeq", "SummarizedExperiment"),
 													 .export = c("run_eisar", "prepare_bulk")) %dopar% {
 													 	
 													 	# select sce
