@@ -35,6 +35,6 @@ plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot")
 	
 	# save plots
-	grob <- arrangeGrob(roc, fdr, ncol = 2)
+	grob <- arrangeGrob(roc, fdr, nrow = 2)
 	ggsave(grob, file = paste0(SAVE_FILE_PATH, "_performance.png"), height = 5, width = 6)
 }
