@@ -4,6 +4,7 @@ rm(list = ls())
 # import libraries
 suppressPackageStartupMessages({
 	library(doParallel)
+	library(DifferentialRegulation)
 })
 
 # load functions
