@@ -33,7 +33,7 @@ sce_US <- convert_USA_to_US(sce_USA)
 sce_US_DGE <- convert_USA_to_US(sce_USA_DGE)
 
 # setup parallel
-n_cores <- 8
+n_cores <- 4
 cl <- makeCluster(n_cores)
 registerDoParallel(cl)
 
