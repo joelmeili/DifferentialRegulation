@@ -50,8 +50,8 @@ saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results_sim.rds")
 saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE_sim.rds")
 
 # prepare to run BRIE2
-prepare_brie(sce_US, FALSE, CLUSTERS, GROUP)
-prepare_brie(sce_US_DGE, TRUE, CLUSTERS, GROUP)
+#prepare_brie(sce_US, FALSE, CLUSTERS, GROUP)
+#prepare_brie(sce_US_DGE, TRUE, CLUSTERS, GROUP)
 
 # run DEXSeq on the sce USA mode
 results_dexseq <- run_analysis_dexseq(sce_USA, CLUSTERS, min_count)
