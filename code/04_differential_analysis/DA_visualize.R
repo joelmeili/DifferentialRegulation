@@ -1,11 +1,6 @@
 # clean environment
 rm(list = ls())
 
-# load libraries
-suppressPackageStartupMessages({
-	library(UpSetR)
-})
-
 # load functions
 source("code/04_differential_analysis/plot_performance.R")
 
@@ -22,7 +17,7 @@ results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE_sim.
 
 # load results from BRIE2
 CLUSTERS <- c("Adipocytes")
-results_brie <- read_results_brie(CLUSTERS)
+results_brie <- read_results_brie(CLUSTERS, DGE = FALSE)
 results_brie_DGE <- read_results_brie(CLUSTERS, DGE = TRUE)
 
 # merge results from eisaR and BRIE2

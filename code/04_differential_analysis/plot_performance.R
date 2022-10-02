@@ -2,6 +2,7 @@
 suppressPackageStartupMessages({
 	library(iCOBRA)
 	library(ggplot2)
+	library(gridExtra)
 })
 
 # read results BRIE2
@@ -29,9 +30,11 @@ plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	
 	# plot ROC curve
 	roc <- plot_roc(cobra_plot, title = "ROC curve")
-	ggsave(roc, filename = paste0(SAVE_FILE_PATH, "_ROC.pdf"))
 	
 	# plot TPR/FDR curve
 	fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot")
-	ggsave(fdr, filename = paste0(SAVE_FILE_PATH, "_fdr_tpr.pdf"))
+	
+	# save plots
+	grob <- arrangeGrob(roc, fdr, ncol = 2)
+	ggsave(grob, file = paste0(SAVE_FILE_PATH, "_performance.png"), height = 5, width = 6)
 }
