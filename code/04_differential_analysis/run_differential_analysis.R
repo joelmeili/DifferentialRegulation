@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 source("code/04_differential_analysis/differential_analysis.R")
 
 # run eisaR on the US data
-run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count) {
+run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count = 20) {
   sce$group <- ifelse(sce$sample_id %in% which(GROUP == "A"), "A", "B")
   
   RESULTS_EISAR <- foreach(i = 1:length(CLUSTERS),
@@ -33,7 +33,7 @@ run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count) {
 }
 
 # run DEXSeq on the USA data
-run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
+run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count = 20) {
 	sce$group <- ifelse(sce$sample_id %in% which(GROUP == "A"), "A", "B")
 	
 	RESULTS_DEXSEQ <- foreach(i = 1:length(CLUSTERS),
