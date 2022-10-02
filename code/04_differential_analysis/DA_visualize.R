@@ -1,6 +1,11 @@
 # clean environment
 rm(list = ls())
 
+# import libraries
+suppressPackageStartupMessages({
+	library(DifferentialRegulation)
+})
+
 # load functions
 source("code/04_differential_analysis/plot_performance.R")
 
