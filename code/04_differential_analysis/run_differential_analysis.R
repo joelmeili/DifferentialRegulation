@@ -40,7 +40,7 @@ run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
 	RESULTS_DEXSEQ <- foreach(i = 1:length(CLUSTERS),
 													 .combine = "rbind",
 													 .packages = c("muscat", "DEXSeq", "SummarizedExperiment"),
-													 .export = c("run_eisar", "prepare_bulk")) %dopar% {
+													 .export = c("run_dexseq", "prepare_bulk")) %dopar% {
 													 	
 													 	# select sce
 													 	temp <- sce[, sce$cell_type == CLUSTERS[[i]]]
