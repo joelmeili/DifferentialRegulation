@@ -12,8 +12,7 @@ run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count) {
   
   RESULTS_EISAR <- foreach(i = 1:length(CLUSTERS),
                            .combine = "rbind",
-                           .packages = c("muscat", "eisaR",
-                                         "SummarizedExperiment"),
+                           .packages = c("muscat", "eisaR"),
                            .export = c("run_eisar", "prepare_bulk", "min_count")) %dopar% {
                              
                              # select sce
@@ -39,8 +38,7 @@ run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
 	
 	RESULTS_DEXSEQ <- foreach(i = 1:length(CLUSTERS),
 														.combine = "rbind",
-														.packages = c("muscat", "DEXSeq",
-																					"SummarizedExperiment"),
+														.packages = c("muscat", "DEXSeq"),
 														.export = c("run_dexseq", "prepare_bulk", "min_count")) %dopar% {
 															
 															# select sce
@@ -57,4 +55,5 @@ run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
 															
 															return (RES)
 														}
-	}
+	return (RESULTS_DEXSEQ)
+}
