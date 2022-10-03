@@ -8,15 +8,16 @@ suppressPackageStartupMessages({
 # read results BRIE2
 read_results_brie <- function (CLUSTERS, DGE) {
 	RESULTS <- lapply(CLUSTERS, function (CLUSTER) {
+		if (CLUSTER == "Epithelial_cells") {CLUSTER_PATH <- "Epithelial cells"} else {CLUSTER_PATH <- CLUSTER}
 		if (DGE) {
-			res <- read.table(file = paste0("kidney_mouse/03_data/BRIE2/simulation_DGE/isA_", CLUSTER, ".brie_ident.tsv"), sep = "\t", header = TRUE)
-			res$Cell_type <- CLUSTER
-			colnames(res)[1] <- "Gene_id"
+			res <- read.table(file = paste0("kidney_mouse/03_data/BRIE2/simulation_DGE/isA_", CLUSTER_PATH, ".brie_ident.tsv"), sep = "\t", header = TRUE)
 		} else {
-			res <- read.table(file = paste0("kidney_mouse/03_data/BRIE2/simulation/isA_", CLUSTER, ".brie_ident.tsv"), sep = "\t", header = TRUE)
-			res$Cell_type <- CLUSTER
-			colnames(res)[1] <- "Gene_id"
+			res <- read.table(file = paste0("kidney_mouse/03_data/BRIE2/simulation/isA_", CLUSTER_PATH, ".brie_ident.tsv"), sep = "\t", header = TRUE)
 		}
+
+		res$Cell_type <- CLUSTER
+		colnames(res)[1] <- "Gene_id"
+
 		return (res)
 	})
 	return (do.call("rbind", RESULTS))
