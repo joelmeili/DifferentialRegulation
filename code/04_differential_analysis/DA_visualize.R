@@ -21,7 +21,7 @@ results_eisar <- readRDS(file = "kidney_mouse/03_data/eisar_results_sim.rds")
 results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE_sim.rds")
 
 # load results from BRIE2
-CLUSTERS <- c("Adipocytes", "Epithelial cells", "Hepatocytes")
+CLUSTERS <- c("Adipocytes", "Epithelial cells")
 results_brie <- read_results_brie(CLUSTERS, DGE = FALSE)
 results_brie_DGE <- read_results_brie(CLUSTERS, DGE = TRUE)
 
