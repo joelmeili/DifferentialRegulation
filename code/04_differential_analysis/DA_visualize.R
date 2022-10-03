@@ -17,7 +17,7 @@ truth <- metadata(sce)$truth
 truth_DGE <- metadata(sce_DGE)$truth
 truth_DGE$truth_union <- ifelse(truth_DGE$truth == 0, ifelse(truth_DGE$truth_DGE == 1, 1, 0), truth_DGE$truth)
 
-# defin clusters
+# define clusters
 CLUSTERS <- c("Adipocytes", "Epithelial cells")
 
 # load results from eisaR
