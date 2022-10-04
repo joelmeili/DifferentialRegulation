@@ -66,7 +66,7 @@ design <- data.frame("sample" = sce_USA$sample_id, "group" = sce_USA$group)
 design_DGE <- data.frame("sample" = sce_USA_DGE$sample_id, "group" = sce_USA_DGE$group)
 
 pb_counts <- compute_PB_counts(sce_USA, design = design, EC_list = NULL)
-pb_countsDGE <- compute_PB_counts(sce_USA_DGE, design = design_DGE, EC_list = NULL)
+pb_counts_DGE <- compute_PB_counts(sce_USA_DGE, design = design_DGE, EC_list = NULL)
 
 results_diff_reg <- DifferentialRegulation(pb_counts, EC = FALSE, n_cores = 8)
 results_diff_reg_DGE <- DifferentialRegulation(pb_counts_DGE, EC = FALSE, n_cores = 8)
