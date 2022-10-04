@@ -18,7 +18,7 @@ truth_DGE <- metadata(sce_DGE)$truth
 truth_DGE$truth_union <- ifelse(truth_DGE$truth == 0, ifelse(truth_DGE$truth_DGE == 1, 1, 0), truth_DGE$truth)
 
 # define clusters
-CLUSTERS <- c("Adipocytes", "Epithelial cells")
+CLUSTERS <- c("Adipocytes", "Epithelial cells", "Hepatocytes")
 
 # load results from eisaR
 results_eisar <- readRDS(file = "kidney_mouse/03_data/eisar_results_sim.rds")
