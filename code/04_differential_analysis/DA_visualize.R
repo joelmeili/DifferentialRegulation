@@ -28,6 +28,12 @@ results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE_sim.
 results_brie <- read_results_brie(CLUSTERS, DGE = FALSE)
 results_brie_DGE <- read_results_brie(CLUSTERS, DGE = TRUE)
 
+# load results from DEXSeq
+results_dexseq <- readRDS("kidney_mouse/03_data/dexseq_results_sim.rds")
+results_dexseq_DGE <- readRDS("kidney_mouse/03_data/dexseq_results_sim.rds")
+
+# load results from DifferentialRegulation
+
 # merge results from eisaR and BRIE2
 results_merged <- merge(results_eisar, results_brie, by = c("Gene_id", "Cell_type"))
 results_merged <- merge(results_merged, truth, by = c("Gene_id", "Cell_type"))
