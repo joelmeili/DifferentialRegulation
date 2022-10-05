@@ -15,7 +15,7 @@ GROUPS <- list(c("A", "A", "B", "B"),
 							 c("A", "B", "A", "B"),
 							 c("A", "B", "B", "A"))
 
-CLUSTERS <- sort(unique(sce$cell_type))[table(sce$cell_type) >= 100]
+CLUSTERS <- sort(unique(sce_USA$cell_type))[table(sce_USA$cell_type) >= 100]
 
 # convert sce from USA to US mode
 convert_USA_to_US <- function (sce_USA) {
