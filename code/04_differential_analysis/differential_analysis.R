@@ -59,27 +59,27 @@ run_eisar <- function (sce, GROUP, method = "US") {
   return (RES)
 }
 
-run_dexseq <- function (sce, GROUP){
+run_dexseq <- function (sce, GROUP, method = "US"){
 	# pseudobulk data
-	bulk <- prepare_bulk(sce, GROUP, method = "USA")
-	pb_S <- bulk[[1]]; pb_U <- bulk[[2]]; pb_A <- bulk[[3]]
+	bulk <- prepare_bulk(sce, GROUP, method = "US")
+	pb_S <- bulk[[1]]; pb_U <- bulk[[2]]
 	
 	# prepare design matrix
 	genes <- rownames(pb_S)
 	group <- GROUP
 	n_genes <- length(genes)
 	design <- data.frame(condition = factor(group))
-	spliced_unspliced_ambiguous <- factor(c(rep("S", n_genes), rep("U", n_genes),  rep("A", n_genes)))
-	counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]], assays(pb_A)[[1]])
+	spliced_unspliced <- factor(c(rep("S", n_genes), rep("U", n_genes)))
+	counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]])
 	
 	# set parallel cores:
-	BPPARAM = MulticoreParam(6)
+	BPPARAM = MulticoreParam(8)
 	
 	# analyze each cluster separately:
 	dxd <- DEXSeqDataSet(countData = round(counts),
 											 sampleData = design,
 											 design = ~sample + exon + condition:exon,
-											 featureID = spliced_unspliced_ambiguous,
+											 featureID = spliced_unspliced,
 											 groupID = rep(genes, 3))
 	
 	dxd <- estimateSizeFactors(dxd)
