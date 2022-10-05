@@ -80,7 +80,7 @@ run_dexseq <- function (sce, GROUP, method = "US"){
 											 sampleData = design,
 											 design = ~sample + exon + condition:exon,
 											 featureID = spliced_unspliced,
-											 groupID = rep(genes, 3))
+											 groupID = rep(genes, 2))
 	
 	dxd <- estimateSizeFactors(dxd)
 	dxd <- estimateDispersions(dxd, quiet = TRUE)
