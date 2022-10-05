@@ -7,33 +7,37 @@ suppressPackageStartupMessages({
 })
 
 # load data
-results_eisar <- readRDS("kidney_mouse/03_data/eisar_res_US.rds")
+results_eisar <- readRDS("kidney_mouse/03_data/eisar_res_null.rds")
+results_dexseq_US <- readRDS("kidney_mouse/03_data/dexseq_res_US_null.rds")
 
 # GROUPS
-GROUPS <- list(c("A", "A", "B", "B"),
-							 c("A", "B", "A", "B"),
-							 c("A", "B", "B", "A"))
+GROUPS <- c("AABB",
+						"ABAB",
+						"ABBA")
 
-GROUPS_LABELLER <- list(
-	"Group#1" = "A A B B",
-	"Group#2" = "A B A B",
-	"Group#3" = "A B B A"
-)
-
-# visualize p-value distribution of eisaR
 for (i in 1:length(GROUPS)) {
-	results_eisar[[i]]$Group <- i
-	results_eisar[[i]]$Method <- "eisaR"
-}
-
-
-group_labeller <- function(variable, value){
-	return (GROUPS_LABELLER[value])
+	results_eisar[[i]]$Group <- GROUPS[[i]]
+	results_dexseq_US[[i]]$Group <- GROUPS[[i]]
 }
 
 results_eisar <- do.call("rbind", results_eisar)
+results_eisar$Method <- "eisaR"
+results_eisar$P_value <- results_eisar$p_eisaR
+results_eisar$P_value_adj <- results_eisar$p_eisaR_adj
+results_eisar <- results_eisar[, c("Gene_id", "Cell_type", "Method", "Group", "P_value", "P_value_adj")]
 
-ggplot(results_eisar, aes(x = p_eisaR)) + geom_histogram(aes(y = ..density..)) +
-	 geom_density(alpha = 0.2) + facet_grid(~ Group, labeller = group_labeller) + theme_classic() +
-	xlab("P-value") + ylab("Density") + ggtitle("P-value distribution across all three possible group separations")
+results_dexseq_US <- do.call("rbind", results_dexseq_US)
+results_dexseq_US$Method <- "DEXSeq"
+results_dexseq_US$P_value <- results_dexseq_US$p_DEXSeq
+results_dexseq_US$P_value_adj <- results_dexseq_US$p_DEXSeq_adj
+results_dexseq_US <- results_dexseq_US[, c("Gene_id", "Cell_type", "Method", "Group", "P_value", "P_value_adj")]
+
+results <- rbind(results_eisar, results_dexseq_US)
+
+# plot p-value distributions across groups
+g1 <- ggplot(results, aes(x = P_value, fill = Method)) + facet_grid(~ Group) +
+	geom_histogram(aes(y = ..density..), alpha = 0.4) + theme_classic() +
+	geom_line(aes(y = ..density.., colour = Method), stat = "density") +
+	xlab("P-value") + ylab("Density") + ggtitle("P-value distribution based on group separation")
+ggsave(g1, filename = "figures/null_analysis/p_value_distribution.png", height = 4, width = 6, scale = 1.5)
 
