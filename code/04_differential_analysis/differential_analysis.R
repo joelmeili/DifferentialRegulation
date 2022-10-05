@@ -7,6 +7,16 @@ suppressPackageStartupMessages({
 })
 
 # differential analysis
+convert_USA_to_US <- function (sce_USA) {
+	temp <- sce_USA
+	assay(temp, "spliced") <- assay(temp, "spliced") + 0.5 * assay(temp, "ambiguous")
+	assay(temp, "unspliced") <- assay(temp, "unspliced") + 0.5 * assay(temp, "ambiguous")
+	assay(temp, "ambiguous") <- NULL
+	assay(temp, "TOT_counts") <- assay(temp, "spliced") + assay(temp, "unspliced")
+	
+	return (temp)
+}
+
 prepare_bulk <- function (sce, GROUP, method = "US") {
   # prepare sce for pseudobulk
   sce$group_id <- 1
@@ -59,18 +69,18 @@ run_eisar <- function (sce, GROUP, method = "US") {
   return (RES)
 }
 
-run_dexseq <- function (sce, GROUP, method = "US"){
+run_dexseq <- function (sce, GROUP, method = "USA"){
 	# pseudobulk data
-	bulk <- prepare_bulk(sce, GROUP, method = "US")
-	pb_S <- bulk[[1]]; pb_U <- bulk[[2]]
+	bulk <- prepare_bulk(sce, GROUP, method = "USA")
+	pb_S <- bulk[[1]]; pb_U <- bulk[[2]]; pb_A <- bulk[[3]]
 	
 	# prepare design matrix
 	genes <- rownames(pb_S)
 	group <- GROUP
 	n_genes <- length(genes)
 	design <- data.frame(condition = factor(group))
-	spliced_unspliced <- factor(c(rep("S", n_genes), rep("U", n_genes)))
-	counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]])
+	spliced_unspliced <- factor(c(rep("S", n_genes), rep("U", n_genes), rep("A", n_genes)))
+	counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]], rbind(assays(pb_A)[[1]]))
 	
 	# set parallel cores:
 	BPPARAM = MulticoreParam(8)
@@ -80,7 +90,7 @@ run_dexseq <- function (sce, GROUP, method = "US"){
 											 sampleData = design,
 											 design = ~sample + exon + condition:exon,
 											 featureID = spliced_unspliced,
-											 groupID = rep(genes, 2))
+											 groupID = rep(genes, 3))
 	
 	dxd <- estimateSizeFactors(dxd)
 	dxd <- estimateDispersions(dxd, quiet = TRUE)
