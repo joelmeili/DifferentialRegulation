@@ -30,7 +30,7 @@ convert_USA_to_US <- function (sce_USA) {
 }
 
 sce_US <- convert_USA_to_US(sce_USA)
-scE_US_DGE <- convert_USA_to_US(sce_USA_DGE)
+sce_US_DGE <- convert_USA_to_US(sce_USA_DGE)
 
 # setup parallel
 n_cores <- 8
