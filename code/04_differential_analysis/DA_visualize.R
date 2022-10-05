@@ -38,7 +38,7 @@ results_merged <- merge(results_merged, results_dexseq, by = c("Gene_id", "Cell_
 results_merged <- merge(results_merged, truth, by = c("Gene_id", "Cell_type"))
 
 results_merged_DGE <- merge(results_eisar_DGE, results_brie_DGE, by = c("Gene_id", "Cell_type"))
-results_mered_DGE <- merge(results_merged_DGE, results_dexseq_DGE, by = c("Gene_id", "Cell_type"))
+results_merged_DGE <- merge(results_merged_DGE, results_dexseq_DGE, by = c("Gene_id", "Cell_type"))
 results_merged_DGE <- merge(results_merged_DGE, truth_DGE, by = c("Gene_id", "Cell_type"))
 
 # show ROC and TPR/FPR curves
