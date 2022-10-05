@@ -28,17 +28,11 @@ results_eisar_DGE <- readRDS(file = "kidney_mouse/03_data/eisar_results_DGE_sim.
 results_brie <- read_results_brie(CLUSTERS, DGE = FALSE)
 results_brie_DGE <- read_results_brie(CLUSTERS, DGE = TRUE)
 
-# load results from DEXSeq
-results_dexseq <- readRDS("kidney_mouse/03_data/dexseq_results_sim.rds")
-results_dexseq_DGE <- readRDS("kidney_mouse/03_data/dexseq_results_sim.rds")
-
 # merge results from eisaR, BRIE2 and DEXSeq
 results_merged <- merge(results_eisar, results_brie, by = c("Gene_id", "Cell_type"))
-results_merged <- merge(results_merged, results_dexseq, by = c("Gene_id", "Cell_type"))
 results_merged <- merge(results_merged, truth, by = c("Gene_id", "Cell_type"))
 
 results_merged_DGE <- merge(results_eisar_DGE, results_brie_DGE, by = c("Gene_id", "Cell_type"))
-results_merged_DGE <- merge(results_merged_DGE, results_dexseq_DGE, by = c("Gene_id", "Cell_type"))
 results_merged_DGE <- merge(results_merged_DGE, truth_DGE, by = c("Gene_id", "Cell_type"))
 
 # show ROC and TPR/FPR curves
@@ -46,12 +40,10 @@ SAVE_FILE_PATH <- "figures/simulation/initial_simulation"
 
 DF_COBRA <- COBRAData(pval = data.frame(
 	eisaR = results_merged$p_eisaR,
-	BRIE2 = results_merged$is_A_pval,
-	DEXSeq = results_merged$p_DEXSeq),
+	BRIE2 = results_merged$is_A_pval),
 	padj = data.frame(
 		eisaR = results_merged$p_eisaR_adj,
-		BRIE2 = results_merged$is_A_FDR,
-		DEXSeq = results_merged$p_DEXSeq_adj),
+		BRIE2 = results_merged$is_A_FDR),
 	truth = data.frame(status = results_merged$truth))
 
 plot_performance(DF_COBRA, SAVE_FILE_PATH)
@@ -60,12 +52,10 @@ SAVE_FILE_PATH <- "figures/simulation/initial_simulation_DGE"
 
 DF_COBRA <- COBRAData(pval = data.frame(
 	eisaR = results_merged_DGE$p_eisaR,
-	BRIE2 = results_merged_DGE$is_A_pval,
-	DEXSeq = results_merged_DGE$p_DEXSeq),
+	BRIE2 = results_merged_DGE$is_A_pval),
 	padj = data.frame(
 		eisaR = results_merged_DGE$p_eisaR_adj,
-		BRIE2 = results_merged_DGE$is_A_FDR,
-		DEXSeq = results_merged_DGE$p_DEXSeq_adj),
+		BRIE2 = results_merged_DGE$is_A_FDR,),
 	truth = data.frame(status = results_merged_DGE$truth_union))
 
 plot_performance(DF_COBRA, SAVE_FILE_PATH)

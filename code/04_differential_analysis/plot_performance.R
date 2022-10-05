@@ -32,12 +32,12 @@ plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	# plot ROC curve
 	roc <- plot_roc(cobra_plot, title = "ROC curve") +
 		guides(colour = guide_legend(title = "Method"))  +
-		scale_color_manual(values = c("#F8766D", "#00BA38", "#619CFF"), labels = c("BRIE2", "DEXSeq", "eisaR"))
+		scale_color_manual(values = c("#F8766D", "#00BA38"), labels = c("BRIE2", "eisaR"))
 	
 	# plot TPR/FDR curve
 	fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot") +
 		guides(colour = guide_legend(title = "Method")) +
-		scale_color_manual(values = c("#F8766D", "#00BA38", "#619CFF"), labels = c("BRIE2", "DEXSeq", "eisaR"))
+		scale_color_manual(values = c("#F8766D", "#00BA38"), labels = c("BRIE2", "eisaR"))
 		
 	# save plots
 	grob <- arrangeGrob(roc, fdr, nrow = 2)
