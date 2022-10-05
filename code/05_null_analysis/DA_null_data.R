@@ -8,6 +8,15 @@ source("code/04_differential_analysis/prepare_brie.R")
 # load data
 sce_USA <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
 
+# run DA on the mouse data
+min_count <- 20
+
+GROUPS <- list(c("A", "A", "B", "B"),
+							 c("A", "B", "A", "B"),
+							 c("A", "B", "B", "A"))
+
+CLUSTERS <- sort(unique(sce$cell_type))[table(sce$cell_type) >= 100]
+
 # convert sce from USA to US mode
 convert_USA_to_US <- function (sce_USA) {
 	temp <- sce_USA
@@ -20,15 +29,6 @@ convert_USA_to_US <- function (sce_USA) {
 }
 
 sce_US <- convert_USA_to_US(sce_USA)
-
-# run DA on the mouse data
-min_count <- 20
-
-GROUPS <- list(c("A", "A", "B", "B"),
-							 c("A", "B", "A", "B"),
-							 c("A", "B", "B", "A"))
-
-CLUSTERS <- sort(unique(sce$cell_type))[table(sce$cell_type) >= 100]
 
 # run eisaR on the US count data
 RESULTS_EISAR <- lapply(GROUPS, function (GROUP) {
