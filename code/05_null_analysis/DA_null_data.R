@@ -46,9 +46,12 @@ RESULTS_DEXSEQ <- lapply(GROUPS, function (GROUP) {
 	run_analysis_dexseq(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "US")
 })
 end <- Sys.time()
-dexseq_time <- end -start
+dexseq_time <- end - start
 
 dexseq_RES <- list(RESULTS_DEXSEQ[[1]], RESULTS_DEXSEQ[[2]], RESULTS_DEXSEQ[[3]])
+
+print(eisar_time)
+print(dexseq_time)
 
 # save results
 saveRDS(eisar_RES, file = "kidney_mouse/03_data/eisar_res_null.rds")
