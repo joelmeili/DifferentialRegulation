@@ -31,16 +31,22 @@ convert_USA_to_US <- function (sce_USA) {
 sce_US <- convert_USA_to_US(sce_USA)
 
 # run eisaR on the US count data
+start <- Sys.time()
 RESULTS_EISAR <- lapply(GROUPS, function (GROUP) {
 	run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
 })
+end <- Sys.time()
+eisar_time <- end - start
 
 eisar_RES <- list(RESULTS_EISAR[[1]], RESULTS_EISAR[[2]], RESULTS_EISAR[[3]])
 
 # run DEXSeq on the US count data
+start <- Sys.time()
 RESULTS_DEXSEQ <- lapply(GROUPS, function (GROUP) {
-	run_analysis_dexseq(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
+	run_analysis_dexseq(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "US")
 })
+end <- Sys.time()
+dexseq_time <- end -start
 
 dexseq_RES <- list(RESULTS_DEXSEQ[[1]], RESULTS_DEXSEQ[[2]], RESULTS_DEXSEQ[[3]])
 

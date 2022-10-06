@@ -71,26 +71,39 @@ run_eisar <- function (sce, GROUP, method = "US") {
 
 run_dexseq <- function (sce, GROUP, method = "USA"){
 	# pseudobulk data
-	bulk <- prepare_bulk(sce, GROUP, method = "USA")
-	pb_S <- bulk[[1]]; pb_U <- bulk[[2]]; pb_A <- bulk[[3]]
+	
+	if (method == "USA") {
+		bulk <- prepare_bulk(sce, GROUP, method = "USA")
+		pb_S <- bulk[[1]]; pb_U <- bulk[[2]]; pb_A <- bulk[[3]]
+	} else {
+		bulk <- prepare_bulk(sce, GROUP, method = "US")
+		pb_S <- bulk[[1]]; pb_U <- bulk[[2]]
+	}
 	
 	# prepare design matrix
 	genes <- rownames(pb_S)
 	group <- GROUP
 	n_genes <- length(genes)
 	design <- data.frame(condition = factor(group))
-	spliced_unspliced <- factor(c(rep("S", n_genes), rep("U", n_genes), rep("A", n_genes)))
-	counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]], rbind(assays(pb_A)[[1]]))
+	if (method == "USA") {
+		spliced_unspliced <- factor(c(rep("S", n_genes), rep("U", n_genes), rep("A", n_genes)))
+		counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]], rbind(assays(pb_A)[[1]]))
+	} else {
+		spliced_unspliced <- factor(c(rep("S", n_genes), rep("U", n_genes)))
+		counts <- rbind(assays(pb_S)[[1]], assays(pb_U)[[1]])
+	}
 	
 	# set parallel cores:
-	BPPARAM = MulticoreParam(8)
+	BPPARAM = MulticoreParam(3)
+	
+	if (method == "USA") {groupID <- rep(genes, 3)} else {groupID <-rep(genes, 2)}
 	
 	# analyze each cluster separately:
 	dxd <- DEXSeqDataSet(countData = round(counts),
 											 sampleData = design,
 											 design = ~sample + exon + condition:exon,
 											 featureID = spliced_unspliced,
-											 groupID = rep(genes, 3))
+											 groupID = groupID)
 	
 	dxd <- estimateSizeFactors(dxd)
 	dxd <- estimateDispersions(dxd, quiet = TRUE)

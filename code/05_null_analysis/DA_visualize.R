@@ -16,8 +16,8 @@ GROUPS <- c("AABB",
 						"ABBA")
 
 for (i in 1:length(GROUPS)) {
-	results_eisar[[i]]$Group <- GROUPS[[i]]
-	results_dexseq_US[[i]]$Group <- GROUPS[[i]]
+	results_eisar[[i]]$Group <- i
+	results_dexseq_US[[i]]$Group <- i
 }
 
 results_eisar <- do.call("rbind", results_eisar)
@@ -35,7 +35,7 @@ results_dexseq_US <- results_dexseq_US[, c("Gene_id", "Cell_type", "Method", "Gr
 results <- rbind(results_eisar, results_dexseq_US)
 
 # plot p-value distributions across groups
-g1 <- ggplot(results, aes(x = P_value, fill = Method)) + facet_grid(~ Group) +
+g1 <- ggplot(results, aes(x = P_value, fill = Group)) + facet_grid(~ Group) +
 	geom_histogram(aes(y = ..density..), alpha = 0.4) + theme_classic() +
 	geom_line(aes(y = ..density.., colour = Method), stat = "density") +
 	xlab("P-value") + ylab("Density") + ggtitle("P-value distribution based on group separation")

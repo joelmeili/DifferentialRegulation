@@ -34,7 +34,7 @@ run_analysis_eisar <- function (sce, GROUP, CLUSTERS, min_count) {
 }
 
 # run DEXSeq on the USA data
-run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
+run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count, method) {
 	sce$group <- ifelse(sce$sample_id %in% which(GROUP == "A"), "A", "B")
 	
 	RESULTS_DEXSEQ <- foreach(i = 1:length(CLUSTERS),
@@ -51,7 +51,7 @@ run_analysis_dexseq <- function (sce, GROUP, CLUSTERS, min_count) {
 													 	temp <- temp[filter, ]
 													 	
 													 	# run DEXSeq
-													 	RES <- run_dexseq(sce = temp, GROUP = GROUP)
+													 	RES <- run_dexseq(sce = temp, GROUP = GROUP, method = method)
 													 	RES$Cell_type <- CLUSTERS[[i]]
 													 	
 													 	return (RES)
