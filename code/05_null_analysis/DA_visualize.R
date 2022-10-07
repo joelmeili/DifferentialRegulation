@@ -4,40 +4,114 @@ rm(list = ls())
 # import libraries
 suppressPackageStartupMessages({
 	library(ggplot2)
+	library(xtable)
 })
 
 # load data
-results_eisar <- readRDS("kidney_mouse/03_data/eisar_res_null.rds")
-results_dexseq_US <- readRDS("kidney_mouse/03_data/dexseq_res_US_null.rds")
+DF_merged <- readRDS("kidney_mouse/03_data/DA_null.rds")
+load("kidney_mouse/03_data/DA_null_eisar.RData")
+load("kidney_mouse/03_data/DA_null_diff_reg.RData")
+load("kidney_mouse/03_data/DA_null_dexseq.RData")
 
-# GROUPS
-GROUPS <- c("AABB",
-						"ABAB",
-						"ABBA")
+colnames(DF_merged) <- c("Gene_id", "Cell_type", "Group",
+												"eisaR", "eisaR_FDR",
+												"BRIE2", "BRIE2_FDR")
 
-for (i in 1:length(GROUPS)) {
-	results_eisar[[i]]$Group <- i
-	results_dexseq_US[[i]]$Group <- i
+DF_merged$Gene_id <- substr(DF_merged$Gene_id, 1, 18)
+
+DF_merged$eisaR <- NULL
+DF_merged$eisaR_FDR <- NULL
+
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+# eisaR:
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+for(gr in 1:3){
+	DF_eisaR_list[[gr]]$Group <-gr
 }
+DF_eisaR_unlist <- do.call(rbind, DF_eisaR_list)
 
-results_eisar <- do.call("rbind", results_eisar)
-results_eisar$Method <- "eisaR"
-results_eisar$P_value <- results_eisar$p_eisaR
-results_eisar$P_value_adj <- results_eisar$p_eisaR_adj
-results_eisar <- results_eisar[, c("Gene_id", "Cell_type", "Method", "Group", "P_value", "P_value_adj")]
+colnames(DF_eisaR_unlist) = c("Gene_id", "Cell_type", "eisaR", "eisaR_FDR", "Group")
 
-results_dexseq_US <- do.call("rbind", results_dexseq_US)
-results_dexseq_US$Method <- "DEXSeq"
-results_dexseq_US$P_value <- results_dexseq_US$p_DEXSeq
-results_dexseq_US$P_value_adj <- results_dexseq_US$p_DEXSeq_adj
-results_dexseq_US <- results_dexseq_US[, c("Gene_id", "Cell_type", "Method", "Group", "P_value", "P_value_adj")]
+DF_eisaR_unlist$Gene_id <- substr(DF_eisaR_unlist$Gene_id, 1, 18)
 
-results <- rbind(results_eisar, results_dexseq_US)
+DF_merged <- merge(DF_merged, DF_eisaR_unlist, by = c("Gene_id", "Cell_type", "Group"))
+
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+# DEXSeq USA sce:
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+# load DEXSeq USA results:
+for(gr in 1:3){
+	DF_DEXSeq[[gr]]$replicate <- gr
+}
+DF_DEXSeq_unlist <- do.call(rbind, DF_DEXSeq)
+
+DF_DEXSeq_unlist$DEXSeq <- DF_DEXSeq_unlist$qval
+DF_DEXSeq_unlist$DEXSeq_FDR <- DF_DEXSeq_unlist$qval
+colnames(DF_DEXSeq_unlist) <- c("qval", "Gene_id", "Cell_type", "Group", "DEXSeq", "DEXSeq_FDR")
+
+DF_merged <- merge(DF_merged, DF_DEXSeq_unlist, by = c("Gene_id", "Cell_type", "Group"))
+
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+# DifferentialRegulation
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+results_EC <- lapply(results_EC, function(X) X[[1]])
+
+for(gr in 1:3){
+	results_EC[[gr]]$Group <- gr
+}
+results_EC <- do.call(rbind, results_EC)
+
+colnames(results_EC)[c(1:3, 5)] <- c("Gene_id", "Cell_type", "DifferentialRegulation", "DifferentialRegulation_FDR")
+
+results_EC$Gene_id <- substr(results_EC$Gene_id, 1, 18)
+
+DF_merged <- merge(DF_merged, results_EC, by = c("Gene_id", "Cell_type", "Group"))
+
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+# create dataframe:
+#### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
+methods = c("BRIE2", "eisaR", "DEXSeq", "DifferentialRegulation")
+
+DF <- list()
+for(m in 1:length(methods)){
+	sel <- which(names(DF_merged) == methods[m])
+	sel_FDR <- which(names(DF_merged) == paste0(methods[m], "_FDR"))
+	
+	DF[[m]] <- data.frame(Group = DF_merged$Group,
+											 p_val = DF_merged[, sel],
+											 FDR = DF_merged[, sel_FDR],
+											 Method = methods[m])
+}
+DF <- do.call(rbind, DF)
+DF$Group <- factor(DF$Group)
 
 # plot p-value distributions across groups
-g1 <- ggplot(results, aes(x = P_value, fill = Group)) + facet_grid(~ Group) +
-	geom_histogram(aes(y = ..density..), alpha = 0.4) + theme_classic() +
-	geom_line(aes(y = ..density.., colour = Method), stat = "density") +
-	xlab("P-value") + ylab("Density") + ggtitle("P-value distribution based on group separation")
+g1 <- ggplot(data = DF[DF$Method != "DEXSeq", ], aes(x = p_val, 
+																col = Method, fill = Method, lty = Group)) +
+	geom_density(adjust = 1, size = 0.3, alpha = 0.1) + 
+	scale_alpha_manual(values = c("TRUE" = 0.1, "FALSE" = 0.4)) +
+	guides(col = FALSE,
+				 lty = guide_legend(ncol = 1, order = 2),
+				 fill = guide_legend(ncol = 1, order = 1,
+				 										override.aes = list(alpha = 1, col = NA))) +
+	scale_x_continuous("P-value", breaks = seq(0, 1, 0.2), expand = c(0, 0.05)) +
+	scale_y_continuous("Density", breaks = c(0, 1), expand = c(0, 0.1)) +
+	facet_grid(~ Method) + theme(legend.position = "bottom") + theme_classic() +
+	ggtitle("P-value distribution of the Null analysis based on group separation and method") +
+	theme(legend.position = "bottom")
+
 ggsave(g1, filename = "figures/null_analysis/p_value_distribution.png", height = 4, width = 6, scale = 1.5)
 
+# FPs in p-vals and in FDR
+FP <- t(sapply( split(DF$p_val, DF$Method), function(x){
+	c(mean(x< 0.1), mean(x< 0.05), mean(x< 0.01) )
+}))
+FP <- FP[-2,]
+
+FDR <- t(sapply( split(DF$FDR, DF$Method), function(x){
+	c(mean(x< 0.1), mean(x< 0.05), mean(x< 0.01) )
+}))
+colnames(FDR) <- colnames(FP) <-  c("10%", "5%", "1%")
+
+xtable(FP, digits = 3)
+xtable(FDR, digits = 3)
