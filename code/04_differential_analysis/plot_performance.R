@@ -43,5 +43,5 @@ plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 		
 	# save plots
 	ggsave(roc, file = paste0(SAVE_FILE_PATH, "_ROC.png"), height = 4, width = 6)
-	ggsave(fdr, file = paste0(SAVE_FILE_PATH), "_FDR.png", height = 4, width = 6)
+	ggsave(fdr, file = paste0(SAVE_FILE_PATH, "_FDR.png"), height = 4, width = 6)
 }
