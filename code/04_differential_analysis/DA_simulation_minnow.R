@@ -11,8 +11,8 @@ source("code/04_differential_analysis/run_differential_analysis.R")
 source("code/04_differential_analysis/prepare_brie.R")
 
 # import sce data
-sce_USA <- readRDS("kidney_mouse/03_data/mouse_simulation_data.rds")
-sce_USA_DGE <- readRDS("kidney_mouse/03_data/mouse_simulation_DGE_data.rds")
+sce_USA <- readRDS("kidney_mouse/03_data/mouse_simulation_data_minnow.rds")
+sce_USA_DGE <- readRDS("kidney_mouse/03_data/mouse_simulation_DGE_minnow.rds")
 
 # set group parameter
 GROUP <- c("A", "B", "A", "B")
@@ -35,17 +35,17 @@ results_eisar <- run_analysis_eisar(sce_US, GROUP, CLUSTERS, min_count)
 results_eisar_DGE <- run_analysis_eisar(sce_US_DGE, GROUP, CLUSTERS, min_count)
 
 # saving the eisaR results
-saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results_sim.rds")
-saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE_sim.rds")
+saveRDS(results_eisar, file = "kidney_mouse/03_data/eisar_results_sim_minnow.rds")
+saveRDS(results_eisar_DGE, file = "kidney_mouse/03_data/eisar_results_DGE_sim_minnow.rds")
 
 # prepare to run BRIE2
-prepare_brie(sce_US, FALSE, CLUSTERS, GROUP)
-prepare_brie(sce_US_DGE, TRUE, CLUSTERS, GROUP)
+#prepare_brie(sce_US, FALSE, CLUSTERS, GROUP)
+#prepare_brie(sce_US_DGE, TRUE, CLUSTERS, GROUP)
 
 # run DEXSeq on the sce USA mode
 results_dexseq <- run_analysis_dexseq(sce_USA, GROUP, CLUSTERS, min_count)
 results_dexseq_DGE <- run_analysis_dexseq(sce_USA_DGE, GROUP, CLUSTERS, min_count)
 
 # saving the DEXSeq results
-saveRDS(results_dexseq, file = "kidney_mouse/03_data/dexseq_results_sim.rds")
-saveRDS(results_dexseq_DGE, file = "kidney_mouse/03_data/dexseq_results_DGE_sim.rds")
+saveRDS(results_dexseq, file = "kidney_mouse/03_data/dexseq_results_sim_minnow.rds")
+saveRDS(results_dexseq_DGE, file = "kidney_mouse/03_data/dexseq_results_DGE_sim_minnow.rds")
