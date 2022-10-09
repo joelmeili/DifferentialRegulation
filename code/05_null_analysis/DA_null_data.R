@@ -15,7 +15,7 @@ GROUPS <- list(c("A", "A", "B", "B"),
 							 c("A", "B", "A", "B"),
 							 c("A", "B", "B", "A"))
 
-CLUSTERS <- sort(unique(sce_USA$cell_type))[table(sce_USA$cell_type) >= 100]
+CLUSTERS <- c("Adipocytes", "Epithelial cells", "Hepatocytes")
 
 # convert sce from USA to US mode
 convert_USA_to_US <- function (sce_USA) {
@@ -31,23 +31,16 @@ convert_USA_to_US <- function (sce_USA) {
 sce_US <- convert_USA_to_US(sce_USA)
 
 # run eisaR on the US count data
-start <- Sys.time()
 RESULTS_EISAR <- lapply(GROUPS, function (GROUP) {
 	run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
 })
-end <- Sys.time()
-eisar_time <- end - start
-
 eisar_RES <- list(RESULTS_EISAR[[1]], RESULTS_EISAR[[2]], RESULTS_EISAR[[3]])
-print(eisar_time)
 
 # run DEXSeq on the US count data
-start <- Sys.time()
 RESULTS_DEXSEQ <- lapply(GROUPS, function (GROUP) {
 	run_analysis_dexseq(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "US")
 })
 dexseq_RES <- list(RESULTS_DEXSEQ[[1]], RESULTS_DEXSEQ[[2]], RESULTS_DEXSEQ[[3]])
-print(dexseq_time)
 
 # save results
 saveRDS(eisar_RES, file = "kidney_mouse/03_data/eisar_res_null.rds")

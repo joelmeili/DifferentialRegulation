@@ -20,7 +20,7 @@ min_count <- 20
 
 GROUP <- c("A", "A", "B", "B")
 
-CLUSTERS <- sort(unique(sce_USA$cell_type))[table(sce_USA$cell_type) >= 100]
+CLUSTERS <- c("Adipocytes", "Epithelial cells", "Hepatocytes")
 
 sce_US <- convert_USA_to_US(sce_USA)
 
