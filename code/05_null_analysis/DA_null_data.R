@@ -39,18 +39,14 @@ end <- Sys.time()
 eisar_time <- end - start
 
 eisar_RES <- list(RESULTS_EISAR[[1]], RESULTS_EISAR[[2]], RESULTS_EISAR[[3]])
+print(eisar_time)
 
 # run DEXSeq on the US count data
 start <- Sys.time()
 RESULTS_DEXSEQ <- lapply(GROUPS, function (GROUP) {
 	run_analysis_dexseq(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "US")
 })
-end <- Sys.time()
-dexseq_time <- end - start
-
 dexseq_RES <- list(RESULTS_DEXSEQ[[1]], RESULTS_DEXSEQ[[2]], RESULTS_DEXSEQ[[3]])
-
-print(eisar_time)
 print(dexseq_time)
 
 # save results

@@ -1,0 +1,75 @@
+# clean environment
+rm(list = ls())
+
+# import libraries
+suppressPackageStartupMessages({
+	library(ggplot2)
+	library(doParallel)
+	library(anndata)
+})
+
+# load relevant functions
+source("code/04_differential_analysis/run_differential_analysis.R")
+source("code/04_differential_analysis/prepare_brie.R")
+
+# load data
+sce_USA <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
+
+# run DA on the mouse data
+min_count <- 20
+
+GROUP <- c("A", "A", "B", "B")
+
+CLUSTERS <- sort(unique(sce_USA$cell_type))[table(sce_USA$cell_type) >= 100]
+
+sce_US <- convert_USA_to_US(sce_USA)
+
+# define parallel
+cl <- makeCluster(3)
+registerDoParallel(cl, cores = 3)
+
+# run eisaR on the US count data
+start <- Sys.time()
+run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
+end <- Sys.time()
+eisar_time <- end - start
+print(eisar_time)
+
+# run BRIE2 on the US count data
+for (i in 1:length(CLUSTERS)) {
+	# filter based on cell type
+	sce_temp <- sce_US[, sce_US$cell_type == CLUSTERS[[i]]]
+	
+	cl <- sapply(strsplit(CLUSTERS[[i]], " "), function (x) paste0(x, collapse = "_"))
+	
+	# set group attribute
+	sce_temp$group <- ifelse(sce_temp$sample_id %in% which(GROUP == "A"), "A", "B")
+	
+	# remove lowly expressed genes: at least 10 non-zero cells:
+	filter <- (rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "A"] > 0) >= min_count) & 
+		(rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "B"] > 0) >= min_count)
+	
+	sce_temp <- sce_temp[filter, ]
+	
+	ad <- AnnData(
+		X = t(assay(sce_temp, "spliced")),
+		layers = list(
+			spliced = t(assay(sce_temp, "spliced")),
+			unspliced = t(assay(sce_temp, "unspliced"))
+		)
+	)
+	ad$write_h5ad(paste0("kidney_mouse/03_data/null/BRIE2/simulation/cell_info_",
+											 cl, ".h5ad"))
+	write.table(data.frame(index = colnames(sce_temp), 
+												 is_A = ifelse(sce_temp$group == "A", 1, 0)),
+							file = paste0("kidney_mouse/03_data/null/BRIE2/simulation/cell_info_", 
+															cl, ".tsv"),
+								quote = FALSE,
+								sep = "\t", row.names = FALSE)
+}
+
+# run DEXSeq on the USA count data
+
+# run DR on the EC data
+
+
