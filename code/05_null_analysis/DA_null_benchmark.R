@@ -67,6 +67,11 @@ for (i in 1:length(CLUSTERS)) {
 								quote = FALSE,
 								sep = "\t", row.names = FALSE)
 }
+start <- Sys.time()
+system("bash code/05_null_analysis/DA_brie.sh")
+end <- Sys.time()
+brie_time <- end - start
+print(brie_time)
 
 # run DEXSeq on the USA count data
 
