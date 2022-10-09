@@ -58,11 +58,11 @@ for (i in 1:length(CLUSTERS)) {
 			unspliced = t(assay(sce_temp, "unspliced"))
 		)
 	)
-	ad$write_h5ad(paste0("kidney_mouse/03_data/null/BRIE2/simulation/cell_info_",
+	ad$write_h5ad(paste0("kidney_mouse/03_data/null/BRIE2/cell_info_",
 											 cl, ".h5ad"))
 	write.table(data.frame(index = colnames(sce_temp), 
 												 is_A = ifelse(sce_temp$group == "A", 1, 0)),
-							file = paste0("kidney_mouse/03_data/null/BRIE2/simulation/cell_info_", 
+							file = paste0("kidney_mouse/03_data/null/BRIE2/cell_info_", 
 															cl, ".tsv"),
 								quote = FALSE,
 								sep = "\t", row.names = FALSE)
