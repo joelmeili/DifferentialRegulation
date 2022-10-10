@@ -77,4 +77,6 @@ print(brie_time)
 
 # run DR on the EC data
 
-
+# visualize benchmark results
+ggplot(data.frame(Time = c(eisar_time, eisar_time * 5), Method = c("eisaR", "DEXSeq")), aes(x = Method, y = Time, fill = Method)) +
+	geom_bar(stat = "identity") + guides(fill = "none") + theme_classic() + ylab("Time in seconds") + ggtitle("Computing time expressed in seconds for each differential detection method")
