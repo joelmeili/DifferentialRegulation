@@ -87,4 +87,4 @@ brie_time <- lapply(GROUPS, function (GROUP) {
 	end <- Sys.time()
 	return (as.numeric(end - start, units = "secs"))
 })
-saveRDS(dexseq_time, "kidney_mouse/03_data/brie_bench.rds")
+saveRDS(brie_time, "kidney_mouse/03_data/brie_bench.rds")
