@@ -43,7 +43,7 @@ saveRDS(eisar_time, "kidney_mouse/03_data/eisar_bench.rds")
 # run DEXSeq on the USA count data
 dexseq_time <- lapply(GROUPS, function (GROUP) {
 	start <- Sys.time()
-	run_analysis_dexseq(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "USA")
+	run_analysis_dexseq(sce = sce_USA, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "USA")
 	end <- Sys.time()
 	return (end - start)
 })
