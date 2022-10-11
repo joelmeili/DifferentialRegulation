@@ -19,7 +19,7 @@ sce_USA <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
 # run DA on the mouse data
 min_count <- 20
 
-GROUP <- list(c("A", "A", "B", "B"),
+GROUPS <- list(c("A", "A", "B", "B"),
 							c("A", "B", "A", "B"),
 							c("A", "B", "B", "A"))
 

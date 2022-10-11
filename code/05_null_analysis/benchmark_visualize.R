@@ -8,7 +8,7 @@ suppressPackageStartupMessages({
 
 # visualize computational benchmark
 bench_mark <- data.frame(Method = c("BRIE2", "eisaR"),
-												 Time = c(1.31*24*60*60, 26))
+												 Time = c())
 
 g1 <- ggplot(bench_mark, aes(x = Method, y = Time)) +
 	geom_bar(stat = "identity") + scale_y_log10() +
