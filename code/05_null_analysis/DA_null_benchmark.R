@@ -36,7 +36,7 @@ eisar_time <- lapply(GROUPS, function (GROUP) {
 	start <- Sys.time()
 	run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
 	end <- Sys.time()
-	return (end - start)
+	return (as.numeric(end - start, units = "secs"))
 })
 saveRDS(eisar_time, "kidney_mouse/03_data/eisar_bench.rds")
 
@@ -45,7 +45,7 @@ dexseq_time <- lapply(GROUPS, function (GROUP) {
 	start <- Sys.time()
 	run_analysis_dexseq(sce = sce_USA, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "USA")
 	end <- Sys.time()
-	return (end - start)
+	return (as.numeric(end - start, units = "secs"))
 })
 saveRDS(dexseq_time, "kidney_mouse/03_data/dexseq_bench.rds")
 
@@ -83,9 +83,8 @@ brie_time <- lapply(GROUPS, function (GROUP) {
 								quote = FALSE,
 								sep = "\t", row.names = FALSE)
 	}
-	#system("bash code/05_null_analysis/DA_brie.sh")
+	system("bash code/05_null_analysis/DA_brie.sh")
 	end <- Sys.time()
-	
-	return (end - start)
+	return (as.numeric(end - start, units = "secs"))
 })
 saveRDS(dexseq_time, "kidney_mouse/03_data/brie_bench.rds")
