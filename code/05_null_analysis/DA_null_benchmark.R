@@ -80,7 +80,8 @@ dexseq_time <- end - start
 print(dexseq_time)
 
 # run DR on the USA data
-pb_counts <- compute_PB_counts(sce)
+pb_counts <- compute_PB_counts(sce, design = data.frame(sample = paste0("normal", 1:4),
+																												group = GROUP))
 start <- Sys.time()
 DifferentialRegulation(pb_counts, EC = FALSE, ncores = 3)
 end <- Sys.time()
