@@ -79,7 +79,7 @@ end <- Sys.time()
 dexseq_time <- end - start
 
 # run DR on the USA data
-pb_counts <- compute_PB_counts(sce_USA[, sce$cell_type %in% CLUSTERS], design = data.frame(sample = paste0("normal", 1:4),
+pb_counts <- compute_PB_counts(sce_USA[, sce$_USAcell_type %in% CLUSTERS], design = data.frame(sample = paste0("normal", 1:4),
 																												group = GROUP),
 															 min_cells_per_cluster = 100)
 start <- Sys.time()
