@@ -96,7 +96,7 @@ run_dexseq <- function (sce, GROUP, method = "USA"){
 	# set parallel cores:
 	BPPARAM = MulticoreParam(3)
 	
-	if (method == "USA") {groupID <- rep(genes, 3)} else {groupID <-rep(genes, 2)}
+	if (method == "USA") {groupID <- rep(genes, 3)} else {groupID <- rep(genes, 2)}
 	
 	# analyze each cluster separately:
 	dxd <- DEXSeqDataSet(countData = round(counts),

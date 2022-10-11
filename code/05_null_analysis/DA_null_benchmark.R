@@ -77,13 +77,13 @@ start <- Sys.time()
 run_analysis_dexseq(sce = sce_USA, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "USA")
 end <- Sys.time()
 dexseq_time <- end - start
-print(dexseq_time)
 
 # run DR on the USA data
-pb_counts <- compute_PB_counts(sce, design = data.frame(sample = paste0("normal", 1:4),
+pb_counts <- compute_PB_counts(sce_USA, design = data.frame(sample = paste0("normal", 1:4),
 																												group = GROUP))
 start <- Sys.time()
 DifferentialRegulation(pb_counts, EC = FALSE, ncores = 3)
 end <- Sys.time()
 dr_time <- end - time
-print(dr_time)
+
+print(eisar_time, brie_time, dexseq_time, dr_time)
