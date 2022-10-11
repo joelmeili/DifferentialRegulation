@@ -6,6 +6,7 @@ suppressPackageStartupMessages({
 	library(ggplot2)
 	library(doParallel)
 	library(anndata)
+	library(DifferentialRegulation)
 })
 
 # load relevant functions
@@ -33,7 +34,6 @@ start <- Sys.time()
 run_analysis_eisar(sce = sce_US, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count)
 end <- Sys.time()
 eisar_time <- end - start
-print(eisar_time)
 
 # run BRIE2 on the US count data
 for (i in 1:length(CLUSTERS)) {
@@ -68,15 +68,21 @@ for (i in 1:length(CLUSTERS)) {
 								sep = "\t", row.names = FALSE)
 }
 start <- Sys.time()
-system("bash code/05_null_analysis/DA_brie.sh")
+#system("bash code/05_null_analysis/DA_brie.sh")
 end <- Sys.time()
 brie_time <- end - start
-print(brie_time)
 
 # run DEXSeq on the USA count data
+start <- Sys.time()
+run_analysis_dexseq(sce = sce_USA, GROUP = GROUP, CLUSTERS = CLUSTERS, min_count = min_count, method = "USA")
+end <- Sys.time()
+dexseq_time <- end - start
+print(dexseq_time)
 
-# run DR on the EC data
-
-# visualize benchmark results
-ggplot(data.frame(Time = c(eisar_time, eisar_time * 5), Method = c("eisaR", "DEXSeq")), aes(x = Method, y = Time, fill = Method)) +
-	geom_bar(stat = "identity") + guides(fill = "none") + theme_classic() + ylab("Time in seconds") + ggtitle("Computing time expressed in seconds for each differential detection method")
+# run DR on the USA data
+pb_counts <- compute_PB_counts(sce)
+start <- Sys.time()
+DifferentialRegulation(pb_counts, EC = FALSE, ncores = 3)
+end <- Sys.time()
+dr_time <- end - time
+print(dr_time)
