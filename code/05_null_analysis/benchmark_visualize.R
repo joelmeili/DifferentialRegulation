@@ -18,7 +18,7 @@ bench_mark <- data.frame(Method = c("BRIE2", "eisaR", "DEXSeq"),
 
 g1 <- ggplot(bench_mark, aes(x = Method, y = Time)) +
 	geom_bar(stat = "identity") + scale_y_log10() +
-	theme_classic() + ylab("Time in seconds") +
+	theme_classic() + ylab("Time") +
 	theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
 	stat_identity(geom = "text", colour = "white", size = 2.5, aes(label = paste(round(Time, digits = 2), "seconds")), position = position_stack(vjust = 0.5)) +
 	ggtitle("Computational benchmark on the runtime of the differential methods")

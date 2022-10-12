@@ -88,3 +88,27 @@ brie_time <- lapply(GROUPS, function (GROUP) {
 	return (as.numeric(end - start, units = "secs"))
 })
 saveRDS(brie_time, "kidney_mouse/03_data/brie_bench.rds")
+
+# run DR on the USA count data
+dr_time <- lapply(GROUPS, function (GROUP) {
+	start <- Sys.time()
+	
+	# set group attribute
+	sce_USA$˚group <- ifelse(sce_temp$sample_id %in% which(GROUP == "A"), "A", "B")
+	
+	# remove lowly expressed genes: at least 10 non-zero cells:
+	filter <- (rowSums(assays(sce_USA)$TOT_counts[, sce_USAp$group == "A"] > 0) >= min_count) & 
+		(rowSums(assays(sce_USA)$TOT_counts[, sce_USA$group == "B"] > 0) >= min_count)
+	
+	sce_temp <- sce_USA[filter, ]
+	
+	# calculate pb counts
+	pb_counts <- compute_PB_counts(sce = sce_temp[, sce_temp$cell_type %in% CLUSTERS], EC_list = NULL, 
+																 design = data.frame(sample = paste0("normal", 1:4),
+																 										group = GROUP))
+	# run DR
+	DifferentialRegulation(pb_counts, EC = FALSE, n_cores = 3)
+	end <- Sys.time()
+	return (as.numeric(end - start, units = "secs"))
+})
+saveRDS(dr_time, "kidney_mouse/03_data/dr_bench.rds")
