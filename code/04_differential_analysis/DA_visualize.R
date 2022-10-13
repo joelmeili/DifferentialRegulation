@@ -14,7 +14,6 @@ sce <- readRDS("kidney_mouse/03_data/mouse_simulation.rds")
 sce_DGE <- readRDS("kidney_mouse/03_data/mouse_simulation_DGE.rds")
 truth <- metadata(sce)$truth
 truth_DGE <- metadata(sce_DGE)$truth
-truth_DGE$truth_union <- ifelse(truth_DGE$truth == 0, ifelse(truth_DGE$truth_DGE == 1, 1, 0), truth_DGE$truth)
 
 # define clusters
 CLUSTERS <- c("Adipocytes", "Epithelial cells", "Hepatocytes")

@@ -98,7 +98,7 @@ g1 <- ggplot(data = DF[DF$Method != "DEXSeq", ], aes(x = p_val,
 	scale_y_continuous("Density", breaks = c(0, 1), expand = c(0, 0.1)) +
 	facet_grid(~ Method) + theme(legend.position = "bottom") + theme_classic() +
 	ggtitle("P-value distribution of the Null analysis based on group separation and method") +
-	theme(legend.position = "bottom")
+	theme(legend.position = "bottom") + geom_hline(yintercept = 1, linetype = "dashed", col = 1)
 
 ggsave(g1, filename = "figures/null_analysis/p_value_distribution.png", height = 4, width = 6, scale = 1.5)
 

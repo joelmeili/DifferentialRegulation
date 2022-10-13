@@ -5,6 +5,7 @@ rm(list = ls())
 suppressPackageStartupMessages({
 	library(ggplot2)
 	library(iCOBRA)
+	library(SingleCellExperiment)
 })
 
 # load data
@@ -128,8 +129,8 @@ DF_COBRA_DGE <- COBRAData(
 
 perf <- calculate_performance(DF_COBRA, binary_truth = "status")
 perf_DGE <- calculate_performance(DF_COBRA_DGE, binary_truth = "status")
-cobra_plot <- prepare_data_for_plot(perf, facetted = FALSE)
-cobra_plot_DGE <- prepare_data_for_plot(perf_DGE, facetted = FALSE)
+cobra_plot <- prepare_data_for_plot(perf, facetted = FALSE, conditionalfill = FALSE)
+cobra_plot_DGE <- prepare_data_for_plot(perf_DGE, facetted = FALSE, conditionalfill = FALSE)
 
 # save file path
 SAVE_FILE_PATH <- "figures/simulation/minnow_simulation"
@@ -137,12 +138,12 @@ SAVE_FILE_PATH <- "figures/simulation/minnow_simulation"
 # plot ROC curve
 roc <- plot_roc(cobra_plot, title = "ROC curve") +
 	guides(colour = guide_legend(title = "Method"))  +
-	scale_color_manual(values = c("#F8766D", "#00BA38", "#00BFC4", "#C77CFF"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
+	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
 	theme_classic() + theme(legend.position = "bottom")
 
 roc_DGE <- plot_roc(cobra_plot_DGE, title = "ROC curve") +
 	guides(colour = guide_legend(title = "Method"))  +
-	scale_color_manual(values = c("#F8766D", "#00BA38", "#00BFC4", "#C77CFF"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
+	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
 	theme_classic() + theme(legend.position = "bottom")
 
 ggsave(paste0(SAVE_FILE_PATH, "_ROC.png"), roc, height = 4, width = 6)
@@ -151,12 +152,12 @@ ggsave(paste0(SAVE_FILE_PATH, "_DGE_ROC.png"), roc_DGE, height = 4, width = 6)
 # plot TPR/FDR curve
 fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot") +
 	guides(colour = guide_legend(title = "Method")) +
-	scale_color_manual(values = c("#F8766D", "#00BA38", "#00BFC4", "#C77CFF"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
+	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
 	theme_classic() + theme(legend.position = "bottom")
 
 fdr_DGE <- plot_fdrtprcurve(cobra_plot_DGE, title = "TPR-FDR plot") +
 	guides(colour = guide_legend(title = "Method")) +
-	scale_color_manual(values = c("#F8766D", "#00BA38", "#00BFC4", "#C77CFF"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
+	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
 	theme_classic() + theme(legend.position = "bottom")
 
 ggsave(paste0(SAVE_FILE_PATH, "_FDR.png"), fdr, height = 4, width = 6)

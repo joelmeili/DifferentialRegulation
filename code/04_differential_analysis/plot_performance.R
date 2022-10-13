@@ -27,7 +27,7 @@ read_results_brie <- function (CLUSTERS, DGE) {
 plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	
 	perf <- calculate_performance(DF_COBRA, binary_truth = "status")
-	cobra_plot <- prepare_data_for_plot(perf, facetted = FALSE)
+	cobra_plot <- prepare_data_for_plot(perf, facetted = FALSE, conditionalfill = FALSE)
 	
 	# plot ROC curve
 	roc <- plot_roc(cobra_plot, title = "ROC curve") +
