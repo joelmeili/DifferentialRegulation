@@ -44,7 +44,7 @@ create_DF <- function (DGE) {
 	
 	# remove very small differences (not detectable)
 	sel_counts <- (DF_merged$tot_counts_A >= 20) &  (DF_merged$tot_counts_B >= 20)
-	DF_merged = DF_merged[sel_counts, ]
+	DF_merged <- DF_merged[sel_counts, ]
 	difference <- abs(DF_merged$pi_S_A - DF_merged$pi_S_B)
 	sel_difference <- difference < 0.2
 	sel_DR <- DF_merged$truth == 1
@@ -99,66 +99,61 @@ DF_merged <- create_DF(DGE = FALSE)
 DF_merged_DGE <- create_DF(DGE = TRUE)
 
 # visualize performance
-DF_COBRA <- COBRAData(
-	pval = data.frame(
-		BRIE2 = DF_merged$p_BRIE2,
-		eisaR = DF_merged$p_value_eisar,
-		DR = DF_merged$p_value_DR
+plot_performance <- function (DF, SAVE_FILE_PATH) {
+	DF_COBRA <- COBRAData(
+		pval = data.frame(
+			BRIE2 = DF$p_BRIE2,
+			eisaR = DF$p_value_eisar,
+			DR = DF$p_value_DR
 		),
 		padj = data.frame(
-		BRIE2 = DF_merged$p_BRIE2_adj,
-		DEXSeq = DF_merged$FDR_dexseq,
-		eisaR = DF_merged$FDR_eisar,
-		DR = DF_merged$FDR_DR),
-		truth = data.frame(status = DF_merged$truth)
-)
+			BRIE2 = DF$p_BRIE2_adj,
+			DEXSeq = DF$FDR_dexseq,
+			eisaR = DF$FDR_eisar,
+			DR = DF$FDR_DR),
+		truth = data.frame(status = DF$truth)
+	)
+	
+	perf <- calculate_performance(DF_COBRA, binary_truth = "status")
+	cobra_plot <- prepare_data_for_plot(perf, facetted = FALSE, conditionalfill = FALSE)
+	
+	roc <- plot_roc(cobra_plot, title = "ROC curve") +
+		guides(colour = guide_legend(title = "Method"))  +
+		scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", 
+																																													"DifferentialRegulation", "eisaR")) +
+		theme_classic() + theme(legend.position = "bottom")
+	fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot") +
+		guides(colour = guide_legend(title = "Method")) +
+		scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", 
+																																													"DifferentialRegulation", "eisaR")) +
+		theme_classic() + theme(legend.position = "bottom")
+	
+	
+	ggsave(paste0(SAVE_FILE_PATH, "_ROC.png"), roc, height = 4, width = 6)
+	ggsave(paste0(SAVE_FILE_PATH, "_FDR.png"), fdr, height = 4, width = 6)
+}
 
-DF_COBRA_DGE <- COBRAData(
-	pval = data.frame(
-		BRIE2 = DF_merged_DGE$p_BRIE2,
-		eisaR = DF_merged_DGE$p_value_eisar,
-		DR = DF_merged_DGE$p_value_DR
-	),
-	padj = data.frame(
-		BRIE2 = DF_merged_DGE$p_BRIE2_adj,
-		DEXSeq = DF_merged_DGE$FDR_dexseq,
-		eisaR = DF_merged_DGE$FDR_eisar,
-		DR = DF_merged_DGE$FDR_DR),
-	truth = data.frame(status = DF_merged_DGE$truth)
-)
+plot_performance(DF_merged, SAVE_FILE_PATH = "figures/simulation/minnow_simulation")
+plot_performance(DF_merged_DGE, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_DGE")
 
-perf <- calculate_performance(DF_COBRA, binary_truth = "status")
-perf_DGE <- calculate_performance(DF_COBRA_DGE, binary_truth = "status")
-cobra_plot <- prepare_data_for_plot(perf, facetted = FALSE, conditionalfill = FALSE)
-cobra_plot_DGE <- prepare_data_for_plot(perf_DGE, facetted = FALSE, conditionalfill = FALSE)
+# visualize stratified results
+DF_merged$TOT_counts <- DF_merged$tot_counts_A + DF_merged$tot_counts_B
+DF_merged_DGE$TOT_counts <- DF_merged_DGE$tot_counts_A + DF_merged_DGE$tot_counts_B
+cuts <- quantile(DF_merged$TOT_counts, c(1/3, 2/3))
+cuts_DGE <- quantile(DF_merged_DGE$TOT_counts, c(1/3, 2/3))
 
-# save file path
-SAVE_FILE_PATH <- "figures/simulation/minnow_simulation"
+DF_merged_low <- DF_merged[DF_merged$TOT_counts <= cuts[1], ]
+DF_merged_mod <- DF_merged[DF_merged$TOT_counts > cuts[1] & DF_merged$TOT_counts <= cuts[2], ]
+DF_merged_high <- DF_merged[DF_merged$TOT_counts > cuts[2], ]
 
-# plot ROC curve
-roc <- plot_roc(cobra_plot, title = "ROC curve") +
-	guides(colour = guide_legend(title = "Method"))  +
-	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
-	theme_classic() + theme(legend.position = "bottom")
+DF_merged_low_DGE <- DF_merged_DGE[DF_merged_DGE$TOT_counts <= cuts[1], ]
+DF_merged_mod_DGE <- DF_merged_DGE[DF_merged_DGE$TOT_counts > cuts[1] & DF_merged_DGE$TOT_counts <= cuts[2], ]
+DF_merged_high_DGE <- DF_merged_DGE[DF_merged_DGE$TOT_counts > cuts[2], ]
 
-roc_DGE <- plot_roc(cobra_plot_DGE, title = "ROC curve") +
-	guides(colour = guide_legend(title = "Method"))  +
-	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
-	theme_classic() + theme(legend.position = "bottom")
+plot_performance(DF_merged_low, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_low")
+plot_performance(DF_merged_mod, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_mod")
+plot_performance(DF_merged_high, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_high")
 
-ggsave(paste0(SAVE_FILE_PATH, "_ROC.png"), roc, height = 4, width = 6)
-ggsave(paste0(SAVE_FILE_PATH, "_DGE_ROC.png"), roc_DGE, height = 4, width = 6)
-
-# plot TPR/FDR curve
-fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot") +
-	guides(colour = guide_legend(title = "Method")) +
-	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
-	theme_classic() + theme(legend.position = "bottom")
-
-fdr_DGE <- plot_fdrtprcurve(cobra_plot_DGE, title = "TPR-FDR plot") +
-	guides(colour = guide_legend(title = "Method")) +
-	scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", "DR", "eisaR")) +
-	theme_classic() + theme(legend.position = "bottom")
-
-ggsave(paste0(SAVE_FILE_PATH, "_FDR.png"), fdr, height = 4, width = 6)
-ggsave(paste0(SAVE_FILE_PATH, "_DGE_FDR.png"), fdr_DGE, height = 4, width = 6)
+plot_performance(DF_merged_low_DGE, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_low_DGE")
+plot_performance(DF_merged_mod_DGE, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_mod_DGE")
+plot_performance(DF_merged_high_DGE, SAVE_FILE_PATH = "figures/simulation/minnow_simulation_high_DGE")
