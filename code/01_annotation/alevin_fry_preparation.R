@@ -1,7 +1,7 @@
 # splici txome for mouse kidney data
 gtf_path <- file.path("kidney_mouse/01_annotation/gencode.vM24.annotation.gtf.gz")
 genome_path <-file.path("kidney_mouse/01_annotation/GRCm38.primary_assembly.genome.fa")
-read_length <- 91
+read_length <- 98
 flank_trim_length <- 5
 output_dir <- file.path("kidney_mouse/01_annotation/splici/")
 
@@ -198,6 +198,19 @@ make_splici_txome <- function(gtf_path,
   }
   message("Done.")
 }
+
+make_splici_txome(gtf_path = gtf_path, 
+                  genome_path = genome_path, 
+                  read_length = read_length, 
+                  flank_trim_length = flank_trim_length, 
+                  output_dir = output_dir)
+
+# splici txome for human brain data
+gtf_path <- file.path("brain_human/01_annotation/gencode.v38.annotation.gtf.gz")
+genome_path <-file.path("brain_human/01_annotation/GRCh38.primary_assembly.genome.fa")
+read_length <- 57
+flank_trim_length <- 5
+output_dir <- file.path("brain_human/01_annotation/splici/")
 
 make_splici_txome(gtf_path = gtf_path, 
                   genome_path = genome_path, 
