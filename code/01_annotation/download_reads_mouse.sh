@@ -1,9 +1,7 @@
 #!/bin/bash
-
-## Mouse kidney samples
 mouse_files=(SRR6337197 SRR6337198 SRR6337199 SRR6337200 SRR6337201 SRR6337202 SRR6337203 SRR6337204 SRR6337205 SRR6337206 SRR6337207 SRR6337208 SRR6337209 SRR6337210 SRR6337211 SRR6337212 SRR6337213 SRR6337214 SRR6337215 SRR6337216 SRR6337217 SRR6337218 SRR6337219 SRR6337220 SRR6337221 SRR6337222 SRR6337223 SRR6337224 SRR6337225 SRR6337226 SRR6337227 SRR6337228)
 
 for file in ${mouse_files[@]}
 do
-	prefetch ${file} --output-directory kidney_mouse/fastq && fasterq-dump ${file} -O kidney_mouse/fastq
+	prefetch ${file} --output-directory kidney_mouse/fastq && fasterq-dump kidney_mouse/fastq/${file} -O kidney_mouse/fastq
 done
