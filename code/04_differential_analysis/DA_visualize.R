@@ -53,6 +53,6 @@ DF_COBRA <- COBRAData(pval = data.frame(
 	padj = data.frame(
 		eisaR = results_merged_DGE$p_eisaR_adj,
 		BRIE2 = results_merged_DGE$is_A_FDR),
-	truth = data.frame(status = results_merged_DGE$truth_union))
+	truth = data.frame(status = results_merged_DGE$truth))
 
 plot_performance(DF_COBRA, SAVE_FILE_PATH)
