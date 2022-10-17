@@ -33,13 +33,15 @@ plot_performance <- function (COBRA_DF, SAVE_FILE_PATH) {
 	roc <- plot_roc(cobra_plot, title = "ROC curve") +
 		guides(colour = guide_legend(title = "Method"))  +
 		scale_color_manual(values = c("#F8766D", "#00BA38"), labels = c("BRIE2", "eisaR")) +
-		theme_classic() + theme(legend.position = "bottom")
+		theme_classic() + theme(legend.position = "bottom") +
+		scale_x_sqrt( breaks = c(0.00, 0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1))
 	
 	# plot TPR/FDR curve
 	fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot") +
 		guides(colour = guide_legend(title = "Method")) +
 		scale_color_manual(values = c("#F8766D", "#00BA38"), labels = c("BRIE2", "eisaR")) +
-		theme_classic() + theme(legend.position = "bottom")
+		theme_classic() + theme(legend.position = "bottom") +
+		scale_x_sqrt( breaks = c(0.00, 0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1))
 		
 	# save plots
 	ggsave(roc, file = paste0(SAVE_FILE_PATH, "_ROC.png"), height = 4, width = 6)
