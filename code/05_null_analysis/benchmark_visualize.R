@@ -17,7 +17,7 @@ bench_mark <- data.frame(Method = c("BRIE2", "DEXSeq", "eisaR"),
 												 				 mean(unlist(eisar_time))/60))
 
 g1 <- ggplot(bench_mark, aes(x = Method, y = Time)) +
-	geom_bar(stat = "identity") + scale_y_sqrt(breaks = c(5, 15, 30, 60, 120, 180, 500, 1000, 2000, 3000, 4000)) + theme_classic() + ylab("Time (sqrt-scaled)") +
+	geom_bar(stat = "identity") + scale_y_sqrt(breaks = c(1, 5, 15, 30, 60, 120, 180, 500, 1000, 2000, 3000, 4000)) + theme_classic() + ylab("Time (sqrt-scaled)") +
 	theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
 	stat_identity(geom = "text", colour = "white", size = 2.5, aes(label = paste(round(Time, digits = 2), "minutes")), position = position_stack(vjust = 0.5)) +
 	ggtitle("Average runtime of the differential methods on the Null data set on all three group separations")
