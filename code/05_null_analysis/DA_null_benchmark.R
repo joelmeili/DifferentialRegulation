@@ -55,18 +55,18 @@ brie_time <- lapply(GROUPS, function (GROUP) {
 	for (i in 1:length(CLUSTERS)) {
 		# filter based on cell type
 		sce_temp <- sce_US[, sce_US$cell_type == CLUSTERS[[i]]]
-		
+
 		cl <- sapply(strsplit(CLUSTERS[[i]], " "), function (x) paste0(x, collapse = "_"))
-		
+
 		# set group attribute
 		sce_temp$group <- ifelse(sce_temp$sample_id %in% which(GROUP == "A"), "A", "B")
-		
+
 		# remove lowly expressed genes: at least 10 non-zero cells:
-		filter <- (rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "A"] > 0) >= min_count) & 
+		filter <- (rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "A"] > 0) >= min_count) &
 			(rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "B"] > 0) >= min_count)
-		
+
 		sce_temp <- sce_temp[filter, ]
-		
+
 		ad <- AnnData(
 			X = t(assay(sce_temp, "spliced")),
 			layers = list(
@@ -76,9 +76,9 @@ brie_time <- lapply(GROUPS, function (GROUP) {
 		)
 		ad$write_h5ad(paste0("kidney_mouse/03_data/null/BRIE2/cell_info_",
 												 cl, ".h5ad"))
-		write.table(data.frame(index = colnames(sce_temp), 
+		write.table(data.frame(index = colnames(sce_temp),
 													 is_A = ifelse(sce_temp$group == "A", 1, 0)),
-								file = paste0("kidney_mouse/03_data/null/BRIE2/cell_info_", 
+								file = paste0("kidney_mouse/03_data/null/BRIE2/cell_info_",
 															cl, ".tsv"),
 								quote = FALSE,
 								sep = "\t", row.names = FALSE)
@@ -93,17 +93,20 @@ saveRDS(brie_time, "kidney_mouse/03_data/brie_bench.rds")
 dr_time <- lapply(GROUPS, function (GROUP) {
 	start <- Sys.time()
 	
+	# set temporary SCE
+	sce_temp <- sce_USA[, sce_USA$cell_type %in% CLUSTERS]
+	
 	# set group attribute
-	sce_USA$˚group <- ifelse(sce_temp$sample_id %in% which(GROUP == "A"), "A", "B")
+	sce_temp$group <- ifelse(sce_temp$sample_id %in% which(GROUP == "A"), "A", "B")
 	
-	# remove lowly expressed genes: at least 10 non-zero cells:
-	filter <- (rowSums(assays(sce_USA)$TOT_counts[, sce_USAp$group == "A"] > 0) >= min_count) & 
-		(rowSums(assays(sce_USA)$TOT_counts[, sce_USA$group == "B"] > 0) >= min_count)
+	filter <- (rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "A"] > 0) >= min_count) & 
+		(rowSums(assays(sce_temp)$TOT_counts[, sce_temp$group == "B"] > 0) >= min_count)
 	
-	sce_temp <- sce_USA[filter, ]
+	sce_temp <- sce_temp[filter, ]
+	sce_temp$sample_id <- as.factor(paste0("normal", sce_temp$sample_id))
 	
 	# calculate pb counts
-	pb_counts <- compute_PB_counts(sce = sce_temp[, sce_temp$cell_type %in% CLUSTERS], EC_list = NULL, 
+	pb_counts <- compute_PB_counts(sce = sce_temp, EC_list = NULL, 
 																 design = data.frame(sample = paste0("normal", 1:4),
 																 										group = GROUP))
 	# run DR
