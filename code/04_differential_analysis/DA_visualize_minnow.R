@@ -122,14 +122,14 @@ plot_performance <- function (DF, SAVE_FILE_PATH) {
 		scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", 
 																																													"DifferentialRegulation", "eisaR")) +
 		theme_classic() + theme(legend.position = "bottom") +
-		scale_x_sqrt( breaks = c(0.00, 0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1))
+		scale_x_sqrt(breaks = c(0.00, 0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1))
 	
 	fdr <- plot_fdrtprcurve(cobra_plot, title = "TPR-FDR plot") +
 		guides(colour = guide_legend(title = "Method")) +
 		scale_color_manual(values = c("#F8766D", "#C77CFF", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DEXSeq", 
 																																													"DifferentialRegulation", "eisaR")) +
 		theme_classic() + theme(legend.position = "bottom") +
-		scale_x_sqrt( breaks = c(0.00, 0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1))
+		scale_x_sqrt(breaks = c(0.00, 0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1))
 	
 	ggsave(paste0(SAVE_FILE_PATH, "_ROC.png"), roc, height = 4, width = 6)
 	ggsave(paste0(SAVE_FILE_PATH, "_FDR.png"), fdr, height = 4, width = 6)

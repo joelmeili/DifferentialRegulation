@@ -20,8 +20,8 @@ sce_USA <- readRDS("kidney_mouse/03_data/mouse_data_fry_USA.rds")
 min_count <- 20
 
 GROUPS <- list(c("A", "A", "B", "B"),
-							c("A", "B", "A", "B"),
-							c("A", "B", "B", "A"))
+							 c("A", "B", "A", "B"),
+							 c("A", "B", "B", "A"))
 
 CLUSTERS <- c("Adipocytes", "Epithelial cells", "Hepatocytes")
 
