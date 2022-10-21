@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.31)  21 OCT 2022 13:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.31)  21 OCT 2022 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -518,15 +518,15 @@ Package pdftex.def Info: ../figures/eisar.png  used on input line 44.
 File: ../figures/brie2_process.jpg Graphic file (type jpg)
 <use ../figures/brie2_process.jpg>
 Package pdftex.def Info: ../figures/brie2_process.jpg  used on input line 77.
-(pdftex.def)             Requested size: 433.62419pt x 289.07298pt.
+(pdftex.def)             Requested size: 433.62419pt x 216.80168pt.
 [9] [10 <../figures/brie2_process.jpg>]
-<../figures/umap.png, id=372, 602.25pt x 466.74374pt>
+<../figures/umap.png, id=373, 602.25pt x 466.74374pt>
 File: ../figures/umap.png Graphic file (type png)
 <use ../figures/umap.png>
 Package pdftex.def Info: ../figures/umap.png  used on input line 109.
 (pdftex.def)             Requested size: 433.63805pt x 289.09325pt.
 [11 <../figures/umap.png>]
-<../figures/confusion_matrix.png, id=393, 1054.94125pt x 747.79375pt>
+<../figures/confusion_matrix.png, id=394, 1054.94125pt x 747.79375pt>
 File: ../figures/confusion_matrix.png Graphic file (type png)
 <use ../figures/confusion_matrix.png>
 Package pdftex.def Info: ../figures/confusion_matrix.png  used on input line 13
@@ -810,7 +810,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 Package rerunfilecheck Info: File `msc_report.out' has not changed.
 (rerunfilecheck)             Checksum: BD32C316E71D57DFFD523A7D2E08E34A;1260.
 Package rerunfilecheck Info: File `msc_report.brf' has not changed.
-(rerunfilecheck)             Checksum: 85EEC40D4E7FF1064E2A9A5A1E8C27C8;2861.
+(rerunfilecheck)             Checksum: 17C298E3734598ABA22552BB2A4285E2;2861.
  ) 
 Here is how much of TeX's memory you used:
  14960 strings out of 480247
@@ -844,7 +844,7 @@ fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb>
-Output written on msc_report.pdf (43 pages, 6853790 bytes).
+Output written on msc_report.pdf (43 pages, 6853978 bytes).
 PDF statistics:
  1305 PDF objects out of 1440 (max. 8388607)
  684 compressed objects within 7 object streams

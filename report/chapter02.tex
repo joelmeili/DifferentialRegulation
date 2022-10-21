@@ -70,11 +70,11 @@ M_1: p_g^{(1)} = \prod_{c=1}^{M}{p(s_{c,g} | z_{c,g}) N(z_{c,g} | y_{c,t} \cdot 
 \label{eqn:brie_C}
 \end{equation}
 
-where $N(a,b)$ is the normal distribution with mean $a$ and variance $b$; $t^-$ denotes all cell features except feature t.
+where $N(a,b)$ is the normal distribution with mean $a$ and variance $b$; $t^-$ denotes all cell features except feature t; $p(s_{c,g} | z_{c,g})$ is the multinominal, conditional distribution given $z_{c,g}$ where $s_{c,g}$ is the three dimensional count vector.
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=4in]{../figures/brie2_process.jpg}
+\includegraphics[width=6in,height=3in]{../figures/brie2_process.jpg}
 \end{center}
 \caption{Summary of the estimation process of \emph{BRIE2} \citep{brie2}}
 \label{fig:brie2_process}
