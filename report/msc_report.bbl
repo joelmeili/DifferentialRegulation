@@ -1,0 +1,201 @@
+\begin{thebibliography}{}
+
+\bibitem[Amezquita {\it et~al.}, 2020]{OSCA}
+Amezquita, R.~A., Lun, A.~T., Becht, E., Carey, V.~J., Carpp, L.~N.,
+  Geistlinger, L., Marini, F., Rue-Albrecht, K., Risso, D., Soneson, C.,{\it
+  et~al.} (2020).
+\newblock Orchestrating single-cell analysis with bioconductor.
+\newblock {\em Nature methods}, {\bf17},  137--145.
+
+\bibitem[Anders {\it et~al.}, 2012]{dexseq}
+Anders, S., Reyes, A., and Huber, W. (2012).
+\newblock Detecting differential usage of exons from rna-seq data.
+
+\bibitem[Aran {\it et~al.}, 2019]{singleR}
+Aran, D., Looney, A.~P., Liu, L., Wu, E., Fong, V., Hsu, A., Chak, S.,
+  Naikawadi, R.~P., Wolters, P.~J., Abate, A.~R., Butte, A.~J., and
+  Bhattacharya, M. (2019).
+\newblock Reference-based analysis of lung single-cell sequencing reveals a
+  transitional profibrotic macrophage.
+\newblock {\em Nat. Immunol.}, {\bf20},  163--172.
+
+\bibitem[Benjamini and Hochberg, 1995]{BH_correction}
+Benjamini, Y. and Hochberg, Y. (1995).
+\newblock Controlling the false discovery rate: A practical and powerful
+  approach to multiple testing.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, {\bf57},  289--300.
+
+\bibitem[Crowell {\it et~al.}, 2020]{muscat}
+Crowell, H.~L., Soneson, C., Germain, P.-L., Calini, D., Collin, L., Raposo,
+  C., Malhotra, D., and Robinson, M.~D. (2020).
+\newblock Muscat detects subpopulation-specific state transitions from
+  multi-sample multi-condition single-cell transcriptomics data.
+\newblock {\em Nature communications}, {\bf11},  1--12.
+
+\bibitem[Deng, 2012]{mnist}
+Deng, L. (2012).
+\newblock The mnist database of handwritten digit images for machine learning
+  research.
+\newblock {\em IEEE Signal Processing Magazine}, {\bf29},  141--142.
+
+\bibitem[Dharshini {\it et~al.}, 2020]{mapping1}
+Dharshini, S. A.~P., Taguchi, Y.-H., and Gromiha, M.~M. (2020).
+\newblock Identifying suitable tools for variant detection and differential
+  gene expression using rna-seq data.
+\newblock {\em Genomics}, {\bf112},  2166--2172.
+
+\bibitem[Dobin {\it et~al.}, 2013]{star}
+Dobin, A., Davis, C.~A., Schlesinger, F., Drenkow, J., Zaleski, C., Jha, S.,
+  Batut, P., Chaisson, M., and Gingeras, T.~R. (2013).
+\newblock Star: ultrafast universal rna-seq aligner.
+\newblock {\em Bioinformatics}, {\bf29},  15--21.
+
+\bibitem[Gaidatzis {\it et~al.}, 2015]{eisar}
+Gaidatzis, D., Burger, L., Florescu, M., and Stadler, M.~B. (2015).
+\newblock Analysis of intronic and exonic reads in rna-seq data characterizes
+  transcriptional and post-transcriptional regulation.
+\newblock {\em Nature biotechnology}, {\bf33},  722--729.
+
+\bibitem[Garibyan and Avashia, 2013]{pcr}
+Garibyan, L. and Avashia, N. (2013).
+\newblock Research techniques made simple: polymerase chain reaction (pcr).
+\newblock {\em The Journal of investigative dermatology}, {\bf133},  e6.
+
+\bibitem[Haque {\it et~al.}, 2017]{scrna_seq}
+Haque, A., Engel, J., Teichmann, S.~A., and L{\"o}nnberg, T. (2017).
+\newblock A practical guide to single-cell rna-sequencing for biomedical
+  research and clinical applications.
+\newblock {\em Genome medicine}, {\bf9},  1--12.
+
+\bibitem[He {\it et~al.}, 2022]{alevin_fry}
+He, D., Zakeri, M., Sarkar, H., Soneson, C., Srivastava, A., and Patro, R.
+  (2022).
+\newblock Alevin-fry unlocks rapid, accurate and memory-frugal quantification
+  of single-cell rna-seq data.
+\newblock {\em Nature Methods}, {\bf19},  316--322.
+
+\bibitem[Huang and Sanguinetti, 2021]{brie2}
+Huang, Y. and Sanguinetti, G. (2021).
+\newblock Brie2: computational identification of splicing phenotypes from
+  single-cell transcriptomic experiments.
+\newblock {\em Genome biology}, {\bf22},  1--15.
+
+\bibitem[La~Manno {\it et~al.}, 2018]{rna_velo}
+La~Manno, G., Soldatov, R., Zeisel, A., Braun, E., Hochgerner, H., Petukhov,
+  V., Lidschreiber, K., Kastriti, M.~E., L{\"o}nnerberg, P., Furlan, A.,{\it
+  et~al.} (2018).
+\newblock Rna velocity of single cells.
+\newblock {\em Nature}, {\bf560},  494--498.
+
+\bibitem[Lee, 2018]{riemann}
+Lee, J.~M. (2018).
+\newblock {\em Introduction to Riemannian manifolds}, volume 176.
+\newblock Springer.
+
+\bibitem[Love {\it et~al.}, 2018]{swimming_downstream}
+Love, M.~I., Soneson, C., and Patro, R. (2018).
+\newblock Swimming downstream: statistical analysis of differential transcript
+  usage following salmon quantification.
+\newblock {\em F1000Research}, {\bf7}, .
+
+\bibitem[McCarthy {\it et~al.}, 2017]{scater}
+McCarthy, D.~J., Campbell, K.~R., Lun, A. T.~L., and Willis, Q.~F. (2017).
+\newblock Scater: pre-processing, quality control, normalisation and
+  visualisation of single-cell {R}{N}{A}-seq data in {R}.
+\newblock {\em Bioinformatics}, {\bf33},  1179--1186.
+
+\bibitem[McDermaid {\it et~al.}, 2018]{mapping2}
+McDermaid, A., Chen, X., Zhang, Y., Wang, C., Gu, S., Xie, J., and Ma, Q.
+  (2018).
+\newblock A new machine learning-based framework for mapping uncertainty
+  analysis in rna-seq read alignment and gene expression estimation.
+\newblock {\em Frontiers in genetics}, {\bf9},  313.
+
+\bibitem[McInnes {\it et~al.}, 1802]{umap}
+McInnes, L., Healy, J., and Melville, J. (1802).
+\newblock Umap: Uniform manifold approximation and projection for dimension
+  reduction. arxiv 2018.
+
+\bibitem[Melsted {\it et~al.}, 2021]{kallisto}
+Melsted, P., Booeshaghi, A., Liu, L., Gao, F., Lu, L., Min, K. H.~J.,
+  da~Veiga~Beltrame, E., Hj{\"o}rleifsson, K.~E., Gehring, J., and Pachter, L.
+  (2021).
+\newblock Modular, efficient and constant-memory single-cell rna-seq
+  preprocessing.
+\newblock {\em Nature biotechnology}, {\bf39},  813--818.
+
+\bibitem[Mohajon, 2020]{confusion_matrix}
+Mohajon, J. (2020).
+\newblock Confusion matrix for your multi-class machine learning model.
+
+\bibitem[Park {\it et~al.}, 2018]{mouse_cells}
+Park, J., Shrestha, R., Qiu, C., Kondo, A., Huang, S., Werth, M., Li, M.,
+  Barasch, J., and Suszt{\'a}k, K. (2018).
+\newblock Single-cell transcriptomics of the mouse kidney reveals potential
+  cellular targets of kidney disease.
+\newblock {\em Science}, {\bf360},  758--763.
+
+\bibitem[Rao {\it et~al.}, 2019]{rna_seq_comparison}
+Rao, M.~S., Van~Vleet, T.~R., Ciurlionis, R., Buck, W.~R., Mittelstadt, S.~W.,
+  Blomme, E.~A., and Liguori, M.~J. (2019).
+\newblock Comparison of rna-seq and microarray gene expression platforms for
+  the toxicogenomic evaluation of liver from short-term rat toxicity studies.
+\newblock {\em Frontiers in genetics}, {\bf9},  636.
+
+\bibitem[Robinson {\it et~al.}, 2010]{edger}
+Robinson, M.~D., McCarthy, D.~J., and Smyth, G.~K. (2010).
+\newblock edger: a bioconductor package for differential expression analysis of
+  digital gene expression data.
+\newblock {\em Bioinformatics}, {\bf26},  139--140.
+
+\bibitem[Sainburg {\it et~al.}, 2021]{umap_implementation}
+Sainburg, T., McInnes, L., and Gentner, T.~Q. (2021).
+\newblock Parametric umap embeddings for representation and semisupervised
+  learning.
+\newblock {\em Neural Computation}, {\bf33},  2881--2907.
+
+\bibitem[Sarkar {\it et~al.}, 2019]{minnow}
+Sarkar, H., Srivastava, A., and Patro, R. (2019).
+\newblock Minnow: a principled framework for rapid simulation of dscrna-seq
+  data at the read level.
+\newblock {\em Bioinformatics}, {\bf35},  i136--i144.
+
+\bibitem[Srivastava {\it et~al.}, 2019]{alevin}
+Srivastava, A., Malik, L., Smith, T., Sudbery, I., and Patro, R. (2019).
+\newblock Alevin efficiently estimates accurate gene abundances from dscrna-seq
+  data.
+\newblock {\em Genome biology}, {\bf20},  1--16.
+
+\bibitem[Stadler {\it et~al.}, 2020]{eisar_package}
+Stadler, M.~B., Gaidatzis, D., Burger, L., and Soneson, C. (2020).
+\newblock eisar: Exon-intron split anaalysis (eisa) in r.
+\newblock R package version 1.0.
+
+\bibitem[Stark {\it et~al.}, 2019]{rna_seq}
+Stark, R., Grzelak, M., and Hadfield, J. (2019).
+\newblock Rna sequencing: the teenage years.
+\newblock {\em Nature Reviews Genetics}, {\bf20},  631--656.
+
+\bibitem[Tiberi, 2022]{differential_regulation}
+Tiberi, S. (2022).
+\newblock Differentialregulation: Differentially regulated genes from scrna-seq
+  data.
+\newblock R package version 1.0.7.
+
+\bibitem[Tiberi {\it et~al.}, 2021]{distinct}
+Tiberi, S., Crowell, H.~L., Weber, L.~M., Samartsidis, P., and Robinson, M.~D.
+  (2021).
+\newblock distinct: a novel approach to differential distribution analyses.
+
+\bibitem[Tiberi and Robinson, 2020]{bandits}
+Tiberi, S. and Robinson, M.~D. (2020).
+\newblock Bandits: Bayesian differential splicing accounting for
+  sample-to-sample variability and mapping uncertainty.
+\newblock {\em Genome biology}, {\bf21},  1--13.
+
+\bibitem[Weiler {\it et~al.}, 2021]{rna_velo_traj}
+Weiler, P., Van~den Berge, K., Street, K., and Tiberi, S. (2021).
+\newblock A guide to trajectory inference and rna velocity.
+
+\end{thebibliography}

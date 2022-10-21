@@ -1,0 +1,19 @@
+% LaTeX file for Chapter 04
+<<'preamble04',include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+    fig.path='figure/ch04_fig', 
+    self.contained=FALSE,
+    cache=FALSE
+) 
+@
+
+\chapter{Discussion}
+
+\section{Conclusion} 
+In this thesis we investigated, how the relative abundance of spliced and unspliced reads differs between experimental conditions. Changes to these relative abundances are directly linked to gene regulation and methods that are capable of detecting these differences already exist (e.g. \emph{BRIE2} and \emph{eisaR}). However, said methods do not account for multi-mapping uncertainty, thus we proposed two solutions: i) \emph{DEXSeq} and ii) our novel approach \emph{DifferentialRegulation}. We investigated the performance of all methods on two semi-simulated data sets. The semi-simulated data sets were created from real scRNA-seq data with four biological replicates. In a first step, we introduced an arbitrary differential effect to a subset of genes and cells by inverting the counts of spliced and unspliced reads. Further, we added DGE to a second subset of genes and cells as an additional nuisance parameter. Multi-mapping uncertainty was considered next to make the semi-simulated data sets more realistic. This was achieved by using the \emph{minnow} pipeline where we used the two semi-simulated data sets as input. We then analysed the performance of \emph{BRIE2}, \emph{eisaR}, \emph{DEXSeq} and \emph{DifferentialRegulation} in detecting the differential genes by comparing ROC and TPR v. FDR curves. From this analysis we found that \emph{DifferentialRegulation} controls the FDR well for both data sets in comparison to the other three methods. Additionally, we examined the results stratified by gene abundance levels to investigate how robust the methods are to gene abundance with and without DGE. From this analysis we concluded that \emph{DifferentialRegulation} is the only method with good TPR and well calibrated FDR across all levels of gene abundance. Next, we did a Null analysis on the original data set where we compared the distribution of p-values for all three possible group separations. We found that \emph{BRIE2} had inflated p-values for all three group separations, whereas \emph{DifferentialRegulation} had no inflated p-values at all. From the Null analysis it was also shown that \emph{DifferentialRegulation} seems to be conservative as there was a tendency for inflation towards one. Ultimately, we ran a computational benchmark on the Null data where we applied all four methods on all three possible group separations and averaged the runtime. From the computational benchmark it was shown that the better performance of \emph{DifferentialRegulation} comes with a longer runtime, however, there is also the possibility to run the method without equivalence classes, which is slightly less accurate however much faster.
+
+From the previous analyses, we show that \emph{DifferentialRegulation} had overall better results than the other methods, however, there are also some caveats to the method, for example, \emph{DifferentialRegulation} cannot deal with additional covariates e.g. batch effects, whereas \emph{BRIE2} and \emph{DEXSeq} can. \\
+
+\section{Outlook}
+\emph{DifferentialRegulation} has already been published on the Bioconductor project, which is an open source software that promotes reproducible analysis of data from emerging biological assays. Further, it is planned to extend the use case of \emph{DifferentialRegulation} from only scRNA-seq data to bulk RNA-seq data, which allows deeper analysis on the transcript level. Ultimately, the work of this thesis is part of a future paper which needs some additional analyses on different data sets and some changes to the simulation algorithm.

@@ -1,0 +1,40 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces General workflow of single-cell RNA-sequencing experiments \citep {scrna_seq}\relax }}{4}{figure.caption.4}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces The transcription process from DNA to mature mRNA \citep {rna_velo_traj}\relax }}{5}{figure.caption.5}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Visualization of the \emph {alvein-fry} pipeline from start to finish \citep {alevin_fry}\relax }}{7}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Summary of the two possible pathways of \emph {minnow} from start to simulated reads \citep {minnow}\relax }}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Summary of the estimation process of \emph {BRIE2} \citep {brie2}\relax }}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Confusion matrix reporting the performance of a binary classification problem \citep {confusion_matrix}\relax }}{12}{figure.caption.9}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Quality control process from unprocessed, raw to processed, filtered single-cell experiment\relax }}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces UMAP representation of the mouse kidney cells coloured by sample id\relax }}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces UMAP representation of the mouse kidney cells coloured by cell type\relax }}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Frequency distribution of the cell types after quality control\relax }}{16}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Abundance of spliced and unspliced counts in sample normal1\relax }}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Abundance of spliced and unspliced counts in sample normal2\relax }}{17}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Abundance of spliced and unspliced counts in sample normal3\relax }}{17}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Abundance of spliced and unspliced counts in sample normal4\relax }}{18}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Dynamical model showing RNA velocity of sample normal1\relax }}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Dynamical model showing RNA velocity of sample normal2\relax }}{19}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Dynamical model showing RNA velocity of sample normal3\relax }}{19}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Dynamical model showing RNA velocity of sample normal4\relax }}{20}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Simulation process from original mouse data set to simulated data sets\relax }}{21}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces ROC curve of \emph {BRIE2} and \emph {eisaR} in the initial simulation without DGE\relax }}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces TPR v. FDR plot of \emph {BRIE2} and \emph {eisaR} in the initial simulation without DGE\relax }}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces ROC curve of \emph {BRIE2} and \emph {eisaR} in the initial simulation with DGE\relax }}{23}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces TPR v. FDR plot of \emph {BRIE2} and \emph {eisaR} in the initial simulation with DGE\relax }}{24}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces ROC curve of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation without DGE\relax }}{25}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation without DGE\relax }}{25}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces ROC curve of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation with DGE\relax }}{26}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {eisaR} and \emph {DifferentialRegulation} in the sophisticated simulation with DGE\relax }}{26}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation for the lowly expressed genes in the stratified analysis\relax }}{28}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation for the moderately expressed genes in the stratified analysis\relax }}{28}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation for the highly expressed genes in the stratified analysis\relax }}{29}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation for the lowly expressed genes in the stratified analysis with DGE\relax }}{29}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation for the moderately expressed genes in the stratified analysis with DGE\relax }}{30}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.27}{\ignorespaces TPR v. FDR plot of \emph {BRIE2}, \emph {DEXSeq}, \emph {DifferentialRegulation} and \emph {eisaR} in the sophisticated simulation for the highly expressed genes in the stratified analysis with DGE\relax }}{30}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.28}{\ignorespaces P-value distribution of the methods based on the three possible group separations\relax }}{31}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Computational benchmark of the differential methods on the Null data averaged over the three possible group separations\relax }}{33}{figure.caption.40}%
+\addvspace {10\p@ }
