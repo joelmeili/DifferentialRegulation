@@ -143,7 +143,7 @@ Rao, M.~S., Van~Vleet, T.~R., Ciurlionis, R., Buck, W.~R., Mittelstadt, S.~W.,
   the toxicogenomic evaluation of liver from short-term rat toxicity studies.
 \newblock {\em Frontiers in genetics}, {\bf9},  636.
 
-\bibitem[Robinson {\it et~al.}, 2010]{edger}
+\bibitem[Robinson {\it et~al.}, 2010]{edger_package}
 Robinson, M.~D., McCarthy, D.~J., and Smyth, G.~K. (2010).
 \newblock edger: a bioconductor package for differential expression analysis of
   digital gene expression data.

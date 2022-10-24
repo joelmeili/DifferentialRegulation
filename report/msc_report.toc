@@ -20,26 +20,26 @@
 \contentsline {section}{\numberline {2.3}Differential methods}{8}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}\emph {eisaR}}{8}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}\emph {BRIE2}}{8}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}\emph {DEXSeq}}{10}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}\emph {DifferentialRegulation}}{11}{subsection.2.3.4}%
-\contentsline {section}{\numberline {2.4}Analysis of results}{11}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Unifold Manifold Approximation and Projection (UMAP)}{11}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.3.3}\emph {DEXSeq}}{9}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}\emph {DifferentialRegulation}}{10}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Analysis of results}{10}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Unifold Manifold Approximation and Projection (UMAP)}{10}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Classification measurements}{11}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}ROC curve}{12}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}TPR v. FDR curves}{13}{subsection.2.4.4}%
-\contentsline {chapter}{\numberline {3}Results}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Exploratory Data Analysis}{14}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Mouse kidney cells}{14}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Simulation study}{21}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Simulation strategy}{21}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Simulation without mapping uncertainty}{21}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Simulation with mapping uncertainty}{25}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Null analysis on the mouse kidney data}{31}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Computational benchmark}{32}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Data availability}{33}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Code availability}{33}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Discussion}{34}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Conclusion}{34}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Outlook}{35}{section.4.2}%
+\contentsline {subsection}{\numberline {2.4.4}TPR v. FDR curves}{12}{subsection.2.4.4}%
+\contentsline {chapter}{\numberline {3}Results}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Exploratory Data Analysis}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Mouse kidney cells}{13}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Simulation study}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Simulation strategy}{20}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Simulation without mapping uncertainty}{20}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Simulation with mapping uncertainty}{24}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Null analysis on the mouse kidney data}{30}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Computational benchmark}{31}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Data availability}{32}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Code availability}{32}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Discussion}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Conclusion}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Outlook}{34}{section.4.2}%
 \vspace *{10mm}
-\contentsline {chapter}{\bfseries Bibliography}{35}{section.4.2}%
+\contentsline {chapter}{\bfseries Bibliography}{34}{section.4.2}%

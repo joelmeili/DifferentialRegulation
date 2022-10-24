@@ -28,25 +28,15 @@
 \FloatBarrier
 
 \section{Differential methods}
-
 \subsection{\emph{eisaR}}
-Exon-intron split analysis (EISA) is a computational approach to measure mature RNA and pre-mRNA reads across different experimental conditions \citep{eisar}. The method has been developed to detect changes in up- or down-regulated gene expression. \emph{eisaR} works in multiple steps: first, both exonic and intronic counts are normalized to the mean library size and log-transformed with the addition of a pseudocount; second, genes with very low counts in either exons or introns are removed, such that there is a fixed set of quantifiable genes; third, the statistical analysis of the counts is conducted with the help of the \emph{edgeR} framework \citep{edger}. The \emph{edgeR} framework is used to examine differential gene expression of replicated count data where the counts are modelled by a negative binomial distribution (\ref{eqn:edger}), where for the \emph{g}-th gene and \emph{i}-th sample:
+Exon-intron split analysis (EISA) is a computational approach that measures mature RNA and pre-mRNA reads across different experimental conditions \citep{eisar}. The method has been developed to quantify transcriptional and post-transcriptional regulation of gene expression. After quantification of exonic and intronic reads, both counts are normalized to the mean library size and $log_2$-transformed with the addition of a pseudocount of 8. Based on these expression levels, very lowly expressed genes (average $log_2$ expression of at least 5) in either exons and introns are removed, such that there is a fixed set of quantifiable genes. As absolute exonic and intronic counts have very different distributions it is difficult to model them in the same statistical model \citep{eisar}. Therefore, the difference of $\Delta \text{exon}$ and $\Delta \text{intron}$ is modelled with a generalized linear regression model to mitigate this issue. The generalized linear regression approach uses an interaction term to determine the statistical significance between exonic and intronic counts and the experimental conditions, and is implemented within the \emph{edgeR} framework \citep{edger_package} that is used to examine differential gene expression of replicated count data where the counts are modelled by a negative binomial distribution (\ref{eqn:edger}), where for the \emph{g}-th gene and \emph{i}-th sample:
 
 \begin{equation}
 Y_{gi} \sim NB(\text{mean} = M_{i}\rho_{gj}, \text{dispersion} = \phi_g)
 \label{eqn:edger}
 \end{equation}
 
-where $M_i$ is the library size (total counts) for i-th sample; $\phi_g$ is the dispersion for the g-th gene and $\rho_{gj}$ is the relative abundance of gene g in experimental group j which sample i belongs to and $\text{NB(a, b)}$ denotes the negative binomial distribution with mean a and dispersion b.
-
-\begin{figure}[!htb]
-\begin{center}
-\includegraphics[width=6in,height=4in]{../figures/eisar.png}
-\end{center}
-\caption{Comparison of exonic and intronic changes for single genes under controlled transcriptional and post-transcriptional perturbations \citep{eisar}}
-\label{fig:eisar}
-\end{figure}
-\FloatBarrier
+where $M_i$ is the library size (total counts) for i-th sample; $\phi_g$ is the dispersion for the g-th gene and $\rho_{gj}$ is the relative abundance of gene g in experimental group j which sample i belongs to and $\text{NB(a, b)}$ denotes the negative binomial distribution with mean a and dispersion b. Ultimately, the significance of the interaction term is calculated by the use of a likelihood ratio test between the full model and a reduced model containing the experimental condition without the interaction term \citep{eisar}. In this thesis we used the R package \emph{eisaR} which implements the EISA framework to conveniently run the method \citep{eisar_package}.
 
 \subsection{\emph{BRIE2}}
 \emph{BRIE2} is a scalable computational method that regresses single-cell RNA-seq data against cell-level features \citep{brie2}. Unavoidable difficulty in the quantification arises from the fundamental ambiguity of the data, because a majority of reads cannot be mapped unambiguously to a single isoform. \emph{BRIE1} tackled this issue by regressing percentage of spliced-in (PSI) values through a Bayesian regression approach. However, \emph{BRIE1} is not well suited to quantify differential splicing across cell types because sequence features are usually the same between individual cells \citep{brie2}. \emph{BRIE2} again starts from a latent regression framework, however, it differs from \emph{BRIE1} in two important ways: first, it augments the set of regressor features by including cell-specific information e.g. cell type; second, the added complexity considerably increases the computational cost. Therefore, because of its elevated computational complexity, \emph{BRIE2} was developed to be used in conjunction with advanced software e.g. Tensorflow and graphics processing units (GPUs), which significantly increases computational acceleration. Figure \ref{fig:brie2_process} summarizes the process from input to output in the \emph{BRIE2} pipeline.
