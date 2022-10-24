@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex msc_report"] 1666626679 "msc_report.aux" "msc_report.bbl" "msc_report" 1666627693
+["bibtex msc_report"] 1666626679 "msc_report.aux" "msc_report.bbl" "msc_report" 1666641098
   "./mywiley.bst" 1527190899 23125 8d6b8329f0becf2db55d51b1c97515e1 ""
   "biblio.bib" 1666616666 11790 cba9f73cf1d8a6f7d09861f478034f17 ""
-  "msc_report.aux" 1666627693 29634 30bb6bf65fba45fb158d2d72c982c730 "pdflatex"
+  "msc_report.aux" 1666641098 29634 30bb6bf65fba45fb158d2d72c982c730 "pdflatex"
   (generated)
   "msc_report.bbl"
   "msc_report.blg"
-["pdflatex"] 1666627689 "msc_report.tex" "msc_report.pdf" "msc_report" 1666627693
+["pdflatex"] 1666641094 "msc_report.tex" "msc_report.pdf" "msc_report" 1666641098
   "../figures/alevin_fry_pipeline.png" 1666268074 547058 1d2722babf6ca013ecd0b0ed4d5e4709 ""
   "../figures/brie2_process.jpg" 1666268074 224984 0ab66d394d6629f3444eaeb5d321aebd ""
   "../figures/confusion_matrix.png" 1666268074 40651 bdb7ee3a444675c364517a7cb848b804 ""
@@ -190,17 +190,17 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1661979980 4036811 4cb80868003c86b962b6b5ae1e1e2902 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1661979984 1405644 b4dfd5c317983c0f3d4e97798e86f92e ""
   "chapter01.tex" 1666627689 9258 6519b3677b4e4f5a2f721644312fc204 ""
-  "chapter02.tex" 1666627315 15315 bb99904a75b884d14793b301a1a5d576 ""
+  "chapter02.tex" 1666641093 15316 adfd3ee95dd015de6642a74bf9b212cd ""
   "chapter03.tex" 1666627689 28851 9cf1c5be97cbd25bd08e632c33ffa15e ""
   "chapter04.tex" 1666340653 3629 6ab91bd25ac85d0c4b313f03a8704f1a ""
   "header.sty" 1665090894 15638 e22b034712d91aea446b95fdb24b9e1a ""
   "hyperref.cfg" 1551857996 1069 163f96f3cb97ec6eb731bb37cdb31f03 ""
-  "msc_report.aux" 1666627693 29634 30bb6bf65fba45fb158d2d72c982c730 "pdflatex"
+  "msc_report.aux" 1666641098 29634 30bb6bf65fba45fb158d2d72c982c730 "pdflatex"
   "msc_report.bbl" 1666626679 8708 5952aa92aeb1f54578b7825084721d16 "bibtex msc_report"
-  "msc_report.brf" 1666627693 2877 0f765325eb5723bb54033917b8f6e2de "pdflatex"
-  "msc_report.out" 1666627693 1260 bd32c316e71d57dffd523a7d2e08e34a "pdflatex"
+  "msc_report.brf" 1666641098 2877 0f765325eb5723bb54033917b8f6e2de "pdflatex"
+  "msc_report.out" 1666641098 1260 bd32c316e71d57dffd523a7d2e08e34a "pdflatex"
   "msc_report.tex" 1666347868 4107 8a644422fd59efc3cf9c7846088beb31 ""
-  "msc_report.toc" 1666627693 3464 3a013c719d731a9f1d530f86a4256f47 "pdflatex"
+  "msc_report.toc" 1666641098 3464 3a013c719d731a9f1d530f86a4256f47 "pdflatex"
   "title.tex" 1665244390 776 6991f5057122d2306141a399a777d23a ""
   (generated)
   "msc_report.aux"
