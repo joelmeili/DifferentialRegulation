@@ -41,27 +41,6 @@ where $M_i$ is the library size (total counts) for i-th sample; $\phi_g$ is the 
 \subsection{\emph{BRIE2}}
 \emph{BRIE2} is a scalable computational method that regresses single-cell RNA-seq data against cell-level features \citep{brie2}. Unavoidable difficulty in the quantification arises from the fundamental ambiguity of the data, because a majority of reads cannot be mapped unambiguously to a single isoform. \emph{BRIE1} tackled this issue by regressing percentage of spliced-in (PSI) values through a Bayesian regression approach. However, \emph{BRIE1} is not well suited to quantify differential splicing across cell types because sequence features are usually the same between individual cells \citep{brie2}. \emph{BRIE2} again starts from a latent regression framework, however, it differs from \emph{BRIE1} in two important ways: first, it augments the set of regressor features by including cell-specific information e.g. cell type; second, the added complexity considerably increases the computational cost. Therefore, because of its elevated computational complexity, \emph{BRIE2} was developed to be used in conjunction with advanced software e.g. Tensorflow and graphics processing units (GPUs), which significantly increases computational acceleration. Figure \ref{fig:brie2_process} summarizes the process from input to output in the \emph{BRIE2} pipeline.
 
-The BRIE2 model uses a generalised linear model to identify regulatory factors of splicing from both gene and cell level features \citep{brie2}. It assumes that $z_{c,g}$ is a linear combination as follows:
-
-\begin{equation}
-z_{c,g} = \alpha_c^T x_g + y_c^T \beta_g + \epsilon_{c,g}
-\label{eqn:brie_A}
-\end{equation}
-
-where $x$ denotes the gene level features and $y$ denotes the cell level features; $\alpha_c^T$ is the gene specific and $\beta_g$ is the cell feature specific coefficient. In this thesis we use \emph{BRIE2} in the differential momentum genes mode, which allows the detection of differential alternative splicing events or differential momentum genes with one or multiple cell-level covariates \citep{brie2}. This is equivalent to selecting model 1 ($M_1$) with significant effects against model 0 ($M_0$) with no effects.
-
-\begin{equation}
-M_0: p_g^{(0)} = \prod_{c=1}^{M}{p(s_{c,g} | z_{c,g}) N(z_{c,g} | y_{c,t} \cdot 0 + y_{c,t^-}^T \beta_{g,t^-}, \sigma_g^2)}
-\label{eqn:brie_B}
-\end{equation}
-
-\begin{equation}
-M_1: p_g^{(1)} = \prod_{c=1}^{M}{p(s_{c,g} | z_{c,g}) N(z_{c,g} | y_{c,t} \cdot \beta_{g,t} + y_{c,t^-}^T \beta_{g,t^-}, \sigma_g^2)}
-\label{eqn:brie_C}
-\end{equation}
-
-where $N(a,b)$ is the normal distribution with mean $a$ and variance $b$; $t^-$ denotes all cell features except feature t; $p(s_{c,g} | z_{c,g})$ is the multinominal, conditional distribution given $z_{c,g}$ where $s_{c,g}$ is the three dimensional count vector.
-
 \begin{figure}[!htb]
 \begin{center}
 \includegraphics[width=6in,height=3in]{../figures/brie2_process.jpg}

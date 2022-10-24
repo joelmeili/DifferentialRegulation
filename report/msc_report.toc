@@ -24,8 +24,8 @@
 \contentsline {subsection}{\numberline {2.3.4}\emph {DifferentialRegulation}}{10}{subsection.2.3.4}%
 \contentsline {section}{\numberline {2.4}Analysis of results}{10}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Unifold Manifold Approximation and Projection (UMAP)}{10}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Classification measurements}{11}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}ROC curve}{12}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.2}Classification measurements}{10}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}ROC curve}{11}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}TPR v. FDR curves}{12}{subsection.2.4.4}%
 \contentsline {chapter}{\numberline {3}Results}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Exploratory Data Analysis}{13}{section.3.1}%

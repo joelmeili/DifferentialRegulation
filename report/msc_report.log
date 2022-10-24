@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.31)  24 OCT 2022 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.31)  24 OCT 2022 17:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -507,48 +507,47 @@ File: ../figures/simulation/minnow_process.jpg Graphic file (type jpg)
 Package pdftex.def Info: ../figures/simulation/minnow_process.jpg  used on inpu
 t line 23.
 (pdftex.def)             Requested size: 433.62231pt x 289.08205pt.
-[7 <../figures/simulation/minnow_process.jpg>] [8]
-<../figures/brie2_process.jpg, id=322, 1464.47125pt x 798.985pt>
+[7 <../figures/simulation/minnow_process.jpg>]
+<../figures/brie2_process.jpg, id=304, 1464.47125pt x 798.985pt>
 File: ../figures/brie2_process.jpg Graphic file (type jpg)
 <use ../figures/brie2_process.jpg>
-Package pdftex.def Info: ../figures/brie2_process.jpg  used on input line 67.
+Package pdftex.def Info: ../figures/brie2_process.jpg  used on input line 46.
 (pdftex.def)             Requested size: 433.62419pt x 216.80168pt.
-[9 <../figures/brie2_process.jpg>]
-<../figures/umap.png, id=367, 602.25pt x 466.74374pt>
+[8] [9 <../figures/brie2_process.jpg>]
+<../figures/umap.png, id=358, 602.25pt x 466.74374pt>
 File: ../figures/umap.png Graphic file (type png)
 <use ../figures/umap.png>
-Package pdftex.def Info: ../figures/umap.png  used on input line 99.
+Package pdftex.def Info: ../figures/umap.png  used on input line 78.
 (pdftex.def)             Requested size: 433.63805pt x 289.09325pt.
-[10]
-<../figures/confusion_matrix.png, id=387, 1054.94125pt x 747.79375pt>
+[10 <../figures/umap.png>]
+<../figures/confusion_matrix.png, id=379, 1054.94125pt x 747.79375pt>
 File: ../figures/confusion_matrix.png Graphic file (type png)
 <use ../figures/confusion_matrix.png>
-Package pdftex.def Info: ../figures/confusion_matrix.png  used on input line 12
-8.
+Package pdftex.def Info: ../figures/confusion_matrix.png  used on input line 10
+7.
 (pdftex.def)             Requested size: 433.60722pt x 289.08246pt.
-[11 <../figures/umap.png>]) (./chapter03.tex [12 <../figures/confusion_matrix.p
-ng (PNG copy)>]
+[11 <../figures/confusion_matrix.png (PNG copy)>]) (./chapter03.tex [12]
 Chapter 3.
-<../figures/qc.png, id=420, 925.056pt x 4212.6183pt>
+<../figures/qc.png, id=410, 925.056pt x 4212.6183pt>
 File: ../figures/qc.png Graphic file (type png)
 <use ../figures/qc.png>
 Package pdftex.def Info: ../figures/qc.png  used on input line 17.
 (pdftex.def)             Requested size: 108.40472pt x 397.43889pt.
-<../figures/kidney_mouse/UMAP_mouse_sample_id.png, id=432, 433.62pt x 289.08pt>
+<../figures/kidney_mouse/UMAP_mouse_sample_id.png, id=422, 433.62pt x 289.08pt>
 
 File: ../figures/kidney_mouse/UMAP_mouse_sample_id.png Graphic file (type png)
 <use ../figures/kidney_mouse/UMAP_mouse_sample_id.png>
 Package pdftex.def Info: ../figures/kidney_mouse/UMAP_mouse_sample_id.png  used
  on input line 29.
 (pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
-<../figures/kidney_mouse/UMAP_mouse_cell_type.png, id=433, 433.62pt x 289.08pt>
+<../figures/kidney_mouse/UMAP_mouse_cell_type.png, id=423, 433.62pt x 289.08pt>
 
 File: ../figures/kidney_mouse/UMAP_mouse_cell_type.png Graphic file (type png)
 <use ../figures/kidney_mouse/UMAP_mouse_cell_type.png>
 Package pdftex.def Info: ../figures/kidney_mouse/UMAP_mouse_cell_type.png  used
  on input line 37.
 (pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
-<../figures/kidney_mouse/cell_type_distribution.png, id=434, 433.62pt x 361.35p
+<../figures/kidney_mouse/cell_type_distribution.png, id=424, 433.62pt x 361.35p
 t>
 File: ../figures/kidney_mouse/cell_type_distribution.png Graphic file (type png
 )
@@ -559,35 +558,35 @@ ed on input line 45.
 [13
 
 ]
-<../figures/kidney_mouse/normal1_proportions.png, id=453, 511.1898pt x 171.2799
+<../figures/kidney_mouse/normal1_proportions.png, id=443, 511.1898pt x 171.2799
 pt>
 File: ../figures/kidney_mouse/normal1_proportions.png Graphic file (type png)
 <use ../figures/kidney_mouse/normal1_proportions.png>
 Package pdftex.def Info: ../figures/kidney_mouse/normal1_proportions.png  used 
 on input line 55.
 (pdftex.def)             Requested size: 433.61636pt x 144.55103pt.
-<../figures/kidney_mouse/normal2_proportions.png, id=454, 511.1898pt x 171.2799
+<../figures/kidney_mouse/normal2_proportions.png, id=444, 511.1898pt x 171.2799
 pt>
 File: ../figures/kidney_mouse/normal2_proportions.png Graphic file (type png)
 <use ../figures/kidney_mouse/normal2_proportions.png>
 Package pdftex.def Info: ../figures/kidney_mouse/normal2_proportions.png  used 
 on input line 63.
 (pdftex.def)             Requested size: 433.61636pt x 144.55103pt.
-<../figures/kidney_mouse/normal3_proportions.png, id=455, 511.1898pt x 171.2799
+<../figures/kidney_mouse/normal3_proportions.png, id=445, 511.1898pt x 171.2799
 pt>
 File: ../figures/kidney_mouse/normal3_proportions.png Graphic file (type png)
 <use ../figures/kidney_mouse/normal3_proportions.png>
 Package pdftex.def Info: ../figures/kidney_mouse/normal3_proportions.png  used 
 on input line 71.
 (pdftex.def)             Requested size: 433.61636pt x 144.55103pt.
-<../figures/kidney_mouse/normal4_proportions.png, id=456, 511.1898pt x 171.2799
+<../figures/kidney_mouse/normal4_proportions.png, id=446, 511.1898pt x 171.2799
 pt>
 File: ../figures/kidney_mouse/normal4_proportions.png Graphic file (type png)
 <use ../figures/kidney_mouse/normal4_proportions.png>
 Package pdftex.def Info: ../figures/kidney_mouse/normal4_proportions.png  used 
 on input line 79.
 (pdftex.def)             Requested size: 433.61636pt x 144.55103pt.
-<../figures/kidney_mouse/normal1_dynamical_model.png, id=457, 370.2633pt x 244.
+<../figures/kidney_mouse/normal1_dynamical_model.png, id=447, 370.2633pt x 244.
 7544pt>
 File: ../figures/kidney_mouse/normal1_dynamical_model.png Graphic file (type pn
 g)
@@ -595,7 +594,7 @@ g)
 Package pdftex.def Info: ../figures/kidney_mouse/normal1_dynamical_model.png  u
 sed on input line 87.
 (pdftex.def)             Requested size: 433.63004pt x 289.08403pt.
-<../figures/kidney_mouse/normal2_dynamical_model.png, id=458, 362.5545pt x 244.
+<../figures/kidney_mouse/normal2_dynamical_model.png, id=448, 362.5545pt x 244.
 7544pt>
 File: ../figures/kidney_mouse/normal2_dynamical_model.png Graphic file (type pn
 g)
@@ -603,7 +602,7 @@ g)
 Package pdftex.def Info: ../figures/kidney_mouse/normal2_dynamical_model.png  u
 sed on input line 95.
 (pdftex.def)             Requested size: 433.64148pt x 289.08403pt.
-<../figures/kidney_mouse/normal3_dynamical_model.png, id=459, 361.1091pt x 244.
+<../figures/kidney_mouse/normal3_dynamical_model.png, id=449, 361.1091pt x 244.
 7544pt>
 File: ../figures/kidney_mouse/normal3_dynamical_model.png Graphic file (type pn
 g)
@@ -611,7 +610,7 @@ g)
 Package pdftex.def Info: ../figures/kidney_mouse/normal3_dynamical_model.png  u
 sed on input line 103.
 (pdftex.def)             Requested size: 433.63731pt x 289.08403pt.
-<../figures/kidney_mouse/normal4_dynamical_model.png, id=460, 359.1819pt x 244.
+<../figures/kidney_mouse/normal4_dynamical_model.png, id=450, 359.1819pt x 244.
 7544pt>
 File: ../figures/kidney_mouse/normal4_dynamical_model.png Graphic file (type pn
 g)
@@ -631,7 +630,7 @@ g> <../figures/kidney_mouse/normal4_proportions.png>] [18 <../figures/kidney_mo
 use/normal1_dynamical_model.png> <../figures/kidney_mouse/normal2_dynamical_mod
 el.png>] [19 <../figures/kidney_mouse/normal3_dynamical_model.png> <../figures/
 kidney_mouse/normal4_dynamical_model.png>]
-<../figures/kidney_mouse/first_simulation_process.png, id=505, 341.275pt x 703.
+<../figures/kidney_mouse/first_simulation_process.png, id=495, 341.275pt x 703.
 62875pt>
 File: ../figures/kidney_mouse/first_simulation_process.png Graphic file (type p
 ng)
@@ -642,19 +641,19 @@ used on input line 127.
 [20
 
 ] [21 <../figures/kidney_mouse/first_simulation_process.png>]
-<../figures/simulation/naive_simulation_ROC.png, id=532, 433.62pt x 289.08pt>
+<../figures/simulation/naive_simulation_ROC.png, id=522, 433.62pt x 289.08pt>
 File: ../figures/simulation/naive_simulation_ROC.png Graphic file (type png)
 <use ../figures/simulation/naive_simulation_ROC.png>
 Package pdftex.def Info: ../figures/simulation/naive_simulation_ROC.png  used o
 n input line 144.
 (pdftex.def)             Requested size: 433.63878pt x 267.41245pt.
-<../figures/simulation/naive_simulation_FDR.png, id=533, 433.62pt x 289.08pt>
+<../figures/simulation/naive_simulation_FDR.png, id=523, 433.62pt x 289.08pt>
 File: ../figures/simulation/naive_simulation_FDR.png Graphic file (type png)
 <use ../figures/simulation/naive_simulation_FDR.png>
 Package pdftex.def Info: ../figures/simulation/naive_simulation_FDR.png  used o
 n input line 152.
 (pdftex.def)             Requested size: 433.63878pt x 267.41245pt.
-<../figures/simulation/naive_simulation_DGE_ROC.png, id=534, 433.62pt x 289.08p
+<../figures/simulation/naive_simulation_DGE_ROC.png, id=524, 433.62pt x 289.08p
 t>
 File: ../figures/simulation/naive_simulation_DGE_ROC.png Graphic file (type png
 )
@@ -662,7 +661,7 @@ File: ../figures/simulation/naive_simulation_DGE_ROC.png Graphic file (type png
 Package pdftex.def Info: ../figures/simulation/naive_simulation_DGE_ROC.png  us
 ed on input line 160.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/naive_simulation_DGE_FDR.png, id=535, 433.62pt x 289.08p
+<../figures/simulation/naive_simulation_DGE_FDR.png, id=525, 433.62pt x 289.08p
 t>
 File: ../figures/simulation/naive_simulation_DGE_FDR.png Graphic file (type png
 )
@@ -674,19 +673,19 @@ ed on input line 168.
 ulation/naive_simulation_FDR.png (PNG copy)>] [23 <../figures/simulation/naive_
 simulation_DGE_ROC.png (PNG copy)> <../figures/simulation/naive_simulation_DGE_
 FDR.png (PNG copy)>]
-<../figures/simulation/minnow_simulation_ROC.png, id=548, 433.62pt x 289.08pt>
+<../figures/simulation/minnow_simulation_ROC.png, id=538, 433.62pt x 289.08pt>
 File: ../figures/simulation/minnow_simulation_ROC.png Graphic file (type png)
 <use ../figures/simulation/minnow_simulation_ROC.png>
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_ROC.png  used 
 on input line 184.
 (pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
-<../figures/simulation/minnow_simulation_FDR.png, id=549, 433.62pt x 289.08pt>
+<../figures/simulation/minnow_simulation_FDR.png, id=539, 433.62pt x 289.08pt>
 File: ../figures/simulation/minnow_simulation_FDR.png Graphic file (type png)
 <use ../figures/simulation/minnow_simulation_FDR.png>
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_FDR.png  used 
 on input line 192.
 (pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
-<../figures/simulation/minnow_simulation_DGE_ROC.png, id=550, 433.62pt x 289.08
+<../figures/simulation/minnow_simulation_DGE_ROC.png, id=540, 433.62pt x 289.08
 pt>
 File: ../figures/simulation/minnow_simulation_DGE_ROC.png Graphic file (type pn
 g)
@@ -694,7 +693,7 @@ g)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_DGE_ROC.png  u
 sed on input line 200.
 (pdftex.def)             Requested size: 433.63878pt x 289.09251pt.
-<../figures/simulation/minnow_simulation_DGE_FDR.png, id=551, 433.62pt x 289.08
+<../figures/simulation/minnow_simulation_DGE_FDR.png, id=541, 433.62pt x 289.08
 pt>
 File: ../figures/simulation/minnow_simulation_DGE_FDR.png Graphic file (type pn
 g)
@@ -702,7 +701,7 @@ g)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_DGE_FDR.png  u
 sed on input line 208.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/minnow_simulation_low_FDR.png, id=554, 433.62pt x 289.08
+<../figures/simulation/minnow_simulation_low_FDR.png, id=544, 433.62pt x 289.08
 pt>
 File: ../figures/simulation/minnow_simulation_low_FDR.png Graphic file (type pn
 g)
@@ -710,7 +709,7 @@ g)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_low_FDR.png  u
 sed on input line 222.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/minnow_simulation_mod_FDR.png, id=555, 433.62pt x 289.08
+<../figures/simulation/minnow_simulation_mod_FDR.png, id=545, 433.62pt x 289.08
 pt>
 File: ../figures/simulation/minnow_simulation_mod_FDR.png Graphic file (type pn
 g)
@@ -718,7 +717,7 @@ g)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_mod_FDR.png  u
 sed on input line 230.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/minnow_simulation_high_FDR.png, id=556, 433.62pt x 289.0
+<../figures/simulation/minnow_simulation_high_FDR.png, id=546, 433.62pt x 289.0
 8pt>
 File: ../figures/simulation/minnow_simulation_high_FDR.png Graphic file (type p
 ng)
@@ -726,7 +725,7 @@ ng)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_high_FDR.png  
 used on input line 238.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/minnow_simulation_low_DGE_FDR.png, id=557, 433.62pt x 28
+<../figures/simulation/minnow_simulation_low_DGE_FDR.png, id=547, 433.62pt x 28
 9.08pt>
 File: ../figures/simulation/minnow_simulation_low_DGE_FDR.png Graphic file (typ
 e png)
@@ -734,7 +733,7 @@ e png)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_low_DGE_FDR.pn
 g  used on input line 246.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/minnow_simulation_mod_DGE_FDR.png, id=558, 433.62pt x 28
+<../figures/simulation/minnow_simulation_mod_DGE_FDR.png, id=548, 433.62pt x 28
 9.08pt>
 File: ../figures/simulation/minnow_simulation_mod_DGE_FDR.png Graphic file (typ
 e png)
@@ -742,7 +741,7 @@ e png)
 Package pdftex.def Info: ../figures/simulation/minnow_simulation_mod_DGE_FDR.pn
 g  used on input line 254.
 (pdftex.def)             Requested size: 433.63878pt x 274.64207pt.
-<../figures/simulation/minnow_simulation_high_DGE_FDR.png, id=559, 433.62pt x 2
+<../figures/simulation/minnow_simulation_high_DGE_FDR.png, id=549, 433.62pt x 2
 89.08pt>
 File: ../figures/simulation/minnow_simulation_high_DGE_FDR.png Graphic file (ty
 pe png)
@@ -759,7 +758,7 @@ opy)>] [28 <../figures/simulation/minnow_simulation_high_FDR.png (PNG copy)> <.
 ./figures/simulation/minnow_simulation_low_DGE_FDR.png (PNG copy)>] [29 <../fig
 ures/simulation/minnow_simulation_mod_DGE_FDR.png (PNG copy)> <../figures/simul
 ation/minnow_simulation_high_DGE_FDR.png (PNG copy)>]
-<../figures/null_analysis/p_value_distribution.png, id=599, 650.43pt x 433.62pt
+<../figures/null_analysis/p_value_distribution.png, id=589, 650.43pt x 433.62pt
 >
 File: ../figures/null_analysis/p_value_distribution.png Graphic file (type png)
 
@@ -770,7 +769,7 @@ d on input line 274.
 [30
 
  <../figures/null_analysis/p_value_distribution.png (PNG copy)>]
-<../figures/null_analysis/bench_mark.png, id=610, 650.43pt x 325.215pt>
+<../figures/null_analysis/bench_mark.png, id=600, 650.43pt x 325.215pt>
 File: ../figures/null_analysis/bench_mark.png Graphic file (type png)
 <use ../figures/null_analysis/bench_mark.png>
 Package pdftex.def Info: ../figures/null_analysis/bench_mark.png  used on input
@@ -805,13 +804,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 Package rerunfilecheck Info: File `msc_report.out' has not changed.
 (rerunfilecheck)             Checksum: BD32C316E71D57DFFD523A7D2E08E34A;1260.
 Package rerunfilecheck Info: File `msc_report.brf' has not changed.
-(rerunfilecheck)             Checksum: AEC404B802FDB1D71261643AF9A7175F;2972.
+(rerunfilecheck)             Checksum: 0F765325EB5723BB54033917B8F6E2DE;2877.
  ) 
 Here is how much of TeX's memory you used:
- 14950 strings out of 480247
- 241387 string characters out of 5896151
- 539602 words of memory out of 5000000
- 32430 multiletter control sequences out of 15000+600000
+ 14944 strings out of 480247
+ 241309 string characters out of 5896151
+ 539488 words of memory out of 5000000
+ 32427 multiletter control sequences out of 15000+600000
  491785 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,8n,94p,2721b,511s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -830,19 +829,16 @@ k> </home/joel/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600p
 k> </home/joel/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600p
 k> </home/joel/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.600p
 k> </home/joel/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600p
-k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb>
-Output written on msc_report.pdf (42 pages, 6458485 bytes).
+k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on msc_report.pdf (42 pages, 6427906 bytes).
 PDF statistics:
- 1299 PDF objects out of 1440 (max. 8388607)
- 682 compressed objects within 7 object streams
- 171 named destinations out of 1000 (max. 500000)
+ 1276 PDF objects out of 1440 (max. 8388607)
+ 665 compressed objects within 7 object streams
+ 168 named destinations out of 1000 (max. 500000)
  349 words of extra memory for PDF output out of 10000 (max. 10000000)
 
