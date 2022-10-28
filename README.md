@@ -29,11 +29,17 @@ levels, and differential gene expression (a nuisance effect in this analysis), a
 - code/02_exploratory_analysis/rna_velocity.py (runs scVelo pipeline on each sample and produces plots of spliced/unspliced proportions and dynamical model showing the RNAVelocity for each sample)
 
 ### Naive simulation
-- mouse_simulation.R (contains two functions: mouse_simulation and add_DGE; the first function contains the simulation algorithm for the naive simulation and the second function adds differential gene expression as a nuisance parameter; essentially creates two data sets)
+- code/03_simulation/mouse_simulation.R (contains two functions: mouse_simulation and add_DGE; the first function contains the simulation algorithm for the naive simulation and the second function adds differential gene expression as a nuisance parameter)
+- code/03_simulation/run_simulation_mouse.R (runs the simulation algorithm and creates two semi-simulated data sets and saves them as .rds-files)
 
-### Sophisticated simulation
-- minnow_preparation.R (converts the two simulated data sets into the format required for minnow to be run on)
-- run_minnow.sh (runs minnow for each cell type in each sample individually and outputs the results for further alignment and quantification with alevin-fry)
+### Simulation with mapping uncertainty
+- code/03_simulation_minnow/minnow_preparation.R (converts the two simulated data sets into the format required for minnow to be run on)
+- code/03_simulation_minnow/run_minnow.sh (runs minnow for each cell type in each sample individually and outputs the results for further alignment and quantification with alevin-fry)
+
+### Differential analysis
+- code/04_differential_analysis/differential_analysis.R
+- code/04_differential_analysis/run_differential_analysis.R
+- code/04_differential_analysis/DA_simulation.R
 
 ## Data availability
 
