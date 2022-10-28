@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex msc_report"] 1666972948 "msc_report.aux" "msc_report.bbl" "msc_report" 1666972952
+["bibtex msc_report"] 1666972948 "msc_report.aux" "msc_report.bbl" "msc_report" 1666973226
   "./mywiley.bst" 1527190899 23125 8d6b8329f0becf2db55d51b1c97515e1 ""
   "biblio.bib" 1666874660 12073 28abeb3814b920dc44aabdbdecc9dd0c ""
-  "msc_report.aux" 1666972952 28019 87110db71a012e2877f55ed9316d9b7f "pdflatex"
+  "msc_report.aux" 1666973226 28019 87110db71a012e2877f55ed9316d9b7f "pdflatex"
   (generated)
   "msc_report.bbl"
   "msc_report.blg"
-["pdflatex"] 1666972948 "msc_report.tex" "msc_report.pdf" "msc_report" 1666972952
+["pdflatex"] 1666973222 "msc_report.tex" "msc_report.pdf" "msc_report" 1666973226
   "../figures/alevin_fry_pipeline.png" 1666268074 547058 1d2722babf6ca013ecd0b0ed4d5e4709 ""
   "../figures/brie2_process.jpg" 1666268074 224984 0ab66d394d6629f3444eaeb5d321aebd ""
   "../figures/confusion_matrix.png" 1666268074 40651 bdb7ee3a444675c364517a7cb848b804 ""
@@ -22,8 +22,8 @@
   "../figures/kidney_mouse/normal3_proportions.png" 1666268075 188877 2b5d392678082a9861f1b28793e2a241 ""
   "../figures/kidney_mouse/normal4_dynamical_model.png" 1666268075 275803 267ab0c2397adad40c72cf461d861a88 ""
   "../figures/kidney_mouse/normal4_proportions.png" 1666268075 178982 7a04559d1f56cd840840efcc95568c86 ""
-  "../figures/null_analysis/bench_mark.png" 1666872377 58472 68037ab019677cfff4e2a82abbd465f6 ""
-  "../figures/null_analysis/p_value_distribution.png" 1666268075 235168 4213c30f3dcdeacd6b4885b520df7b6f ""
+  "../figures/null_analysis/bench_mark.png" 1666973162 58113 9cc090cd9c6f5aeaf08f092cd8fb3437 ""
+  "../figures/null_analysis/p_value_distribution.png" 1666973195 234566 9b0f06bb62649a921b5e522a30663691 ""
   "../figures/qc.png" 1666268075 548266 bec779c97190b12df15cc9b109643b2b ""
   "../figures/regulation.jpg" 1666268075 30977 4b417071eba559984aa6c5373cf77502 ""
   "../figures/scrna_protocol.png" 1666268075 246035 05d18b8b29595f5a09823bb2980c06c8 ""
@@ -191,17 +191,17 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1661979980 4036811 4cb80868003c86b962b6b5ae1e1e2902 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1661979984 1405644 b4dfd5c317983c0f3d4e97798e86f92e ""
   "chapter01.tex" 1666627689 9258 6519b3677b4e4f5a2f721644312fc204 ""
-  "chapter02.tex" 1666961468 20954 6ee14b62c79b212f5b96be7c67c8f1ab ""
+  "chapter02.tex" 1666973222 20954 6ee14b62c79b212f5b96be7c67c8f1ab ""
   "chapter03.tex" 1666972944 28344 050f5f56e69718fa774735159d999ed2 ""
   "chapter04.tex" 1666972944 4443 e931ab8209debbdb5bf479cd8efb7d6b ""
   "header.sty" 1665090894 15638 e22b034712d91aea446b95fdb24b9e1a ""
   "hyperref.cfg" 1551857996 1069 163f96f3cb97ec6eb731bb37cdb31f03 ""
-  "msc_report.aux" 1666972952 28019 87110db71a012e2877f55ed9316d9b7f "pdflatex"
+  "msc_report.aux" 1666973226 28019 87110db71a012e2877f55ed9316d9b7f "pdflatex"
   "msc_report.bbl" 1666972948 8926 a107a69a9b0b532faca073df429f3e97 "bibtex msc_report"
-  "msc_report.brf" 1666972952 2923 2353e7f4bf211daeef57c49c9ef9ccc5 "pdflatex"
-  "msc_report.out" 1666972952 1270 81ea813ab7a3b62e41a764d55af99f52 "pdflatex"
+  "msc_report.brf" 1666973226 2923 2353e7f4bf211daeef57c49c9ef9ccc5 "pdflatex"
+  "msc_report.out" 1666973226 1270 81ea813ab7a3b62e41a764d55af99f52 "pdflatex"
   "msc_report.tex" 1666870769 4216 0182df39afff5147e8a765ea1a33fe91 ""
-  "msc_report.toc" 1666972952 3474 e5548ec983ec19f500c479f214441fa4 "pdflatex"
+  "msc_report.toc" 1666973226 3474 e5548ec983ec19f500c479f214441fa4 "pdflatex"
   "title.tex" 1665244390 776 6991f5057122d2306141a399a777d23a ""
   (generated)
   "msc_report.aux"

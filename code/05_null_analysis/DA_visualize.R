@@ -97,7 +97,7 @@ g1 <- ggplot(data = DF[DF$Method != "DEXSeq", ], aes(x = p_val,
 	scale_x_continuous("P-value", breaks = seq(0, 1, 0.2), expand = c(0, 0.05)) +
 	scale_y_continuous("Density", breaks = c(0, 1), expand = c(0, 0.1)) +
 	facet_grid(~ Method) + theme(legend.position = "bottom") + theme_classic() +
-	ggtitle("P-value distribution of the Null analysis based on group separation and method") +
+	ggtitle("P-value distribution of the null analysis based on group separation and method") +
 	theme(legend.position = "bottom") + geom_hline(yintercept = 1, linetype = "dashed", col = 1) +
 	scale_color_manual(values = c("#F8766D", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DifferentialRegulation", "eisaR")) +
 	scale_fill_manual(values = c("#F8766D", "#00BFC4", "#00BA38"), labels = c("BRIE2", "DifferentialRegulation", "eisaR"))
