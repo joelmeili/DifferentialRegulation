@@ -22,4 +22,4 @@ g1 <- ggplot(bench_mark, aes(x = reorder(Method, -Time), y = Time)) +
 	theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
 	stat_identity(geom = "text", colour = "black", size = 3, aes(label = paste(round(Time, digits = 2), "minutes")), vjust = -0.5) +
 	ggtitle("Average runtime of the differential methods on the Null data set on all three group separations") + xlab("Method")
-ggsave(g1, filename = "figures/null_analysis/bench_mark.png", height = 3, width = 6, scale = 1.5)
+ggsave(g1, filename = "figures/null_analysis/bench_mark.png", height = 4, width = 6, scale = 1.5)

@@ -148,17 +148,17 @@ From this naive simulation we concluded that \emph{BRIE2} has inflated FDR in bo
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=3.7in]{../figures/simulation/naive_simulation_ROC.png}
+\includegraphics[width=6in,height=3.8in]{../figures/simulation/naive_simulation_ROC.png}
 \end{center}
-\caption{ROC curve of \emph{BRIE2} and \emph{eisaR} in the initial simulation without DGE}
+\caption{ROC curve in the naive simulation \textbf{without DGE}}
 \label{fig:naive_sim_ROC}
 \end{figure}
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=3.7in]{../figures/simulation/naive_simulation_FDR.png}
+\includegraphics[width=6in,height=3.8in]{../figures/simulation/naive_simulation_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2} and \emph{eisaR} in the initial simulation without DGE}
+\caption{TPR v. FDR plot in the naive simulation \textbf{without DGE}}
 \label{fig:naive_sim_FDR}
 \end{figure}
 
@@ -166,7 +166,7 @@ From this naive simulation we concluded that \emph{BRIE2} has inflated FDR in bo
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/naive_simulation_DGE_ROC.png}
 \end{center}
-\caption{ROC curve of \emph{BRIE2} and \emph{eisaR} in the initial simulation with DGE}
+\caption{ROC curve in the naive simulation \textbf{with DGE}}
 \label{fig:naive_sim_DGE_ROC}
 \end{figure}
 
@@ -174,7 +174,7 @@ From this naive simulation we concluded that \emph{BRIE2} has inflated FDR in bo
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/naive_simulation_DGE_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2} and \emph{eisaR} in the initial simulation with DGE}
+\caption{TPR v. FDR plot in the naive simulation \textbf{with DGE}}
 \label{fig:naive_sim_DGE_FDR}
 \end{figure}
 \FloatBarrier
@@ -186,27 +186,33 @@ Figure \ref{fig:soph_sim_ROC} shows the performance of all four methods without 
 
 In the next step, we investigated how the performance changes after introduction of DGE into the data set. Figure \ref{fig:soph_sim_DGE_ROC} shows the ROC curve for all four methods. From the Figure we observe that the difference in TPR between \emph{DEXSeq} and \emph{DifferentialRegulation} is smaller than before. On the other hand, the performance based on TPR is approximately the same as before for \emph{BRIE2} and \emph{eisaR}. From Figure \ref{fig:soph_sim_DGE_FDR} it is shown that \emph{DifferentialRegulation} still controls well for FDR, whereas the other three methods do not. The introduction of DGE as a nuisance parameter seems to affect the performance of \emph{DEXSeq} and \emph{eisaR} quite substantially in terms of FDR calibration as FDR is almost doubled to before. The FDR calibration for \emph{BRIE2} was not affected by DGE, although it was not well calibrated to begin with.
 
+Furthermore, in order to assess how overall gene abundance affects results, we stratified the previous results by gene expression and evaluated performance, separately, for lowly, medium and highly abundant genes. This is achieved by separating results according to overall gene abundance into 3 groups, based on the quantiles of levels 1/3 and 2/3; in particular, lowly abundant genes have abundance below the first quantile (of level 1/3), moderately expressed genes have expression between the two quantiles, while highly abundant genes have expression above the second quantile (of level 2/3).
+
+Figures \ref{fig:soph_sim_FDR_low} to \ref{fig:soph_sim_DGE_FDR_high} show the results stratified by the level of gene abundance. The Figures show that performance is consistent across gene abundance levels for \emph{DifferentialRegulation}. TPR increases only marginally, which is expected as more data usually implies higher statistical power and FDR is also stable across gene abundance levels. Overall, \emph{DifferentialRegulation} is not substantially impacted by gene abundance. For \emph{DEXSeq}, TPR and FDR are both increasing as gene abundance rises. This effect is even larger for the simulation with DGE. For \emph{BRIE2} there is a significant increase of TPR from low to highly abundant genes, however, the FDR is badly calibrated. With \emph{eisaR} there is a marginal increase of TPR, whereas FDR is only slightly inflated without DGE. On the other hand, FDR is strongly inflated with DGE as gene abundance rises.
+
+In this part we investigated how robust the methods are to gene abundance with and without DGE. We concluded that the performance of \emph{BRIE2} is low in all cases. \emph{eisaR} has a low TPR but FDR is generally well calibrated without DGE. \emph{DEXSeq} has good TPR and mild inflation of FDR without DGE, however, there is a strong increase in FDR with DGE. Generally, both TPR and FDR are increasing as gene abundance level rises. On the other hand, \emph{DifferentialRegulation} is the only method with good TPR and well calibrated FDR with and without DGE across all levels of gene abundance.
+
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=4in]{../figures/simulation/minnow_simulation_ROC.png}
+\includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_ROC.png}
 \end{center}
-\caption{ROC curve of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation without DGE}
+\caption{ROC curve in the simulation with mapping uncertainty \textbf{without DGE}}
 \label{fig:soph_sim_ROC}
 \end{figure}
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=4in]{../figures/simulation/minnow_simulation_FDR.png}
+\includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation without DGE}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty \textbf{without DGE}}
 \label{fig:soph_sim_FDR}
 \end{figure}
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=4in]{../figures/simulation/minnow_simulation_DGE_ROC.png}
+\includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_DGE_ROC.png}
 \end{center}
-\caption{ROC curve of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation with DGE}
+\caption{ROC curve in the simulation with mapping uncertainty \textbf{with DGE}}
 \label{fig:soph_sim_DGE_ROC}
 \end{figure}
 
@@ -214,21 +220,15 @@ In the next step, we investigated how the performance changes after introduction
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_DGE_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{eisaR} and \emph{DifferentialRegulation} in the sophisticated simulation with DGE}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty \textbf{with DGE}}
 \label{fig:soph_sim_DGE_FDR}
 \end{figure}
-
-Furthermore, in order to assess how overall gene abundance affects results, we stratified the previous results by gene expression and evaluated performance, separately, for lowly, medium and highly abundant genes. This is achieved by separating results according to overall gene abundance into 3 groups, based on the quantiles of levels 1/3 and 2/3; in particular, lowly abundant genes have abundance below the first quantile (of level 1/3), moderately expressed genes have expression between the two quantiles, while highly abundant genes have expression above the second quantile (of level 2/3).
-
-Figures \ref{fig:soph_sim_FDR_low} to \ref{fig:soph_sim_DGE_FDR_high} show the results stratified by the level of gene abundance. The Figures show that performance is consistent across gene abundance levels for \emph{DifferentialRegulation}. TPR increases only marginally, which is expected as more data usually implies higher statistical power and FDR is also stable across gene abundance levels. Overall, \emph{DifferentialRegulation} is not substantially impacted by gene abundance. For \emph{DEXSeq}, TPR and FDR are both increasing as gene abundance rises. This effect is even larger for the simulation with DGE. For \emph{BRIE2} there is a significant increase of TPR from low to highly abundant genes, however, the FDR is badly calibrated. With \emph{eisaR} there is a marginal increase of TPR, whereas FDR is only slightly inflated without DGE. On the other hand, FDR is strongly inflated with DGE as gene abundance rises, which is expected as \emph{eisaR} tests on absolute abundance of spliced and unspliced counts, therefore it detects both differentially regulated and differentially expressed genes.
-
-In this part we investigated how robust the methods are to gene abundance with and without DGE. We concluded that the performance of \emph{BRIE2} is low in all cases. \emph{eisaR} has a low TPR but FDR is generally well calibrated without DGE. \emph{DEXSeq} has good TPR and mild inflation of FDR without DGE, however, there is a strong increase in FDR with DGE. Generally, both TPR and FDR are increasing as gene abundance level rises. On the other hand, \emph{DifferentialRegulation} is the only method with good TPR and well calibrated FDR with and without DGE across all levels of gene abundance.
 
 \begin{figure}[!htb]
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_low_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation for the lowly expressed genes in the stratified analysis}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty for \textbf{lowly abundant genes}}
 \label{fig:soph_sim_FDR_low}
 \end{figure}
 
@@ -236,7 +236,7 @@ In this part we investigated how robust the methods are to gene abundance with a
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_mod_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation for the moderately expressed genes in the stratified analysis}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty for \textbf{medium abundant genes}}
 \label{fig:soph_sim_FDR_mod}
 \end{figure}
 
@@ -244,7 +244,7 @@ In this part we investigated how robust the methods are to gene abundance with a
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_high_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation for the highly expressed genes in the stratified analysis}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty for \textbf{highly abundant genes}}
 \label{fig:soph_sim_FDR_high}
 \end{figure}
 
@@ -252,7 +252,7 @@ In this part we investigated how robust the methods are to gene abundance with a
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_low_DGE_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation for the lowly expressed genes in the stratified analysis with DGE}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty for \textbf{lowly abundant genes with DGE}}
 \label{fig:soph_sim_DGE_FDR_low}
 \end{figure}
 
@@ -260,7 +260,7 @@ In this part we investigated how robust the methods are to gene abundance with a
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_mod_DGE_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation for the moderately expressed genes in the stratified analysis with DGE}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty for \textbf{medium abundant genes with DGE}}
 \label{fig:soph_sim_DGE_FDR_mod}
 \end{figure}
 
@@ -268,7 +268,7 @@ In this part we investigated how robust the methods are to gene abundance with a
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/simulation/minnow_simulation_high_DGE_FDR.png}
 \end{center}
-\caption{TPR v. FDR plot of \emph{BRIE2}, \emph{DEXSeq}, \emph{DifferentialRegulation} and \emph{eisaR} in the sophisticated simulation for the highly expressed genes in the stratified analysis with DGE}
+\caption{TPR v. FDR plot in the simulation with mapping uncertainty for \textbf{highly abundant genes with DGE}}
 \label{fig:soph_sim_DGE_FDR_high}
 \end{figure}
 \FloatBarrier
@@ -280,7 +280,7 @@ As a last step, a Null analysis was conducted on the original mouse kidney data 
 \begin{center}
 \includegraphics[width=6in,height=3.8in]{../figures/null_analysis/p_value_distribution.png}
 \end{center}
-\caption{P-value distribution of the methods based on the three possible group separations}
+\caption{P-value distribution based on the three possible group separations}
 \label{fig:null_p_values}
 \end{figure}
 
@@ -319,11 +319,12 @@ Further, we looked into the performance of the models based on the proportion of
 \FloatBarrier
 
 \section{Computational benchmark}
-Ultimately, we compared the computational burden of the differential methods excluding alignment and quantification. Alignment and quantification were excluded from the benchmark as all methods use the same input generated from \emph{alevin-fry}, therefore including it would be redundant. The computational benchmark was run on the Null data and averaged across all three possible group separations. All methods were provided three cores on the same machine (internal server) to run the benchmark. However, \emph{BRIE2} uses all cores available on a machine and \emph{eisaR} only runs on one core. Figure \ref{fig:bench_mark} illustrates the average runtime of each differential method in minutes on a square root scaled axis, as there is a large difference in absolute runtime between the methods. From the Figure it is shown that \emph{BRIE2} ran the longest - roughly 2000 minutes. However, we did not run \emph{BRIE2} on a GPU, which is its intended use. The other three methods finished within an hour with \emph{DifferentialRegulation} taking the longest and \emph{eisaR} taking the shortest.
+Ultimately, we compared the computational burden of the differential methods excluding alignment and quantification. Alignment and quantification were excluded from the benchmark as all methods use the same input generated from \emph{alevin-fry}, therefore including it would be redundant. The computational benchmark was run on the Null data and averaged across all three possible group separations. All methods were provided three cores on the same machine (internal server) to run the benchmark. However, due to a lack of control of parallel cores, \emph{BRIE2} uses all cores available on a machine (up to 64 cores in our case); \emph{eisaR} instead, does not allow for parallel coding, and only runs on one core. Figure \ref{fig:bench_mark} illustrates the average runtime of each differential method in minutes on a square root scaled axis, as there is a large difference in absolute runtime between the methods. From the Figure it is shown that \emph{BRIE2} ran the longest - roughly 33.5 hours. It is fair to acknowledge that \emph{BRIE2} developers suggest users to run the method on a GPU, which we did not do; this, would have likely decreased the computational burden of the approach. Although, at the same time, all methods used the same machine, and \emph{BRIE2} used significantly more cores than any other method.
+\emph{DifferentialRegulation}, which also uses intense computational Bayesian approach with full MCMC, took slightly less than one hour (55 minutes), but significantly less than \emph{BRIE2} (about 37 times faster). The other two approaches, instead, require significantly less time: about 5 minutes for \emph{DEXSeq}, and 1 only for \emph{eisaR}.
 
 \begin{figure}[!htb]
 \begin{center}
-\includegraphics[width=6in,height=3in]{../figures/null_analysis/bench_mark.png}
+\includegraphics[width=6in,height=4in]{../figures/null_analysis/bench_mark.png}
 \end{center}
 \caption{Runtime of the differential methods on the Null data averaged across all three possible group separations}
 \label{fig:bench_mark}

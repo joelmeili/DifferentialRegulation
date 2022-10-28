@@ -68,6 +68,49 @@ where $\text{NB(a, b)}$ denotes the negative binomial distribution with mean a a
 The dispersion parameter allows to model over-dispersed data (i.e. higher variance than mean). Here, we propose to use \emph{DEXSeq} on estimated USA counts, and perform a differential usage test between experimental conditions. Therefore, for every gene, exons are replaced by the spliced, unspliced and ambiguous versions of the gene. This models ambiguous reads separately from spliced and unspliced or exonic and intronic, thus eliminating one of the main sources of mapping uncertainty. However, the uncertainty related to reads mapping to multiple genes is still neglected by this approach. To address both sources of mapping uncertainty we propose a novel method, developed by Simone Tiberi \citep{differential_regulation}.
 
 \subsection{\emph{DifferentialRegulation}}
+\emph{DifferentialRegulation} is a recent statistical method for discovering differentially regulated genes between two groups of samples. The method targets differences in the relative abundance of spliced, unspliced and ambiguous counts, obtained from scRNA-seq data. \emph{DifferentialRegulation} accounts for the sample-to-sample variability, and embeds multiple samples in a Bayesian hierarchical model, via a Dirichlet-Multinomial distribution that models, for each gene, the spliced, unsplied and ambiguous reads relative abundance. While all the other 3 methods considered work with estimated counts, \emph{DifferentialRegulation} inputs equivalence classes instead, which indicate what gene(s) each read is compatible with.
+The model also accounts for both major sources of mapping uncertainty: i) A reads mapping to both S and U vesions of a gene, and ii) reads compatible with multiple genes. For the first source of uncertainty, similarly to \emph{DEXSeq}'s approach outlined above, ambiguous reads are treated separately from spliced and unspliced reads. Regarding multi-gene mapping reads, the method uses a latent variable approach and treats the gene allocation of each reads as an unknown parameter which, via a data augmentation approach, is also sampled.
+
+\emph{DifferentialRegulation} is built around two nested models: i) for each sample, a multinomial model ($\mathcal{MN}$) is used for the gene relative abundance, and ii), for each gene, a Dirichlet-multinomial ($\mathcal{DIR}-\mathcal{MN}$) model is employed for the relative abundance of S, U, and A reads within the gene:
+
+\begin{eqnarray}
+\label{eqn:DM}
+&Y_i \sim \mathcal{MN}\left( \rho_{i}^{(1)}, \dots, \rho_{i}^{(N_g)} \right) & \mbox{ for } i = 1, \dots, N \\
+\label{eqn:MN}
+&X_i^{(g)} \sim \mathcal{DIR}-\mathcal{MN}\left( \pi_S^{(g)}, \pi_U^{(g)}, \pi_A^{(g)}, \phi^{(g)} \right) & \mbox{ for } g = 1, \dots, N_g \\
+&& \mbox{ and } i = 1, \dots, N, \nonumber
+\end{eqnarray}
+where $X_i^{(g)} = \left( X^{(g)}_{i S}, X^{(g)}_{i U}, X^{(g)}_{i S} \right)$ is the vector indicating the overall abundance of the spliced, spliced and ambiguous reads within gene $g$ in sample $i$;
+$Y_i = \left( Y_i^{(1)}, \dots, Y_i^{(N_g)} \right)$, 
+with $Y_i^{(g)} = X^{(1)}_{i S} + X^{(1)}_{i U} + X^{(1)}_{i A}$ indicating the overall abundance of gene $g$ in sample $i$;
+parameter $\rho_{i}^{(g)}$ indicates the relative abundance for the $g$-th gene in the $i$-th sample;
+$\pi_S^{(g)}, \pi_U^{(g)}, \pi_A^{(g)}$ represent the relative abundance of spliced, unspliced and ambiguous reads, respectively, for the $g$-th gene in the $i$-th sample; 
+and $\phi^{(g)}$ is the Dirichlet-multinomial precision parameter that models how the relative abundances vary across samples.
+
+For inferring the parameters $\phi$, \emph{DifferentialRegulation} uses an empirical Bayes approach, where the mean, $\mu_\phi$, and standard deviation, $\sigma_\phi$ of $log(\phi)$ are estimated from the data.
+To accelerate the calculations, and with marginal loss of accuracy, in each cell type, a randomly selected sub-set of 1,000 randomly selected genes is used to estimate $\mu_\phi$ and $\sigma_\phi$.
+These estimates are then used to formulate a, cell-type specific, informative prior for $log(\phi)$, as: $log(\phi^{(g)}) \sim N\left( mu_\phi, sigma^2_\phi \right)$, for $g  = 1, \dots, N_g$.
+
+The Dirichlet-multinomial parameters are the key parameters of the method, and are used to perform differential testing between conditions.
+Instead, the multinomial parameters are only required, in conjunction with the Dirichlet-multinomial parameters, for the latent variable allocation of reads mapping to multiple genes.
+As an example, consider a read, which is compatible with i) the S version of gene $g$ and ii) the U version of gene $j$; this read is allocated to:
+
+\begin{itemize}
+	\item[i)] with probability $\propto \pi_{gene}^{(g)} *  \pi_S^{(g)}$;
+	
+	\item[ii)] with probability $\propto \pi_{gene}^{(j)} * \pi_U^{(j)}$.
+\end{itemize}
+
+A latent variable approach to allocate ambiguous reads to the spliced or unspliced version of a gene was also considered.
+However, such a framework would require a good estimate of the probability that an ambiguous reads is spliced or unspliced; however, this probability depends on many factors, which are either unknown or hard to model, and a good estimated cannot be accurately formulated.
+For this reason, similarly to \emph{DEXSeq}'s approach described before, ambiguous reads were eventually kept separately.
+
+Model parameters are inferred via a Metropolis-within-Gibbs Markov chain Monte Carlo (MCMC) technique \citep{MCMC}, where parameters and latent states are alternatively sampled from their conditional distributions. After inferring model parameters, for each gene, differential testing is then performed by comparing, via a multivariate Wald test, the posterior distributions of the Dirichlet-Multinomial group-level relative abundances for the spliced, unspliced and ambiguous reads. In particular, given groups two groups $A$ and $B$, and generalizing the parameters in (\ref{eqn:MN}) with a group pre-subscript, the following system of hypotheses is tested:
+
+\begin{eqnarray}
+H_0 &:& \left( _A\pi_S^{(g)}, _A\pi_U^{(g)}, _A\pi_A^{(g)} \right) = \left( _B\pi_S^{(g)}, _B\pi_U^{(g)}, _B\pi_A^{(g)} \right)\\
+H_1 &:& otherwise.
+\end{eqnarray}
 
 \section{Analysis of results}
 \subsection{Unifold Manifold Approximation and Projection (UMAP)}
@@ -115,6 +158,6 @@ where TP, TN, FP, and FN indicate the sets of true positive, true negative, fals
 The ROC curve is a performance measurement that is used for classification problems - in this case whether a gene is differently regulated or not. Essentially, the ROC curve plots the TPR (y-axis) against the FPR (x-axis). ROC curves above the diagonal indicate better performance than blind random guessing, denoted by the diagonal line. ROC curves are one of the performance evaluation methods used in this thesis.
 
 \subsection{TPR v. FDR curves}
-Similar to the ROC curve the TPR v. FDR curve is used to assess performance in classification problems. It plots the TPR (y-axis) against the FDR (x-axis). In addition, one often plots the actual which was observed for some theoretical thresholds - usually 1, 5 and 10\%. FDR values are essentially adjusted p-values which can be calculated in various ways from raw p-values. Arguably, the most popular one being the Benjamini-Hochberg correction \citep{BH_correction}. All the methods considered in this thesis, provide FDR adjusted p-values obtained via Benjamini-Hochberg correction.
+Similar to the ROC curve the TPR v. FDR curve is used to assess performance in classification problems. It plots the TPR (y-axis) against the FDR (x-axis). In addition, one often plots the actual which was observed for some theoretical thresholds - usually 1, 5 and 10\%. FDR values are essentially adjusted p-values which can be calculated in various ways from raw p-values. However, testing on many genes leads to an increased number of significant results. For example, when testing 10'000 genes we expect at least 500 significant results based on the 5\% significance level even under $H_0$, therefore, we adjust the raw p-values with a correction method. Arguably, the most popular one being the Benjamini-Hochberg correction \citep{BH_correction}. All the methods considered in this thesis, provide FDR adjusted p-values obtained via Benjamini-Hochberg correction.
 
 When the observed FDR is lower than or equal to the specified threshold, the method controls for the FDR. However, if the observed FDR is greater than the threshold the method does not control for the FDR and there is an inflation of false positive predictions. In this thesis, the methods are evaluated by an adjusted p-value.

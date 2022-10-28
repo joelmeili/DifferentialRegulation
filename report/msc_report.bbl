@@ -11,6 +11,11 @@ Amezquita, R.~A., Lun, A.~T., Becht, E., Carey, V.~J., Carpp, L.~N.,
 Anders, S., Reyes, A., and Huber, W. (2012).
 \newblock Detecting differential usage of exons from rna-seq data.
 
+\bibitem[Andrieu {\it et~al.}, 2003]{MCMC}
+Andrieu, C., De~Freitas, N., Doucet, A., and Jordan, M.~I. (2003).
+\newblock An introduction to mcmc for machine learning.
+\newblock {\em Machine learning}, {\bf50},  5--43.
+
 \bibitem[Aran {\it et~al.}, 2019]{singleR}
 Aran, D., Looney, A.~P., Liu, L., Wu, E., Fong, V., Hsu, A., Chak, S.,
   Naikawadi, R.~P., Wolters, P.~J., Abate, A.~R., Butte, A.~J., and
