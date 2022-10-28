@@ -8,21 +8,17 @@ levels, and differential gene expression (a nuisance effect in this analysis), a
 ## Code
 
 ### Downloading the read files and reference genome
-
 -   code/01_annotation/download_reads_mouse.sh (downloads the all the read files and converts them to fastq-format)
 -   code/01_annotation/download_reference_genome.sh (downloads the reference genome and annotation for the mouse data)
 
 ### Create splici txome and run alevin on the data
-
 -   code/01_annotation/alevin_fry_preparation.R (creates the splici txome for indexing and alevin-fry)
 -   code/01_annotation/run_alevin_mouse.sh (runs salmon indexing and alevin on the downloaded read files)
 
 ### Run alevin-fry on the data
-
 -   code/01_annotation/run_alevin_fry_mouse.sh (runs alevin-fry on the output from alevin)
 
 ### Exploratory data analysis
-
 - code/02_exploratory_analysis/load_abundances_fry.R (loads the raw data from alevin-fry into R; also runs QC and cell-type annotation on the data)
 - code/02_exploratory_analysis/eda.R (produces a plot of the cell type distribution and shows the UMAP of the cell structure based on sample id and cell type)
 - code/02_exploratory_analysis/convert_sce.R (converts the SingleCellExperiment object of R into anndata format so that scVelo can be run on it)
@@ -37,9 +33,14 @@ levels, and differential gene expression (a nuisance effect in this analysis), a
 - code/03_simulation_minnow/run_minnow.sh (runs minnow for each cell type in each sample individually and outputs the results for further alignment and quantification with alevin-fry)
 
 ### Differential analysis
-- code/04_differential_analysis/differential_analysis.R
-- code/04_differential_analysis/run_differential_analysis.R
-- code/04_differential_analysis/DA_simulation.R
+- code/04_differential_analysis/differential_analysis.R (contains all the helper functions to run eisaR and DEXSeq)
+- code/04_differential_analysis/run_differential_analysis.R (contains wrapper functions to run eisaR and DEXSeq)
+- code/04_differential_analysis/prepare_brie.R (converts the semi-simulated data sets into the required format to run BRIE2)
+- code/04_differential_analysis/DA_simulation.R (runs eisaR on the semi-simulated data sets without mapping uncertainty and prepares the data for BRIE2)
+- code/04_differential_analysis/plot_performance.R (contains helper functions to visualize ROC and TPR v. FDR curves)
+- code/04_differential_analysis/DA_visualize.R (plots ROC and TPR v. FDR curves of the simulation without mapping uncertainty of eisaR and BRIE2)
+- code/04_differential_analysis/DA_simulation_minnow.R (runs eisaR, DEXSeq and DifferentialRegulation on the two semi-simulated data sets with mapping uncertainty, also prepares the data for BRIE2)
+- code/04_differential_analysis/DA_visualize_minnow.R (plots ROC and TPR v. FDR curves of the simulation without mapping uncertainty of eisaR, BRIE2, DEXSeq and DifferentialRegulation)
 
 ## Data availability
 
