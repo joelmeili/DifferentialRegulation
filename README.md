@@ -23,10 +23,10 @@ levels, and differential gene expression (a nuisance effect in this analysis), a
 
 ### Exploratory data analysis
 
-- load_abundances_fry.R (loads the raw data from alevin-fry into R; also runs QC and cell-type annotation on the data)
-- eda.R (produces a plot of the cell type distribution and shows the UMAP of the cell structure based on sample id and cell type)
-- convert_sce.R (converts the SingleCellExperiment object of R into anndata format so that scVelo can be run on it)
-- rna_velocity.py (runs scVelo pipeline on each sample and produces plots of spliced/unspliced proportions and dynamical model showing the RNAVelocity for each sample)
+- code/02_exploratory_analysis/load_abundances_fry.R (loads the raw data from alevin-fry into R; also runs QC and cell-type annotation on the data)
+- code/02_exploratory_analysis/eda.R (produces a plot of the cell type distribution and shows the UMAP of the cell structure based on sample id and cell type)
+- code/02_exploratory_analysis/convert_sce.R (converts the SingleCellExperiment object of R into anndata format so that scVelo can be run on it)
+- code/02_exploratory_analysis/rna_velocity.py (runs scVelo pipeline on each sample and produces plots of spliced/unspliced proportions and dynamical model showing the RNAVelocity for each sample)
 
 ### Naive simulation
 - mouse_simulation.R (contains two functions: mouse_simulation and add_DGE; the first function contains the simulation algorithm for the naive simulation and the second function adds differential gene expression as a nuisance parameter; essentially creates two data sets)
